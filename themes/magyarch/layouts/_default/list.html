@@ -1,0 +1,107 @@
+{{ define "main" }}
+
+{{ partial "page-title.html" . }}
+
+{{ if eq .RelPermalink "/videos/" }}
+{{ "<!-- Video Section Start -->" | safeHTML }}
+<section class="blog section" id="blog">
+    <div class="container">
+        <div class="row">
+            {{ range (.Paginator 24).Pages }}
+            {{ "<!-- single blog post -->" | safeHTML }}
+            <article class="col-12 col-md-2 vid-container">
+                <div class="post-item-vid">
+                    <div class="post-thumb">
+                        <img class="img-fluid shadow rounded" src="{{ with .Params.image }}{{ . | absURL }}{{ end }}" alt="Generic placeholder image">
+                    </div>
+                    <div class="post-title">
+                        <h4 class="mt-0">
+                            <a href="{{ .Permalink }}">{{ .Title }}</a>
+                        </h4>
+                    </div>
+                    <div class="post-meta">
+                        <ul class="list-inline" style="list-style: none; margin: 0px; padding: 0px;">
+                        </ul>
+                    </div>
+                </div>
+            </article>
+            {{ "<!-- /single blog post -->" | safeHTML }}
+            {{ end }}
+            <div class="col-12 text-center">
+                {{ template "_internal/pagination.html" . }}
+            </div>
+        </div>
+    </div>
+</section>
+{{ "<!-- Video Section End -->" | safeHTML }}
+
+{{ else if eq .RelPermalink "/tags/" }}
+{{ "<!-- Tags Section Start -->" | safeHTML }}
+<section class="blog section" id="blog">
+    <div class="container">
+        <div class="row">
+            {{ range (.Paginator 100).Pages }}
+            {{ "<!-- single blog post -->" | safeHTML }}
+            <article class="col-12 col-md-2 vid-container">
+                <div class="post-item-vid">
+                    <div class="post-title">
+                        <h4 class="mt-0">
+                            <a href="{{ .Permalink }}">{{ .Title }}</a>
+                        </h4>
+                    </div>
+
+                </div>
+            </article>
+            {{ "<!-- /single blog post -->" | safeHTML }}
+            {{ end }}
+            <div class="col-12 text-center">
+                {{ template "_internal/pagination.html" . }}
+            </div>
+        </div>
+    </div>
+</section>
+{{ "<!-- Tags Section End -->" | safeHTML }}
+
+{{ else }}
+{{ "<!-- Blog Section Start -->" | safeHTML }}
+<section class="blog section" id="blog">
+    <div class="container">
+        <div class="row">
+            {{ range (.Paginator 15).Pages }}
+            {{ "<!-- single blog post -->" | safeHTML }}
+            <article class="col-12 col-md-4">
+                <div class="post-item">
+                    <div class="post-thumb">
+                        <img class="img-fluid shadow rounded" src="{{ with .Params.image }}{{ . | absURL }}{{ end }}" alt="Generic placeholder image">
+                    </div>
+                    <div class="post-title">
+                        <h3 class="mt-0">
+                            <a href="{{ .Permalink }}">{{ .Title }}</a>
+                        </h3>
+                    </div>
+                    <div class="post-meta">
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                <span>{{ .Date.Year }}. {{ index $.Site.Data.hónapok (printf "%d" .Date.Month) }} {{ .Date.Day }}</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="post-content">
+                        <p>{{ .Summary }}</p>
+                    </div>
+                    <a class="btn btn-main" href="{{ .Permalink }}">Részletek</a>
+                </div>
+            </article>
+            {{ "<!-- /single blog post -->" | safeHTML }}
+            {{ end }}
+            <div class="col-12 text-center">
+                {{ template "_internal/pagination.html" . }}
+            </div>
+        </div>
+    </div>
+</section>
+{{ "<!-- Blog Section End -->" | safeHTML }}
+{{ end }}
+
+{{ end }}
+

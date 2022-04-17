@@ -1,0 +1,73 @@
+baseURL = "https://magyarchlinux.org/"
+languageCode = "hu-hu"
+title = "MagyArch Linux"
+theme = "magyarch"
+pluralizeListTitles = false
+
+# Build robots.txt file
+enableRobotsTXT = true
+# google analytics tracking id
+googleAnalytics = ""
+
+enableGitInfo = false
+pygmentsCodeFences = true
+
+# Site Params
+[params]
+    logo = "/images/magyarch-logo.png"
+[Languages]
+
+    [Languages.en]
+    weight = 2
+    languageCode = "hu-hu"
+    title = "MagyArch Linux"
+    dateFormat = "January 2, 2006"
+
+    home = "Kezdőlap"
+    logo = "images/magyarch-logo.png"
+    menufixed = false
+
+    # About 2 Section
+    [Languages.en.params.aboutSm]
+        enable  = true
+        title   = "Üdvözlünk a MagyArch Linux honlapján!"
+        description = "A MagyArch egy Linux disztró, amelynek középpontjában az ablakkezelők állnak. Teljes mértékben a csempézésére összpontosít, így a legjobb élményt nyújtjuk a haladó felhasználók számára. Arch Linux alapra épül a KISS elveket követi, minimalizálva az alaprendszert, mégis rugalmasan tartva azt."
+
+    # Blog Section On Homepage
+    [Languages.en.params.blog]
+        enable  = true
+        title   = "Friss cikkek"
+
+# We Used Themefisher Icon font for Icon, for more details check this github repository - https://github.com/themefisher/themefisher-font
+
+# Site Menus
+[menu]
+    # Navbar Menus
+    [[menu.nav]]
+        name    = "Letoltes"
+        url     = "letoltes"
+        weight  = 1
+    [[menu.nav]]
+        name    = "Cikkek"
+        url     = "cikkek"
+        weight  = 2
+    [[menu.nav]]
+        name    = "Konfiguráció"
+        parent  = "Cikkek"
+        url     = "/tags/konfiguráció"
+        weight  = 1
+    [[menu.nav]]
+        name    = "Tamogatas"
+        url     = "tamogatas"
+        weight  = 3
+    [[menu.nav]]
+        name    = "Hirek"
+        url     = "hirek"
+        weight  = 4
+    [[menu.nav]]
+        name    = "Kapcsolat"
+        url     = "kapcsolat"
+        weight  = 5
+
+[markup.goldmark.renderer]
+unsafe= true

@@ -1,0 +1,20 @@
+{{ define "main" }}
+
+{{ if eq (getenv "HUGO_ENV") "production" | or (eq .Site.Params.env "production")  }}
+<script>plausible("404",{ props: { path: document.location.pathname } });</script>
+{{end}}
+
+<section class="page-404 text-center d-flex align-items-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>404</h1>
+        <h2>Az oldal nem található</h2>
+        <p>Úgy tűnik, hogy ilyen című oldal nem létezik.</p>
+        <a href="{{ .Site.BaseURL }}" class="btn btn-main mt-20">Vissza a kezdőlapra</a>
+      </div>
+    </div>
+  </div>
+</section>
+	
+{{ end }}

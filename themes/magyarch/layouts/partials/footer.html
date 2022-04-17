@@ -1,0 +1,77 @@
+{{ "<!-- Footer Start -->" | safeHTML }}
+<footer id="footer" class="bg-one">
+    <div class="footer-bottom">
+        <h5>{{ now.Format "2006" }} Minden jog fentartva.</h5>
+        <h6>A weboldal teljes egészében kizárólag szabad szoftverek használatával készült.
+            <br>A forráskód magtalálható a
+            <a href="https://github.com/magyarch/magyarchlinux.org/" target="_blank">GitHub</a>-on
+        </h6>
+    </div>
+</footer>
+{{ "<!-- end footer -->" | safeHTML }}
+
+
+{{ "<!-- Essential Scripts -->" | safeHTML }}
+
+{{ "<!-- jQuery -->" | safeHTML }}
+<script src="{{ `plugins/jquery/dist/jquery.min.js` | absURL }}"></script>
+{{ "<!-- Bootstrap -->" | safeHTML }}
+<script src="{{ `plugins/bootstrap/dist/js/popper.min.js` | absURL }}"></script>
+<script src="{{ `plugins/bootstrap/dist/js/bootstrap.min.js` | absURL }}"></script>
+{{ "<!-- Parallax -->" | safeHTML }}
+<script src="{{ `plugins/parallax/jquery.parallax-1.1.3.js` | absURL }}"></script>
+{{ "<!-- lightbox -->" | safeHTML }}
+<script src="{{ `plugins/lightbox2/dist/js/lightbox.min.js` | absURL }}"></script>
+{{ "<!-- Slick Carousel -->" | safeHTML }}
+<script src="{{ `plugins/slick-carousel/slick/slick.min.js` | absURL }}"></script>
+{{ "<!-- Portfolio Filtering -->" | safeHTML }}
+<script src="{{ `plugins/filterzr/jquery.filterizr.min.js` | absURL }}"></script>
+{{ "<!-- Smooth Scroll js -->" | safeHTML }}
+<script src="{{ `plugins/smooth-scroll/dist/js/smooth-scroll.min.js` | absURL }}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
+{{ "<!-- Main Script -->" | safeHTML }}
+{{ $script := resources.Get "js/script.js" | minify}}
+<script src="{{ $script.Permalink }}"></script>
+
+<!-- cookie -->
+{{ if site.Params.cookies.enable }}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
+<div id="js-cookie-box" class="cookie-box cookie-box-hide">
+	This site uses cookies. By continuing to use this website, you agree to their use. <span id="js-cookie-button" class="btn btn-sm btn-outline-primary ml-2">I Accept</span>
+</div>
+<script>
+	(function ($) {
+		const cookieBox = document.getElementById('js-cookie-box');
+		const cookieButton = document.getElementById('js-cookie-button');
+		if (!Cookies.get('cookie-box')) {
+			cookieBox.classList.remove('cookie-box-hide');
+			cookieButton.onclick = function () {
+				Cookies.set('cookie-box', true, {
+					expires: {{ site.Params.cookies.expire_days }}
+				});
+				cookieBox.classList.add('cookie-box-hide');
+			};
+		}
+	})(jQuery);
+</script>
+
+<!-- cookie style -->
+<style>
+.cookie-box {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  z-index: 9999;
+  padding: 1rem 2rem;
+  background: rgb(71, 71, 71);
+  transition: all .75s cubic-bezier(.19, 1, .22, 1);
+  color: #fdfdfd;
+}
+
+.cookie-box-hide {
+  display: none;
+}
+</style>
+{{ end }}
