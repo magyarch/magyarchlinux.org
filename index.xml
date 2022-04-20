@@ -1,1 +1,29 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MagyArch Linux</title><link>https://magyarchlinux.org/</link><description>Recent content on MagyArch Linux</description><generator>Hugo -- gohugo.io</generator><language>hu-hu</language><lastBuildDate>Sun, 17 Apr 2022 11:46:59 +0200</lastBuildDate><atom:link href="https://magyarchlinux.org/index.xml" rel="self" type="application/rss+xml"/><item><title>Shell Script alapok</title><link>https://magyarchlinux.org/cikkek/shell-script-alapok/</link><pubDate>Sun, 17 Apr 2022 11:46:59 +0200</pubDate><guid>https://magyarchlinux.org/cikkek/shell-script-alapok/</guid><description>&lt;p>A Shell script egy olyan programozási nyelv, ami arra lett tervezve, hogy Unix alapú rendszerek futtassák. A használata egyszerű és gyorsan megírható. Emellett ez egy scripting language, ez azt takarja, hogy a megalkotásánál az volt a cél, hogy más programokkal kompatibilis legyen. Ez később szemléltetve is lesz.&lt;/p></description></item><item><title>Dotfile kezelés stílusosan, avagy mire való a Git Bare Repository</title><link>https://magyarchlinux.org/cikkek/dotfile-kezeles-stilusosan/</link><pubDate>Sat, 26 Sep 2020 11:28:57 +0200</pubDate><guid>https://magyarchlinux.org/cikkek/dotfile-kezeles-stilusosan/</guid><description>&lt;p>Ha hosszú ideje használjuk a Linux rendszerünket, valószínűleg elég sokat módosítottunk már az egyes programok dotfile-jain (A dotfile-ok olyan konfigurációs fájlok, melyeknek neve előtt pont van.) Mivel eléggé fárasztó dolog minden egyes újratelepítéskor megint személyre szabni a konfigurációs fájljainkat, célszerű őket egy könnyen kezelhető helyen tárolni. Legtöbben a Git verziókezelő-rendszert szokták erre használni olyan módon, hogy minden egyes módosítás után átmásolják a konfigurációs fájlt egy külön mappába, majd feltöltik GitHub-ra vagy Gitlab-re. Viszont ez a módszer egy idő után fárasztóvá tud válni. Ezt a módszert hivatott kiváltani a Git Bare Repository, aminek a használatával sokkal könnyebbé tehető a konfigurációs fájlok kezelése.&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MagyArch Linux</title>
+    <link>https://magyarchlinux.org/</link>
+    <description>Recent content on MagyArch Linux</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>hu-hu</language>
+    <lastBuildDate>Sun, 17 Apr 2022 11:46:59 +0200</lastBuildDate><atom:link href="https://magyarchlinux.org/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Shell Script alapok</title>
+      <link>https://magyarchlinux.org/cikkek/shell-script-alapok/</link>
+      <pubDate>Sun, 17 Apr 2022 11:46:59 +0200</pubDate>
+      
+      <guid>https://magyarchlinux.org/cikkek/shell-script-alapok/</guid>
+      <description>&lt;p&gt;A Shell script egy olyan programozási nyelv, ami arra lett tervezve, hogy Unix alapú rendszerek futtassák. A használata egyszerű és gyorsan megírható. Emellett ez egy scripting language, ez azt takarja, hogy a megalkotásánál az volt a cél, hogy más programokkal kompatibilis legyen. Ez később szemléltetve is lesz.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Dotfile kezelés stílusosan, avagy mire való a Git Bare Repository</title>
+      <link>https://magyarchlinux.org/cikkek/dotfile-kezeles-stilusosan/</link>
+      <pubDate>Sat, 26 Sep 2020 11:28:57 +0200</pubDate>
+      
+      <guid>https://magyarchlinux.org/cikkek/dotfile-kezeles-stilusosan/</guid>
+      <description>&lt;p&gt;Ha hosszú ideje használjuk a Linux rendszerünket, valószínűleg elég sokat módosítottunk már az egyes programok dotfile-jain (A dotfile-ok olyan konfigurációs fájlok, melyeknek neve előtt pont van.) Mivel eléggé fárasztó dolog minden egyes újratelepítéskor megint  személyre szabni a konfigurációs fájljainkat, célszerű őket egy könnyen kezelhető helyen tárolni. Legtöbben a Git verziókezelő-rendszert szokták erre használni olyan módon, hogy minden egyes módosítás után átmásolják a konfigurációs fájlt egy külön mappába, majd feltöltik GitHub-ra vagy Gitlab-re. Viszont ez a módszer egy idő után fárasztóvá tud válni. Ezt a módszert hivatott kiváltani a Git Bare Repository, aminek a használatával sokkal könnyebbé tehető a konfigurációs fájlok kezelése.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

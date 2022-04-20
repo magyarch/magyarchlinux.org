@@ -1,16 +1,175 @@
-<!doctype html><html class=no-js lang=hu-hu><head><script defer data-domain src></script>
-<script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script><meta charset=utf-8><meta name=description content="Ha hosszú ideje használjuk a Linux rendszerünket, valószínűleg elég sokat módosítottunk már az egyes programok dotfile-jain (A dotfile-ok olyan konfigurációs fájlok, melyeknek neve előtt pont van.) Mivel eléggé fárasztó dolog minden egyes újratelepítéskor megint  személyre szabni a konfigurációs fájljainkat, célszerű őket egy könnyen kezelhető helyen tárolni. Legtöbben a Git verziókezelő-rendszert szokták erre használni olyan módon, hogy minden egyes módosítás után átmásolják a konfigurációs fájlt egy külön mappába, majd feltöltik GitHub-ra vagy Gitlab-re. Viszont ez a módszer egy idő után fárasztóvá tud válni. Ezt a módszert hivatott kiváltani a Git Bare Repository, aminek a használatával sokkal könnyebbé tehető a konfigurációs fájlok kezelése."><meta name=generator content="Hugo 0.97.3"><title>Dotfile kezelés stílusosan, avagy mire való a Git Bare Repository</title><meta name=viewport content="width=device-width,initial-scale=1"><link rel="shortcut icon" type=image/jpg href=https://magyarchlinux.org/images/magyarch-logo.png><link rel=stylesheet href=https://magyarchlinux.org/plugins/themefisher-font/style.css><link rel=stylesheet href=https://magyarchlinux.org/plugins/bootstrap/dist/css/bootstrap.min.css><link rel=stylesheet href=https://magyarchlinux.org/plugins/lightbox2/dist/css/lightbox.min.css><link rel=stylesheet href=https://magyarchlinux.org/plugins/slick-carousel/slick/slick.css><link rel=stylesheet href=https://magyarchlinux.org/plugins/slick-carousel/slick/slick-theme.css><link rel=stylesheet href=https://magyarchlinux.org/css/style.min.css media=screen></head><body id=body><section class="header navigation"><div class=container><div class=row><div class=col-md-12><nav class="navbar navbar-expand-md"><a class=navbar-brand href=https://magyarchlinux.org/><img src=https://magyarchlinux.org/images/magyarch-logo.png alt="MagyArch Linux"></a>
-<button class=navbar-toggler type=button data-toggle=collapse data-target=#navigation aria-controls=navigation aria-expanded=false aria-label="Toggle navigation">
-<span class=tf-ion-android-menu></span></button><div id=drapeaux></div><div class="collapse navbar-collapse" id=navigation><ul class="navbar-nav ml-auto"><li class=nav-item><a class=nav-link href=https://magyarchlinux.org/>Kezdőlap</a></li><li class=nav-item><a class=nav-link href=https://magyarchlinux.org/letoltes>Letöltés</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href=https://magyarchlinux.org/cikkek>Cikkek</a><div class=dropdown-menu><a class=dropdown-item href=https://magyarchlinux.org/tags/konfigur%C3%A1ci%C3%B3>Konfiguráció</a></div></li><li class=nav-item><a class=nav-link href=https://magyarchlinux.org/tamogatas>Támogatás</a></li><li class=nav-item><a class=nav-link href=https://magyarchlinux.org/hirek>Hírek</a></li><li class=nav-item><a class=nav-link href=https://magyarchlinux.org/kapcsolat>Kapcsolat</a></li></ul></div></nav></div></div></div></section><div id=content><section class="blog-single section"><div class=container><div class=row><div class="col-md-8 mx-auto"><img src=https://magyarchlinux.org/images/Git-Bare-Repository-Banner.png class="w-100 mb-3" alt=Post-Image><h2>Dotfile kezelés stílusosan, avagy mire való a Git Bare Repository</h2><div class="post-meta mb-5"><ul class=list-inline><li class=list-inline-item><span>2020. szeptember 26</span></li></ul></div><p>Ha hosszú ideje használjuk a Linux rendszerünket, valószínűleg elég sokat módosítottunk már az egyes programok dotfile-jain (A dotfile-ok olyan konfigurációs fájlok, melyeknek neve előtt pont van.) Mivel eléggé fárasztó dolog minden egyes újratelepítéskor megint személyre szabni a konfigurációs fájljainkat, célszerű őket egy könnyen kezelhető helyen tárolni. Legtöbben a Git verziókezelő-rendszert szokták erre használni olyan módon, hogy minden egyes módosítás után átmásolják a konfigurációs fájlt egy külön mappába, majd feltöltik GitHub-ra vagy Gitlab-re. Viszont ez a módszer egy idő után fárasztóvá tud válni. Ezt a módszert hivatott kiváltani a Git Bare Repository, aminek a használatával sokkal könnyebbé tehető a konfigurációs fájlok kezelése.</p><p>A Git Bare Repository egy olyan Git-tároló, aminél nem kell bemásolni a Git-tároló helyi mappájába azokat a fájlokat, amiket menteni szeretnénk, hanem megadhatjuk azt az alapmappát, ahonnan fel szeretnénk tölteni a fájlokat. Git Bare Repository létrehozásához először csinálnunk kell egy tárolót GitLab-en vagy GitHub-on (ne hozzunk létre Readme fájt), majd készítsünk a következő paranccsal egy Bare Git Repository-t:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>mkdir dotfiles <span style=color:#f92672>&amp;&amp;</span> cd dotfiles <span style=color:#f92672>&amp;&amp;</span> git init --bare
-</span></span></code></pre></div><p>Ezek után nyissuk meg a <code>.bashrc</code> fájlt és írjuk bele a következő sort, majd újraindítjuk a terminálunkat, ezzel létrehozva egy aliast:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>alias dot<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME&#39;</span>
-</span></span></code></pre></div><p>Most már nincs más dolgunk, mint futtatni a GitLab/GitHub által javasolt parancsokat, azzal a különbséggel, hogy a <code>git</code> szót minden parancsban cseréljük le <code>dot</code>-ra. Mivel sok olyan fájl lesz, amit soha sem szeretnénk hozzáadni a tárolónkhoz, célszerű kiadnunk a <code>dot config --local status.showUntrackedFiles no</code>, hogy a git commitok kiadásánál ne lássuk a nem követett fájlokat.</p></div></div></div></section></div><footer id=footer class=bg-one><div class=footer-bottom><h5>2022 Minden jog fentartva.</h5><h6>A weboldal teljes egészében kizárólag szabad szoftverek használatával készült.<br>A forráskód magtalálható a
-<a href=https://github.com/magyarch/magyarchlinux.org/ target=_blank>GitHub</a>-on</h6></div></footer><script src=https://magyarchlinux.org/plugins/jquery/dist/jquery.min.js></script>
-<script src=https://magyarchlinux.org/plugins/bootstrap/dist/js/popper.min.js></script>
-<script src=https://magyarchlinux.org/plugins/bootstrap/dist/js/bootstrap.min.js></script>
-<script src=https://magyarchlinux.org/plugins/parallax/jquery.parallax-1.1.3.js></script>
-<script src=https://magyarchlinux.org/plugins/lightbox2/dist/js/lightbox.min.js></script>
-<script src=https://magyarchlinux.org/plugins/slick-carousel/slick/slick.min.js></script>
-<script src=https://magyarchlinux.org/plugins/filterzr/jquery.filterizr.min.js></script>
-<script src=https://magyarchlinux.org/plugins/smooth-scroll/dist/js/smooth-scroll.min.js></script>
+<!DOCTYPE html>
+<html class="no-js" lang="hu-hu"><head>
+
+
+<!-- Plausible Analytics -->
+<script defer data-domain="" src=""></script>
+<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="Ha hosszú ideje használjuk a Linux rendszerünket, valószínűleg elég sokat módosítottunk már az egyes programok dotfile-jain (A dotfile-ok olyan konfigurációs fájlok, melyeknek neve előtt pont van.) Mivel eléggé fárasztó dolog minden egyes újratelepítéskor megint  személyre szabni a konfigurációs fájljainkat, célszerű őket egy könnyen kezelhető helyen tárolni. Legtöbben a Git verziókezelő-rendszert szokták erre használni olyan módon, hogy minden egyes módosítás után átmásolják a konfigurációs fájlt egy külön mappába, majd feltöltik GitHub-ra vagy Gitlab-re. Viszont ez a módszer egy idő után fárasztóvá tud válni. Ezt a módszert hivatott kiváltani a Git Bare Repository, aminek a használatával sokkal könnyebbé tehető a konfigurációs fájlok kezelése.">
+
+<meta name="generator" content="Hugo 0.97.3" />
+
+
+  <title>Dotfile kezelés stílusosan, avagy mire való a Git Bare Repository</title>
+
+
+<!-- Mobile Specific Meta -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Favicon -->
+<link rel="shortcut icon" type="image/jpg" href="https://magyarchlinux.org/images/magyarch-logo.png" />
+
+<!-- Stylesheets -->
+<!-- Themefisher Icon font -->
+<link rel="stylesheet" href="https://magyarchlinux.org/plugins/themefisher-font/style.css">
+<!-- bootstrap.min css -->
+<link rel="stylesheet" href="https://magyarchlinux.org/plugins/bootstrap/dist/css/bootstrap.min.css">
+<!-- Lightbox.min css -->
+<link rel="stylesheet" href="https://magyarchlinux.org/plugins/lightbox2/dist/css/lightbox.min.css">
+<!-- Slick Carousel -->
+<link rel="stylesheet" href="https://magyarchlinux.org/plugins/slick-carousel/slick/slick.css">
+<link rel="stylesheet" href="https://magyarchlinux.org/plugins/slick-carousel/slick/slick-theme.css">
+<!-- Main Stylesheet -->
+
+
+<link rel="stylesheet" href="https://magyarchlinux.org/css/style.min.css" media="screen">
+
+</head>
+<body id="body"><!-- Fixed Navigation -->
+
+<section class="header navigation">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar navbar-expand-md">
+                    <a class="navbar-brand" href="https://magyarchlinux.org/">
+                        <img src="https://magyarchlinux.org/images/magyarch-logo.png" alt="MagyArch Linux">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+                        aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="tf-ion-android-menu"></span>
+                    </button>
+                    
+                    <div id="drapeaux">
+                        
+                        
+                    </div>
+                    <div class="collapse navbar-collapse" id="navigation">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                    href="https://magyarchlinux.org/">Kezdőlap</a>
+                            </li>
+                            
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://magyarchlinux.org/letoltes">Letöltés</a>
+                            </li>
+                            
+                            
+                            
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="https://magyarchlinux.org/cikkek">Cikkek</a>
+                                <div class="dropdown-menu">
+                                    
+                                    <a class="dropdown-item" href="https://magyarchlinux.org/tags/konfigur%C3%A1ci%C3%B3">Konfiguráció</a>
+                                    
+                                </div>
+                            </li>
+                            
+                            
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://magyarchlinux.org/tamogatas">Támogatás</a>
+                            </li>
+                            
+                            
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://magyarchlinux.org/hirek">Hírek</a>
+                            </li>
+                            
+                            
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://magyarchlinux.org/kapcsolat">Kapcsolat</a>
+                            </li>
+                            
+                            
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section><div id="content">
+
+<section class="blog-single section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <img src="https://magyarchlinux.org/images/Git-Bare-Repository-Banner.png" class="w-100 mb-3" alt="Post-Image">
+                <h2>Dotfile kezelés stílusosan, avagy mire való a Git Bare Repository</h2>
+                <div class="post-meta mb-5">
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <span>2020. szeptember 26</span>
+                        </li>
+                    </ul>
+                </div>
+                <p>Ha hosszú ideje használjuk a Linux rendszerünket, valószínűleg elég sokat módosítottunk már az egyes programok dotfile-jain (A dotfile-ok olyan konfigurációs fájlok, melyeknek neve előtt pont van.) Mivel eléggé fárasztó dolog minden egyes újratelepítéskor megint  személyre szabni a konfigurációs fájljainkat, célszerű őket egy könnyen kezelhető helyen tárolni. Legtöbben a Git verziókezelő-rendszert szokták erre használni olyan módon, hogy minden egyes módosítás után átmásolják a konfigurációs fájlt egy külön mappába, majd feltöltik GitHub-ra vagy Gitlab-re. Viszont ez a módszer egy idő után fárasztóvá tud válni. Ezt a módszert hivatott kiváltani a Git Bare Repository, aminek a használatával sokkal könnyebbé tehető a konfigurációs fájlok kezelése.</p>
+<p>A Git Bare Repository egy olyan Git-tároló, aminél nem kell bemásolni a Git-tároló helyi mappájába azokat a fájlokat, amiket menteni szeretnénk, hanem megadhatjuk azt az alapmappát, ahonnan fel szeretnénk tölteni a fájlokat. Git Bare Repository létrehozásához először csinálnunk kell egy tárolót GitLab-en vagy GitHub-on (ne hozzunk létre Readme fájt), majd készítsünk a következő paranccsal egy Bare Git Repository-t:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir dotfiles <span style="color:#f92672">&amp;&amp;</span> cd dotfiles <span style="color:#f92672">&amp;&amp;</span> git init --bare
+</span></span></code></pre></div><p>Ezek után nyissuk meg a <code>.bashrc</code> fájlt és írjuk bele a következő sort, majd újraindítjuk a terminálunkat, ezzel létrehozva egy aliast:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>alias dot<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME&#39;</span>
+</span></span></code></pre></div><p>Most már nincs más dolgunk, mint futtatni a GitLab/GitHub által javasolt parancsokat, azzal a különbséggel, hogy a <code>git</code> szót minden parancsban cseréljük le <code>dot</code>-ra. Mivel sok olyan fájl lesz, amit soha sem szeretnénk hozzáadni a tárolónkhoz, célszerű kiadnunk a <code>dot config --local status.showUntrackedFiles no</code>, hogy a git commitok kiadásánál ne lássuk a nem követett fájlokat.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+        </div><!-- Footer Start -->
+<footer id="footer" class="bg-one">
+    <div class="footer-bottom">
+        <h5>2022 Minden jog fentartva.</h5>
+        <h6>A weboldal teljes egészében kizárólag szabad szoftverek használatával készült.
+            <br>A forráskód magtalálható a
+            <a href="https://github.com/magyarch/magyarchlinux.org/" target="_blank">GitHub</a>-on
+        </h6>
+    </div>
+</footer>
+<!-- end footer -->
+
+
+<!-- Essential Scripts -->
+
+<!-- jQuery -->
+<script src="https://magyarchlinux.org/plugins/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="https://magyarchlinux.org/plugins/bootstrap/dist/js/popper.min.js"></script>
+<script src="https://magyarchlinux.org/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- Parallax -->
+<script src="https://magyarchlinux.org/plugins/parallax/jquery.parallax-1.1.3.js"></script>
+<!-- lightbox -->
+<script src="https://magyarchlinux.org/plugins/lightbox2/dist/js/lightbox.min.js"></script>
+<!-- Slick Carousel -->
+<script src="https://magyarchlinux.org/plugins/slick-carousel/slick/slick.min.js"></script>
+<!-- Portfolio Filtering -->
+<script src="https://magyarchlinux.org/plugins/filterzr/jquery.filterizr.min.js"></script>
+<!-- Smooth Scroll js -->
+<script src="https://magyarchlinux.org/plugins/smooth-scroll/dist/js/smooth-scroll.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
-<script src=https://magyarchlinux.org/js/script.min.js></script></body></html>
+<!-- Main Script -->
+
+<script src="https://magyarchlinux.org/js/script.min.js"></script>
+
+
+
+</body>
+</html>

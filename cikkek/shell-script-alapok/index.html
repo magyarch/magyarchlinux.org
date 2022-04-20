@@ -1,86 +1,277 @@
-<!doctype html><html class=no-js lang=hu-hu><head><script defer data-domain src></script>
-<script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script><meta charset=utf-8><meta name=description content="A Shell script egy olyan programozási nyelv, ami arra lett tervezve, hogy Unix alapú rendszerek futtassák. A használata egyszerű és gyorsan megírható. Emellett ez egy scripting language, ez azt takarja, hogy a megalkotásánál az volt a cél, hogy más programokkal kompatibilis legyen. Ez később szemléltetve is lesz."><meta name=generator content="Hugo 0.97.3"><title>Shell Script alapok</title><meta name=viewport content="width=device-width,initial-scale=1"><link rel="shortcut icon" type=image/jpg href=https://magyarchlinux.org/images/magyarch-logo.png><link rel=stylesheet href=https://magyarchlinux.org/plugins/themefisher-font/style.css><link rel=stylesheet href=https://magyarchlinux.org/plugins/bootstrap/dist/css/bootstrap.min.css><link rel=stylesheet href=https://magyarchlinux.org/plugins/lightbox2/dist/css/lightbox.min.css><link rel=stylesheet href=https://magyarchlinux.org/plugins/slick-carousel/slick/slick.css><link rel=stylesheet href=https://magyarchlinux.org/plugins/slick-carousel/slick/slick-theme.css><link rel=stylesheet href=https://magyarchlinux.org/css/style.min.css media=screen></head><body id=body><section class="header navigation"><div class=container><div class=row><div class=col-md-12><nav class="navbar navbar-expand-md"><a class=navbar-brand href=https://magyarchlinux.org/><img src=https://magyarchlinux.org/images/magyarch-logo.png alt="MagyArch Linux"></a>
-<button class=navbar-toggler type=button data-toggle=collapse data-target=#navigation aria-controls=navigation aria-expanded=false aria-label="Toggle navigation">
-<span class=tf-ion-android-menu></span></button><div id=drapeaux></div><div class="collapse navbar-collapse" id=navigation><ul class="navbar-nav ml-auto"><li class=nav-item><a class=nav-link href=https://magyarchlinux.org/>Kezdőlap</a></li><li class=nav-item><a class=nav-link href=https://magyarchlinux.org/letoltes>Letöltés</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href=https://magyarchlinux.org/cikkek>Cikkek</a><div class=dropdown-menu><a class=dropdown-item href=https://magyarchlinux.org/tags/konfigur%C3%A1ci%C3%B3>Konfiguráció</a></div></li><li class=nav-item><a class=nav-link href=https://magyarchlinux.org/tamogatas>Támogatás</a></li><li class=nav-item><a class=nav-link href=https://magyarchlinux.org/hirek>Hírek</a></li><li class=nav-item><a class=nav-link href=https://magyarchlinux.org/kapcsolat>Kapcsolat</a></li></ul></div></nav></div></div></div></section><div id=content><section class="blog-single section"><div class=container><div class=row><div class="col-md-8 mx-auto"><img src=https://magyarchlinux.org/images/bash-logo.jpg class="w-100 mb-3" alt=Post-Image><h2>Shell Script alapok</h2><div class="post-meta mb-5"><ul class=list-inline><li class=list-inline-item><span>2022. április 17</span></li></ul></div><p>A Shell script egy olyan programozási nyelv, ami arra lett tervezve, hogy Unix alapú rendszerek futtassák. A használata egyszerű és gyorsan megírható. Emellett ez egy scripting language, ez azt takarja, hogy a megalkotásánál az volt a cél, hogy más programokkal kompatibilis legyen. Ez később szemléltetve is lesz.</p><h2 id=felépítése>Felépítése</h2><p>Minden shell script kódra jellemző, hogy ugyan úgy kezdődnek. Az első sor mindig az kódot futtató program megadása, így a rendszer tudni fogja, hogy melyik programmal kell futtatnia. Ez a következő módon néz ki:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e>#!/bin/bash
-</span></span></span></code></pre></div><p>Ez után kezdődik maga a kód megírása. Itt a megszokott programozási nyelvektől eltérően soha nem történik modul importálása (lásd, python: <code>import time</code>), mivel itt modulok helyett Unix alapú rendszerek által futtatható programokat használ a kód. A shell scritpt kódok <code>.sh</code> végződésűek. Fontos viszont, hogy a kód futtatása előtt jogot kell neki adni erre. Ez a <code>chmod +x elso_program.sh</code>.</p><h2 id=változók-deklarálása>Változók deklarálása</h2><p>Itt a változók deklarálása egyszerűen történik. Először a már említett módon az első sorba a program megadása kerül, amivel futtatni fogja a rendszer.</p><p>Egy hello world programban először deklarálni kell a változót: <code>változó neve=változó értéke</code>, fontos, hogy a változó neve ne használjon ékezetes karaktereket illetve helykihagyást. Következő a változó kiíratása. Ezt <code>echo</code> parancsal történik: <code>echo $változó neve</code>. Az echo az utána következő argumentumok kiírásáért felel. Ha a változónak nem értéket adunk, hanem az értékét kérjük le, akkor mindig rakunk egy <code>$</code>-et a változó neve elé ügyelve arra, hogy ne legyen közte szóköz.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e>#!/bin/bash
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>VAR<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Hello World&#34;</span>
-</span></span><span style=display:flex><span>echo $VAR
-</span></span></code></pre></div><p>Mivel ez egy scripting language így a változók deklarálása nincs túlbonyolítva. Erre jó példa a következő kódrészlet:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>string<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Hello World&#34;</span>
-</span></span><span style=display:flex><span>number<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>
-</span></span><span style=display:flex><span>float<span style=color:#f92672>=</span>3.142
-</span></span><span style=display:flex><span>mixed<span style=color:#f92672>=</span>abc123
-</span></span></code></pre></div><h2 id=nem-előre-deklarált-változók>Nem előre deklarált változók</h2><h3 id=read>Read</h3><p>A <code>read</code> parancs lehetővé teszi, hogy változóknak bemeneti értéket adjunk meg értékként. Erre egy jó példa:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>echo <span style=color:#e6db74>&#34;Mi a neved?&#34;</span>
-</span></span><span style=display:flex><span>read nev
-</span></span><span style=display:flex><span>echo <span style=color:#e6db74>&#34;Helló </span>$nev<span style=color:#e6db74>&#34;</span>
-</span></span></code></pre></div><p>Itt a program kiírja, hogy <code>Mi a neved?</code>, majd beolvassa a <code>nev</code> változó értékét, ez után az <code>echo</code> parancs segítségével pedig kiírja.</p><h2 id=argumentumok>Argumentumok</h2><p>Argumentumokkal már találkozhattunk. Ezek a parancs után találhatóak általában egy kötőjellel kezdődnek(pl: <em>irssi -n <username></em>). Viszont a shell scriptingben nem kell kötőjellel megadni, hogy az argumentum miért felel.</p><p>Az argumentumok számozva vannak és a számozás 0-tól indul. A 0. argumnetum mindig a fájlnév és utánna következnek a váltzók.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>script.sh arg1 arg2 arg3
-</span></span></code></pre></div><p>Ezekre az argumentumokra $-el lehet hivatkozni. $, majd pedig az argumentum száma.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e>#!/bin/bash
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>echo <span style=color:#e6db74>&#34;Fájlnév </span>$0<span style=color:#e6db74>&#34;</span>
-</span></span><span style=display:flex><span>echo <span style=color:#e6db74>&#34;1. argumentum </span>$1<span style=color:#e6db74>&#34;</span>
-</span></span><span style=display:flex><span>echo <span style=color:#e6db74>&#34;2. argumentum </span>$2<span style=color:#e6db74>&#34;</span>
-</span></span></code></pre></div><p>Ezt a programot miután elmentjük a következő képpen kell haználni:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>./args.sh elso masodik
-</span></span></code></pre></div><p>Ez vissza fogja adni nekünk az fájlnév után következő első illetve második argumentumot.</p><h2 id=array-vagyis-tömb-használata>Array vagyis tömb használata</h2><p>Egy változó egyszerre 1 értéket tárolhat. Ezzel szemben egy array többet is tud, ez azt jelenti, hogy új változók létrehozása helyett a már meglévő tömbhöz kell hozzáadnunk még 1 elemet. Az elemekre index számmal tudunk hivatkozni, a legelső index szám a 0. Az array használatára jó példa egy névsor létrehozása.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>NAME01<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Attila&#34;</span>
-</span></span><span style=display:flex><span>NAME02<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Béla&#34;</span>
-</span></span><span style=display:flex><span>NAME03<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Károly&#34;</span>
-</span></span></code></pre></div><p>A változók egyenkénti ledekralásáa helyett ezeket egy tömbbe rendeljük. Így elég a név index számát tudnunk és nemkell egy új változóra hivatkoznunk.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>NAME<span style=color:#f92672>[</span>0<span style=color:#f92672>]=</span><span style=color:#e6db74>&#34;Attila&#34;</span>
-</span></span><span style=display:flex><span>NAME<span style=color:#f92672>[</span>1<span style=color:#f92672>]=</span><span style=color:#e6db74>&#34;Béla&#34;</span>
-</span></span><span style=display:flex><span>NAME<span style=color:#f92672>[</span>2<span style=color:#f92672>]=</span><span style=color:#e6db74>&#34;Károly&#34;</span>
-</span></span></code></pre></div><p>Így elérjük azt, hogy sok változó helyett egy tömbben gyűjtjük össze a neveket és ha komplexabb programot írunk, akkor sokkal egyszerűbb dolgunk lesz. Az arrayre való hivatkozásra egy egyszerű példa:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e>#!/bin/sh
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>NAME<span style=color:#f92672>[</span>0<span style=color:#f92672>]=</span><span style=color:#e6db74>&#34;Attila&#34;</span>
-</span></span><span style=display:flex><span>NAME<span style=color:#f92672>[</span>1<span style=color:#f92672>]=</span><span style=color:#e6db74>&#34;Béla&#34;</span>
-</span></span><span style=display:flex><span>NAME<span style=color:#f92672>[</span>2<span style=color:#f92672>]=</span><span style=color:#e6db74>&#34;Károly&#34;</span>
-</span></span><span style=display:flex><span>echo <span style=color:#e6db74>&#34;Első Index: </span><span style=color:#e6db74>${</span>NAME[0]<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>
-</span></span><span style=display:flex><span>echo <span style=color:#e6db74>&#34;Második Index: </span><span style=color:#e6db74>${</span>NAME[1]<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>
-</span></span><span style=display:flex><span>echo <span style=color:#e6db74>&#34;harmadik Index: </span><span style=color:#e6db74>${</span>NAME[2]<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>
-</span></span></code></pre></div><p>Itt a <code>NAME</code> tömbnek megadjuk az első 3 értékét, majd kiíratjuk. A tömbre való hivatkozáskor <code>${ }</code> közé rakjuk az array nevét, majd <code>[]</code> közé az indexét az elemnek, amire hivatkozni akarunk.</p><h2 id=if-használata>If használata</h2><p>At if statement egy feltételből és egy állításból áll. Erre egy egyszerű példa:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#66d9ef>if</span> <span style=color:#ae81ff>5</span> -gt <span style=color:#ae81ff>4</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>then</span>
-</span></span><span style=display:flex><span>    echo “5 nagyobb mint 4”
-</span></span><span style=display:flex><span><span style=color:#66d9ef>fi</span>
-</span></span></code></pre></div><p>Itt felmerülhet a kérdés, hogy mit jelent a <code>-gt</code>, ez a nagyobb mintnek felel meg, shell scriptben az operátorok mid hasonló képpen kell megadni. Ezek magyarázata:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>-eq: equal to <span style=color:#f92672>=</span> egyenlő vele
-</span></span><span style=display:flex><span>-ne: not equal to <span style=color:#f92672>=</span> nem egyenlő vele
-</span></span><span style=display:flex><span>-lt: less than <span style=color:#f92672>=</span> kisebb mint
-</span></span><span style=display:flex><span>-le: less than or equal to <span style=color:#f92672>=</span> kisebb mint vagy egyenlő
-</span></span><span style=display:flex><span>-gt: greater than <span style=color:#f92672>=</span> nagyobb mint
-</span></span><span style=display:flex><span>-ge: greater than or equal to <span style=color:#f92672>=</span> nagyobb mint vagy egyenlő
-</span></span></code></pre></div><p>Ez számokra vonatkozik, viszont fájlokkal is vannak operátorok. Ekek közül a fontosabbak:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>-e	a fájl létezik és
-</span></span><span style=display:flex><span>-d	a fájl létezik és egy mappa
-</span></span><span style=display:flex><span>-f	a fájl létezik és egy fájl
-</span></span><span style=display:flex><span>-r	a fájl létezik és olvasható
-</span></span><span style=display:flex><span>-w	a fájl létezik és írható
-</span></span><span style=display:flex><span>-x	a fájl létezik és futtatható
-</span></span><span style=display:flex><span>-s	a fájl létezik és a mérete nagyobb mint <span style=color:#ae81ff>0</span>
-</span></span></code></pre></div><p>Ezeket hasonló módon kell használni mint az előző példában.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#66d9ef>if</span> <span style=color:#f92672>[</span> -e <span style=color:#e6db74>&#34;.bash_profile&#34;</span> <span style=color:#f92672>]</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>then</span>
-</span></span><span style=display:flex><span>    echo <span style=color:#e6db74>&#34; The file exists &#34;</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>else</span>
-</span></span><span style=display:flex><span>    echo <span style=color:#e6db74>&#34; File not found &#34;</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>fi</span>
-</span></span></code></pre></div><h2 id=while-loop>While loop</h2><p>A while loop addig futtatja a tartalmát újra és újra, amég az állítása igaz. Ezt legtöbbször egy boolean változóval teszik, viszont egy változó értékének ellenörzését is szokták while loop állításába tenni, viszont erre legtöbb esetben a for loop sokkal előnyösebb. A while loopra egy példa:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>n<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>while</span> <span style=color:#f92672>[</span> $n -le <span style=color:#ae81ff>3</span> <span style=color:#f92672>]</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>do</span>
-</span></span><span style=display:flex><span>    echo <span style=color:#e6db74>&#34;</span>$n<span style=color:#e6db74> alkalommal lefutott&#34;</span>
-</span></span><span style=display:flex><span>    n<span style=color:#f92672>=</span><span style=color:#66d9ef>$((</span> n+1 <span style=color:#66d9ef>))</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>done</span>
-</span></span></code></pre></div><h2 id=for-loop>For loop</h2><p>A for loop hasonlít a while loopra, viszont ez arra lett kitalálva, hogy értéket növeljen és úgy hajtson végre utasításokat.
-A for loopra egy jó példa:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#66d9ef>for</span> num in <span style=color:#f92672>{</span>1..10<span style=color:#f92672>}</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>do</span>
-</span></span><span style=display:flex><span>    echo <span style=color:#e6db74>&#34;</span>$num<span style=color:#e6db74>&#34;</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>done</span>
-</span></span></code></pre></div><p>Ez a ciklus minden alkalommal lefut, amíg a num változó nem éri el a 10 értéket. A num változó alapértéke 1 és minden lefutás során az értéke növekszik 1-el. Ez megoldható, hogy ne 1-et lépjen ciklusonként, hanem példáúl 10-et.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#66d9ef>for</span> num in <span style=color:#f92672>{</span>0..100..10<span style=color:#f92672>}</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>do</span>
-</span></span><span style=display:flex><span>    echo <span style=color:#e6db74>&#34;</span>$num<span style=color:#e6db74>&#34;</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>done</span>
-</span></span></code></pre></div><p>Ez hasonló képpen fog lefutni mint az előző példa, viszont ezesetben 1-től 100-ig 10-esével növeki a num változó értékét. A for loopot lehet több féle képpen is hasznánli, viszont van egy mód, amit más nyelvekben is előszeretettel használnak az átláthatósága miatt.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#66d9ef>for</span> <span style=color:#f92672>((</span> i<span style=color:#f92672>=</span>1; i -et 10; i++<span style=color:#f92672>))</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>do</span>
-</span></span><span style=display:flex><span>    echo <span style=color:#e6db74>&#34;</span>$i<span style=color:#e6db74>&#34;</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>done</span>
-</span></span></code></pre></div><h2 id=összefoglaló>Összefoglaló</h2><p>A shell script nagyon hasznos tud leni, ha unix alapú rendszeren akarunk gyorsan kódot írni valamire és nem akarunk törődni modulok importálásával és összetett szintaktikák alkalmázásával. Bármely linux felhasználónak jól jöhet néha egy minimális shell script tudás, mivel ezzel folgyorsíthatjuk a munkánkat és kényelmesebbé tehetjük, hosszú távon nagyon kifizetődő.Hosszú, gyakran használt parancsokat ha nem akarunk minden alkalommal begépelni, mikor szükségünk van rá, akkor a legjobb megoldás ezeket egy shell script fájlba beleírni és ezt a fájlt futtathatóvá tenni.</p></div></div></div></section></div><footer id=footer class=bg-one><div class=footer-bottom><h5>2022 Minden jog fentartva.</h5><h6>A weboldal teljes egészében kizárólag szabad szoftverek használatával készült.<br>A forráskód magtalálható a
-<a href=https://github.com/magyarch/magyarchlinux.org/ target=_blank>GitHub</a>-on</h6></div></footer><script src=https://magyarchlinux.org/plugins/jquery/dist/jquery.min.js></script>
-<script src=https://magyarchlinux.org/plugins/bootstrap/dist/js/popper.min.js></script>
-<script src=https://magyarchlinux.org/plugins/bootstrap/dist/js/bootstrap.min.js></script>
-<script src=https://magyarchlinux.org/plugins/parallax/jquery.parallax-1.1.3.js></script>
-<script src=https://magyarchlinux.org/plugins/lightbox2/dist/js/lightbox.min.js></script>
-<script src=https://magyarchlinux.org/plugins/slick-carousel/slick/slick.min.js></script>
-<script src=https://magyarchlinux.org/plugins/filterzr/jquery.filterizr.min.js></script>
-<script src=https://magyarchlinux.org/plugins/smooth-scroll/dist/js/smooth-scroll.min.js></script>
+<!DOCTYPE html>
+<html class="no-js" lang="hu-hu"><head>
+
+
+<!-- Plausible Analytics -->
+<script defer data-domain="" src=""></script>
+<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="A Shell script egy olyan programozási nyelv, ami arra lett tervezve, hogy Unix alapú rendszerek futtassák. A használata egyszerű és gyorsan megírható. Emellett ez egy scripting language, ez azt takarja, hogy a megalkotásánál az volt a cél, hogy más programokkal kompatibilis legyen. Ez később szemléltetve is lesz.">
+
+<meta name="generator" content="Hugo 0.97.3" />
+
+
+  <title>Shell Script alapok</title>
+
+
+<!-- Mobile Specific Meta -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Favicon -->
+<link rel="shortcut icon" type="image/jpg" href="https://magyarchlinux.org/images/magyarch-logo.png" />
+
+<!-- Stylesheets -->
+<!-- Themefisher Icon font -->
+<link rel="stylesheet" href="https://magyarchlinux.org/plugins/themefisher-font/style.css">
+<!-- bootstrap.min css -->
+<link rel="stylesheet" href="https://magyarchlinux.org/plugins/bootstrap/dist/css/bootstrap.min.css">
+<!-- Lightbox.min css -->
+<link rel="stylesheet" href="https://magyarchlinux.org/plugins/lightbox2/dist/css/lightbox.min.css">
+<!-- Slick Carousel -->
+<link rel="stylesheet" href="https://magyarchlinux.org/plugins/slick-carousel/slick/slick.css">
+<link rel="stylesheet" href="https://magyarchlinux.org/plugins/slick-carousel/slick/slick-theme.css">
+<!-- Main Stylesheet -->
+
+
+<link rel="stylesheet" href="https://magyarchlinux.org/css/style.min.css" media="screen">
+
+</head>
+<body id="body"><!-- Fixed Navigation -->
+
+<section class="header navigation">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar navbar-expand-md">
+                    <a class="navbar-brand" href="https://magyarchlinux.org/">
+                        <img src="https://magyarchlinux.org/images/magyarch-logo.png" alt="MagyArch Linux">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+                        aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="tf-ion-android-menu"></span>
+                    </button>
+                    
+                    <div id="drapeaux">
+                        
+                        
+                    </div>
+                    <div class="collapse navbar-collapse" id="navigation">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                    href="https://magyarchlinux.org/">Kezdőlap</a>
+                            </li>
+                            
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://magyarchlinux.org/letoltes">Letöltés</a>
+                            </li>
+                            
+                            
+                            
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="https://magyarchlinux.org/cikkek">Cikkek</a>
+                                <div class="dropdown-menu">
+                                    
+                                    <a class="dropdown-item" href="https://magyarchlinux.org/tags/konfigur%C3%A1ci%C3%B3">Konfiguráció</a>
+                                    
+                                </div>
+                            </li>
+                            
+                            
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://magyarchlinux.org/tamogatas">Támogatás</a>
+                            </li>
+                            
+                            
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://magyarchlinux.org/hirek">Hírek</a>
+                            </li>
+                            
+                            
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://magyarchlinux.org/kapcsolat">Kapcsolat</a>
+                            </li>
+                            
+                            
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section><div id="content">
+
+<section class="blog-single section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <img src="https://magyarchlinux.org/images/bash-logo.jpg" class="w-100 mb-3" alt="Post-Image">
+                <h2>Shell Script alapok</h2>
+                <div class="post-meta mb-5">
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <span>2022. április 17</span>
+                        </li>
+                    </ul>
+                </div>
+                <p>A Shell script egy olyan programozási nyelv, ami arra lett tervezve, hogy Unix alapú rendszerek futtassák. A használata egyszerű és gyorsan megírható. Emellett ez egy scripting language, ez azt takarja, hogy a megalkotásánál az volt a cél, hogy más programokkal kompatibilis legyen. Ez később szemléltetve is lesz.</p>
+<h2 id="felépítése">Felépítése</h2>
+<p>Minden shell script kódra jellemző, hogy ugyan úgy kezdődnek. Az első sor mindig az kódot futtató program megadása, így a rendszer tudni fogja, hogy melyik programmal kell futtatnia. Ez a következő módon néz ki:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span></code></pre></div><p>Ez után kezdődik maga a kód megírása. Itt a megszokott programozási nyelvektől eltérően soha nem történik modul importálása (lásd, python: <code>import time</code>), mivel itt modulok helyett Unix alapú rendszerek által futtatható programokat használ a kód. A shell scritpt kódok <code>.sh</code> végződésűek. Fontos viszont, hogy a kód futtatása előtt jogot kell neki adni erre. Ez a <code>chmod +x elso_program.sh</code>.</p>
+<h2 id="változók-deklarálása">Változók deklarálása</h2>
+<p>Itt a változók deklarálása egyszerűen történik. Először a már említett módon az első sorba a program megadása kerül, amivel futtatni fogja a rendszer.</p>
+<p>Egy hello world programban először deklarálni kell a változót: <code>változó neve=változó értéke</code>, fontos, hogy a változó neve ne használjon ékezetes karaktereket illetve helykihagyást. Következő a változó kiíratása. Ezt <code>echo</code> parancsal történik: <code>echo $változó neve</code>. Az echo az utána következő argumentumok kiírásáért felel. Ha a változónak nem értéket adunk, hanem az értékét kérjük le, akkor mindig rakunk egy <code>$</code>-et a változó neve elé ügyelve arra, hogy ne legyen közte szóköz.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>VAR<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Hello World&#34;</span>
+</span></span><span style="display:flex;"><span>echo $VAR
+</span></span></code></pre></div><p>Mivel ez egy scripting language így a változók deklarálása nincs túlbonyolítva. Erre jó példa a következő kódrészlet:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>string<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Hello World&#34;</span>
+</span></span><span style="display:flex;"><span>number<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>float<span style="color:#f92672">=</span>3.142
+</span></span><span style="display:flex;"><span>mixed<span style="color:#f92672">=</span>abc123
+</span></span></code></pre></div><h2 id="nem-előre-deklarált-változók">Nem előre deklarált változók</h2>
+<h3 id="read">Read</h3>
+<p>A <code>read</code> parancs lehetővé teszi, hogy változóknak bemeneti értéket adjunk meg értékként. Erre egy jó példa:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;Mi a neved?&#34;</span>
+</span></span><span style="display:flex;"><span>read nev
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;Helló </span>$nev<span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><p>Itt a program kiírja, hogy <code>Mi a neved?</code>, majd beolvassa a <code>nev</code> változó értékét, ez után az <code>echo</code> parancs segítségével pedig kiírja.</p>
+<h2 id="argumentumok">Argumentumok</h2>
+<p>Argumentumokkal már találkozhattunk. Ezek a parancs után találhatóak általában egy kötőjellel kezdődnek(pl: <em>irssi -n <username></em>). Viszont a shell scriptingben nem kell kötőjellel megadni, hogy az argumentum miért felel.</p>
+<p>Az argumentumok számozva vannak és a számozás 0-tól indul. A 0. argumnetum mindig a fájlnév és utánna következnek a váltzók.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>script.sh arg1 arg2 arg3
+</span></span></code></pre></div><p>Ezekre az argumentumokra $-el lehet hivatkozni. $, majd pedig az argumentum száma.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>echo <span style="color:#e6db74">&#34;Fájlnév </span>$0<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;1. argumentum </span>$1<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;2. argumentum </span>$2<span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><p>Ezt a programot miután elmentjük a következő képpen kell haználni:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./args.sh elso masodik
+</span></span></code></pre></div><p>Ez vissza fogja adni nekünk az fájlnév után következő első illetve második argumentumot.</p>
+<h2 id="array-vagyis-tömb-használata">Array vagyis tömb használata</h2>
+<p>Egy változó egyszerre 1 értéket tárolhat. Ezzel szemben egy array többet is tud, ez azt jelenti, hogy új változók létrehozása helyett a már meglévő tömbhöz kell hozzáadnunk még 1 elemet. Az elemekre index számmal tudunk hivatkozni, a legelső index szám a 0. Az array használatára jó példa egy névsor létrehozása.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>NAME01<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Attila&#34;</span>
+</span></span><span style="display:flex;"><span>NAME02<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Béla&#34;</span>
+</span></span><span style="display:flex;"><span>NAME03<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Károly&#34;</span>
+</span></span></code></pre></div><p>A változók egyenkénti ledekralásáa helyett ezeket egy tömbbe rendeljük. Így elég a név index számát tudnunk és nemkell egy új változóra hivatkoznunk.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>NAME<span style="color:#f92672">[</span>0<span style="color:#f92672">]=</span><span style="color:#e6db74">&#34;Attila&#34;</span>
+</span></span><span style="display:flex;"><span>NAME<span style="color:#f92672">[</span>1<span style="color:#f92672">]=</span><span style="color:#e6db74">&#34;Béla&#34;</span>
+</span></span><span style="display:flex;"><span>NAME<span style="color:#f92672">[</span>2<span style="color:#f92672">]=</span><span style="color:#e6db74">&#34;Károly&#34;</span>
+</span></span></code></pre></div><p>Így elérjük azt, hogy sok változó helyett egy tömbben gyűjtjük össze a neveket és ha komplexabb programot írunk, akkor sokkal egyszerűbb dolgunk lesz. Az arrayre való hivatkozásra egy egyszerű példa:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/sh
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>NAME<span style="color:#f92672">[</span>0<span style="color:#f92672">]=</span><span style="color:#e6db74">&#34;Attila&#34;</span>
+</span></span><span style="display:flex;"><span>NAME<span style="color:#f92672">[</span>1<span style="color:#f92672">]=</span><span style="color:#e6db74">&#34;Béla&#34;</span>
+</span></span><span style="display:flex;"><span>NAME<span style="color:#f92672">[</span>2<span style="color:#f92672">]=</span><span style="color:#e6db74">&#34;Károly&#34;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;Első Index: </span><span style="color:#e6db74">${</span>NAME[0]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;Második Index: </span><span style="color:#e6db74">${</span>NAME[1]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;harmadik Index: </span><span style="color:#e6db74">${</span>NAME[2]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><p>Itt a <code>NAME</code> tömbnek megadjuk az első 3 értékét, majd kiíratjuk. A tömbre való hivatkozáskor <code>${ }</code> közé rakjuk az array nevét, majd <code>[]</code> közé az indexét az elemnek, amire hivatkozni akarunk.</p>
+<h2 id="if-használata">If használata</h2>
+<p>At if statement egy feltételből és egy állításból áll. Erre egy egyszerű példa:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#ae81ff">5</span> -gt <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    echo “5 nagyobb mint 4”
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span></code></pre></div><p>Itt felmerülhet a kérdés, hogy mit jelent a <code>-gt</code>, ez a nagyobb mintnek felel meg, shell scriptben az operátorok mid hasonló képpen kell megadni. Ezek magyarázata:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>-eq: equal to <span style="color:#f92672">=</span> egyenlő vele
+</span></span><span style="display:flex;"><span>-ne: not equal to <span style="color:#f92672">=</span> nem egyenlő vele
+</span></span><span style="display:flex;"><span>-lt: less than <span style="color:#f92672">=</span> kisebb mint
+</span></span><span style="display:flex;"><span>-le: less than or equal to <span style="color:#f92672">=</span> kisebb mint vagy egyenlő
+</span></span><span style="display:flex;"><span>-gt: greater than <span style="color:#f92672">=</span> nagyobb mint
+</span></span><span style="display:flex;"><span>-ge: greater than or equal to <span style="color:#f92672">=</span> nagyobb mint vagy egyenlő
+</span></span></code></pre></div><p>Ez számokra vonatkozik, viszont fájlokkal is vannak operátorok. Ekek közül a fontosabbak:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>-e	a fájl létezik és
+</span></span><span style="display:flex;"><span>-d	a fájl létezik és egy mappa
+</span></span><span style="display:flex;"><span>-f	a fájl létezik és egy fájl
+</span></span><span style="display:flex;"><span>-r	a fájl létezik és olvasható
+</span></span><span style="display:flex;"><span>-w	a fájl létezik és írható
+</span></span><span style="display:flex;"><span>-x	a fájl létezik és futtatható
+</span></span><span style="display:flex;"><span>-s	a fájl létezik és a mérete nagyobb mint <span style="color:#ae81ff">0</span>
+</span></span></code></pre></div><p>Ezeket hasonló módon kell használni mint az előző példában.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -e <span style="color:#e6db74">&#34;.bash_profile&#34;</span> <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34; The file exists &#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34; File not found &#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span></code></pre></div><h2 id="while-loop">While loop</h2>
+<p>A while loop addig futtatja a tartalmát újra és újra, amég az állítása igaz. Ezt legtöbbször egy boolean változóval teszik, viszont egy változó értékének ellenörzését is szokták while loop állításába tenni, viszont erre legtöbb esetben a for loop sokkal előnyösebb. A while loopra egy példa:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>n<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> <span style="color:#f92672">[</span> $n -le <span style="color:#ae81ff">3</span> <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;</span>$n<span style="color:#e6db74"> alkalommal lefutott&#34;</span>
+</span></span><span style="display:flex;"><span>    n<span style="color:#f92672">=</span><span style="color:#66d9ef">$((</span> n+1 <span style="color:#66d9ef">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div><h2 id="for-loop">For loop</h2>
+<p>A for loop hasonlít a while loopra, viszont ez arra lett kitalálva, hogy értéket növeljen és úgy hajtson végre utasításokat.
+A for loopra egy jó példa:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> num in <span style="color:#f92672">{</span>1..10<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;</span>$num<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div><p>Ez a ciklus minden alkalommal lefut, amíg a num változó nem éri el a 10 értéket. A num változó alapértéke 1 és minden lefutás során az értéke növekszik 1-el. Ez megoldható, hogy ne 1-et lépjen ciklusonként, hanem példáúl 10-et.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> num in <span style="color:#f92672">{</span>0..100..10<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;</span>$num<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div><p>Ez hasonló képpen fog lefutni mint az előző példa, viszont ezesetben 1-től 100-ig 10-esével növeki a num változó értékét. A for loopot lehet több féle képpen is hasznánli, viszont van egy mód, amit más nyelvekben is előszeretettel használnak az átláthatósága miatt.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> <span style="color:#f92672">((</span> i<span style="color:#f92672">=</span>1; i -et 10; i++<span style="color:#f92672">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;</span>$i<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div><h2 id="összefoglaló">Összefoglaló</h2>
+<p>A shell script nagyon hasznos tud leni, ha unix alapú rendszeren akarunk gyorsan kódot írni valamire és nem akarunk törődni modulok importálásával és összetett szintaktikák alkalmázásával. Bármely linux felhasználónak jól jöhet néha egy minimális shell script tudás, mivel ezzel folgyorsíthatjuk a munkánkat és kényelmesebbé tehetjük, hosszú távon nagyon kifizetődő.Hosszú, gyakran használt parancsokat ha nem akarunk minden alkalommal begépelni, mikor szükségünk van rá, akkor a legjobb megoldás ezeket egy shell script fájlba beleírni és ezt a fájlt futtathatóvá tenni.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+        </div><!-- Footer Start -->
+<footer id="footer" class="bg-one">
+    <div class="footer-bottom">
+        <h5>2022 Minden jog fentartva.</h5>
+        <h6>A weboldal teljes egészében kizárólag szabad szoftverek használatával készült.
+            <br>A forráskód magtalálható a
+            <a href="https://github.com/magyarch/magyarchlinux.org/" target="_blank">GitHub</a>-on
+        </h6>
+    </div>
+</footer>
+<!-- end footer -->
+
+
+<!-- Essential Scripts -->
+
+<!-- jQuery -->
+<script src="https://magyarchlinux.org/plugins/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="https://magyarchlinux.org/plugins/bootstrap/dist/js/popper.min.js"></script>
+<script src="https://magyarchlinux.org/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- Parallax -->
+<script src="https://magyarchlinux.org/plugins/parallax/jquery.parallax-1.1.3.js"></script>
+<!-- lightbox -->
+<script src="https://magyarchlinux.org/plugins/lightbox2/dist/js/lightbox.min.js"></script>
+<!-- Slick Carousel -->
+<script src="https://magyarchlinux.org/plugins/slick-carousel/slick/slick.min.js"></script>
+<!-- Portfolio Filtering -->
+<script src="https://magyarchlinux.org/plugins/filterzr/jquery.filterizr.min.js"></script>
+<!-- Smooth Scroll js -->
+<script src="https://magyarchlinux.org/plugins/smooth-scroll/dist/js/smooth-scroll.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
-<script src=https://magyarchlinux.org/js/script.min.js></script></body></html>
+<!-- Main Script -->
+
+<script src="https://magyarchlinux.org/js/script.min.js"></script>
+
+
+
+</body>
+</html>
