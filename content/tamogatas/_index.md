@@ -14,7 +14,7 @@ Ugyanakkor minden egyéb támogatást köszönünk, például:
 ```
 ```
 ```
-Ha segíteni szeretnél, [vedd fel velünk a kapcsolatot](/kapcsolat).
+Ha segíteni szeretnél, [vedd fel velünk a kapcsolatot](/kapcsolat)!
 
 ```
 ```
