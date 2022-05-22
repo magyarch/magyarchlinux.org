@@ -5,7 +5,7 @@ draft: false
 tags: [ "Konfiguráció" ]
 image: images/bash-logo.jpg
 ---
-A Shell script egy olyan programozási nyelv, ami arra lett tervezve, hogy Unix alapú rendszerek futtassák. A használata egyszerű és gyorsan megírható. Emellett ez egy scripting language, ez azt takarja, hogy a megalkotásánál az volt a cél, hogy más programokkal kompatibilis legyen. Ez később szemléltetve is lesz.
+A Shell script egy olyan programozási nyelv, ami arra lett tervezve, hogy Unix alapú rendszerek futtassák. A használata egyszerű és gyorsan megírható. Emellett ez egy scripting language, ez azt takarja, hogy nincs szükségünk külön fordítóra. A megalkotásánál az volt a cél, hogy más, Unix programokkal kompatibilis legyen. Ez később szemléltetve is lesz.
 <!--more-->
 ## Felépítése
 Minden shell script kódra jellemző, hogy ugyan úgy kezdődnek. Az első sor mindig az kódot futtató program megadása, így a rendszer tudni fogja, hogy melyik programmal kell futtatnia. Ez a következő módon néz ki:
@@ -13,19 +13,23 @@ Minden shell script kódra jellemző, hogy ugyan úgy kezdődnek. Az első sor m
 ```bash
 #!/bin/bash
 ```
-Ez után kezdődik maga a kód megírása. Itt a megszokott programozási nyelvektől eltérően soha nem történik modul importálása (lásd, python: `import time`), mivel itt modulok helyett Unix alapú rendszerek által futtatható programokat használ a kód. A shell scritpt kódok `.sh` végződésűek. Fontos viszont, hogy a kód futtatása előtt jogot kell neki adni erre. Ez a `chmod +x elso_program.sh`.
+Ez után kezdődik maga a kód megírása. Itt a megszokott programozási nyelvektől eltérően soha nem történik modul importálása (lásd, python: `import time`), mivel itt modulok helyett Unix alapú rendszerek által futtatható programokat használ a kód. A shell scritpt kódok `.sh` végződésűek. Fontos viszont, hogy a kód futtatása előtt jogot kell neki adni erre:
+
+```bash
+chmod +x elso_program.sh
+```
 
 ## Változók deklarálása
 Itt a változók deklarálása egyszerűen történik. Először a már említett módon az első sorba a program megadása kerül, amivel futtatni fogja a rendszer.
 
-Egy hello world programban először deklarálni kell a változót: `változó neve=változó értéke`, fontos, hogy a változó neve ne használjon ékezetes karaktereket illetve helykihagyást. Következő a változó kiíratása. Ezt `echo` parancsal történik: `echo $változó neve`. Az echo az utána következő argumentumok kiírásáért felel. Ha a változónak nem értéket adunk, hanem az értékét kérjük le, akkor mindig rakunk egy `$`-et a változó neve elé ügyelve arra, hogy ne legyen közte szóköz.
+Egy hello world programban először deklarálni kell a változót: `VALTOZO_NEVE=valtozo_erteke`, fontos, hogy a változó neve ne használjon ékezetes karaktereket illetve helykihagyást. Következő a változó kiíratása. Ezt `echo` parancsal történik: `echo $változó neve`. Az echo az utána következő argumentumok kiírásáért felel. Ha a változónak nem értéket adunk, hanem az értékét kérjük le, akkor mindig rakunk egy `$`-et a változó neve elé ügyelve arra, hogy ne legyen közte szóköz.
 
 ```bash
 #!/bin/bash
 VAR="Hello World"
 echo $VAR
 ```
-Mivel ez egy scripting language így a változók deklarálása nincs túlbonyolítva. Erre jó példa a következő kódrészlet:
+Mivel ez egy scripting language így a változók deklarálása nincs túlbonyolítva, nem szükséges a típus megadása. Erre jó példa a következő kódrészlet:
 
 ```bash
 string="Hello World"
@@ -62,7 +66,7 @@ echo "Fájlnév $0"
 echo "1. argumentum $1"
 echo "2. argumentum $2"
 ```
-Ezt a programot miután elmentjük a következő képpen kell haználni:
+Ezt a programot miután elmentjük a következő képpen kell használni:
 
 ```bash
 ./args.sh elso masodik
@@ -70,21 +74,21 @@ Ezt a programot miután elmentjük a következő képpen kell haználni:
 Ez vissza fogja adni nekünk az fájlnév után következő első illetve második argumentumot.
 
 ## Array vagyis tömb használata
-Egy változó egyszerre 1 értéket tárolhat. Ezzel szemben egy array többet is tud, ez azt jelenti, hogy új változók létrehozása helyett a már meglévő tömbhöz kell hozzáadnunk még 1 elemet. Az elemekre index számmal tudunk hivatkozni, a legelső index szám a 0. Az array használatára jó példa egy névsor létrehozása.
+Egy változó egyszerre egy értéket tárolhat. Ezzel szemben egy array többet is tud, ez azt jelenti, hogy egy új változó létrehozása helyett a már meglévő tömbhöz kell hozzáadnunk még egy elemet. Az elemekre index számmal tudunk hivatkozni, a legelső index szám a 0. Az array használatára jó példa egy névsor létrehozása.
 
 ``` bash
 NAME01="Attila"
 NAME02="Béla"
 NAME03="Károly"
 ```
-A változók egyenkénti ledekralásáa helyett ezeket egy tömbbe rendeljük. Így elég a név index számát tudnunk és nemkell egy új változóra hivatkoznunk.
+A változók egyenkénti dekralásáa helyett ezeket egy tömbbe rendeljük. Így elég a tömbelem index számát tudnunk és nem kell egy új változóra hivatkoznunk.
 
 ```bash
 NAME[0]="Attila"
 NAME[1]="Béla"
 NAME[2]="Károly"
 ```
-Így elérjük azt, hogy sok változó helyett egy tömbben gyűjtjük össze a neveket és ha komplexabb programot írunk, akkor sokkal egyszerűbb dolgunk lesz. Az arrayre való hivatkozásra egy egyszerű példa:
+Így érjük el azt, hogy sok változó helyett egy tömbben gyűjtjük össze a neveket és ha komplexabb programot írunk, akkor sokkal egyszerűbb dolgunk lesz. Az arrayre való hivatkozásra egy egyszerű példa:
 
 ```bash
 #!/bin/sh
@@ -95,7 +99,7 @@ echo "Első Index: ${NAME[0]}"
 echo "Második Index: ${NAME[1]}"
 echo "harmadik Index: ${NAME[2]}"
 ```
-Itt a `NAME` tömbnek megadjuk az első 3 értékét, majd kiíratjuk. A tömbre való hivatkozáskor `${ }` közé rakjuk az array nevét, majd `[]` közé az indexét az elemnek, amire hivatkozni akarunk.
+Itt a `NAME` tömbnek megadjuk az első három értékét, majd kiíratjuk. A tömbre való hivatkozáskor `${ }` közé rakjuk az array nevét, majd `[]` közé az indexét az elemnek, amire hivatkozni akarunk.
 
 ## If használata
 At if statement egy feltételből és egy állításból áll. Erre egy egyszerű példa:
@@ -109,14 +113,14 @@ fi
 Itt felmerülhet a kérdés, hogy mit jelent a `-gt`, ez a nagyobb mintnek felel meg, shell scriptben az operátorok mid hasonló képpen kell megadni. Ezek magyarázata:
 
 ```bash
--eq: equal to = egyenlő vele
--ne: not equal to = nem egyenlő vele
--lt: less than = kisebb mint
--le: less than or equal to = kisebb mint vagy egyenlő
--gt: greater than = nagyobb mint
--ge: greater than or equal to = nagyobb mint vagy egyenlő
+-eq: equal to = egyenlő vele, ==
+-ne: not equal to = nem egyenlő vele, !=
+-lt: less than = kisebb mint, <
+-le: less than or equal to = kisebb mint vagy egyenlő, <=
+-gt: greater than = nagyobb mint, >
+-ge: greater than or equal to = nagyobb mint vagy egyenlő, >=
 ```
-Ez számokra vonatkozik, viszont fájlokkal is vannak operátorok. Ekek közül a fontosabbak:
+Ez számokra vonatkozik, viszont fájlokkal is vannak operátorok. Ezek közül a fontosabbak:
 
 ```bash
 -e	a fájl létezik és
@@ -138,7 +142,7 @@ else
 fi
 ```
 ## While loop
-A while loop addig futtatja a tartalmát újra és újra, amég az állítása igaz. Ezt legtöbbször egy boolean változóval teszik, viszont egy változó értékének ellenörzését is szokták while loop állításába tenni, viszont erre legtöbb esetben a for loop sokkal előnyösebb. A while loopra egy példa:
+A while loop addig futtatja a tartalmát újra és újra, amég az állítása igaz. Ezt legtöbbször egy boolean változóval teszik, viszont egy változó értékének ellenörzését is szokták while loop állításba tenni, viszont erre legtöbb esetben a for loop sokkal előnyösebb. A while loopra egy példa:
 
 ```bash
 n=1
@@ -166,7 +170,7 @@ do
     echo "$num"
 done
 ```
-Ez hasonló képpen fog lefutni mint az előző példa, viszont ezesetben 1-től 100-ig 10-esével növeki a num változó értékét. A for loopot lehet több féle képpen is hasznánli, viszont van egy mód, amit más nyelvekben is előszeretettel használnak az átláthatósága miatt.
+Ez hasonló képpen fog lefutni mint az előző példa, viszont ezesetben 1-től 100-ig 10-esével növeli a num változó értékét. A for loopot lehet többféle képpen is hasznánli, viszont van egy mód, amit más nyelvekben is előszeretettel használnak az átláthatósága miatt.
 
 ```bash
 for (( i=1; i -et 10; i++))
@@ -175,4 +179,4 @@ do
 done
 ```
 ## Összefoglaló
-A shell script nagyon hasznos tud leni, ha unix alapú rendszeren akarunk gyorsan kódot írni valamire és nem akarunk törődni modulok importálásával és összetett szintaktikák alkalmázásával. Bármely linux felhasználónak jól jöhet néha egy minimális shell script tudás, mivel ezzel folgyorsíthatjuk a munkánkat és kényelmesebbé tehetjük, hosszú távon nagyon kifizetődő.Hosszú, gyakran használt parancsokat ha nem akarunk minden alkalommal begépelni, mikor szükségünk van rá, akkor a legjobb megoldás ezeket egy shell script fájlba beleírni és ezt a fájlt futtathatóvá tenni.
+A shell script nagyon hasznos tud lenni, ha unix alapú rendszereken akarunk műveleteket végezni, nem szeretnénk törődni modulok importálásával, valamint összetett szintaktikák alkalmázásával. Bármely linux felhasználónak jó szolgálatot tesz egy minimális shell script tudás, mivel ezzel folgyorsíthatjuk, kényelmesebbé tehetjük a munkánkat, hosszú távon nagyon kifizetődő. A terjedelmes, gyakran használt parancsokat automatizálhatjuk, ehhez nem kell mást tennünk, mint parancsainkat egy úgynevezett shell script fájlba írni és ezt a fájlt futtathatóvá tenni.
