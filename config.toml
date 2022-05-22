@@ -52,6 +52,16 @@ pygmentsCodeFences = true
         url     = "cikkek"
         weight  = 2
     [[menu.nav]]
+        name    = "DWM"
+        parent  = "Cikkek"
+        url     = "/tags/dwm"
+        weight  = 1
+    [[menu.nav]]
+        name    = "Kernel"
+        parent  = "Cikkek"
+        url     = "/tags/kernel"
+        weight  = 1
+    [[menu.nav]]
         name    = "Konfiguráció"
         parent  = "Cikkek"
         url     = "/tags/konfiguráció"

@@ -1,4 +1,4 @@
-{{ if .Site.Params.blog.enable }}
+{{ if .Site.Params.blog.enable }}:
 {{ "<!-- Blog Section Start -->" | safeHTML }}
 <section class="blog section" id="blog">
     <div class="container">
@@ -12,13 +12,20 @@
             </div>
         </div>
         <div class="row">
-            {{ range first 3 .Site.RegularPages}}
+            {{ range first 3 .Site.RegularPages }}
             {{ "<!-- single blog post -->" | safeHTML }}
             <article class="col-12 col-md-4">
                 <div class="post-item">
+					{{ if .Params.image }}
                     <div class="post-thumb">
-                        <img class="img-fluid shadow rounded" src="{{ .Params.image | absURL }}" alt="Generic placeholder image">
+                        <img class="img-fluid shadow rounded" src="{{ .Params.image | absURL }}">
                     </div>
+					{{ else }}
+                    <div class="post-thumb">
+                        <img align="center" class="img-fluid shadow rounded" src="{{ "/images/magyarch-logo.png" | absURL }}">
+                    </div>
+
+					{{ end }}
                     <div class="post-title">
                         <h3 class="mt-0">
                             <a href="{{ .Permalink }}">{{ .Title }}</a>
