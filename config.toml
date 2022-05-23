@@ -52,6 +52,11 @@ pygmentsCodeFences = true
         url     = "cikkek"
         weight  = 2
     [[menu.nav]]
+        name    = "BSPWM"
+        parent  = "Cikkek"
+        url     = "/tags/bspwm"
+        weight  = 1
+    [[menu.nav]]
         name    = "DWM"
         parent  = "Cikkek"
         url     = "/tags/dwm"
