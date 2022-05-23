@@ -3,6 +3,7 @@ title: "Hogyan lehet kernelt váltani Arch Linuxon"
 date: 2021-03-11T02:07:06+02:00
 draft: false
 tags: [ "Konfiguráció", "Kernel" ]
+image: images/arch.svg
 ---
 
 Elsőként beszéljünk arról milyen kernel változatok léteznek, amelyek Arch felhasználóként elérhetők.
