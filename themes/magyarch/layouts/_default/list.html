@@ -11,9 +11,15 @@
             {{ "<!-- single blog post -->" | safeHTML }}
             <article class="col-12 col-md-2 vid-container">
                 <div class="post-item-vid">
+					{{ if .Params.image }}
                     <div class="post-thumb">
-                        <img class="img-fluid shadow rounded" src="{{ with .Params.image }}{{ . | absURL }}{{ end }}" alt="Generic placeholder image">
+                        <img class="img-fluid shadow rounded" src="{{ with .Params.image }}{{ . | absURL }}{{ end }}">
                     </div>
+					{{ else }}
+                    <div class="post-thumb">
+						<img class="img-fluid shadow rounded" src="{{ "/images/magyarch-logo.png" | absURL }}">
+                    </div>
+					{{ end }}
                     <div class="post-title">
                         <h4 class="mt-0">
                             <a href="{{ .Permalink }}">{{ .Title }}</a>
@@ -71,9 +77,15 @@
             {{ "<!-- single blog post -->" | safeHTML }}
             <article class="col-12 col-md-4">
                 <div class="post-item">
+					{{ if .Params.image }}
                     <div class="post-thumb">
-                        <img class="img-fluid shadow rounded" src="{{ with .Params.image }}{{ . | absURL }}{{ end }}" alt="Generic placeholder image">
+                        <img class="img-fluid shadow rounded" src="{{ with .Params.image }}{{ . | absURL }}{{ end }}">
                     </div>
+					{{ else }}
+                    <div class="post-thumb">
+						<img class="img-fluid shadow rounded" src="{{ "/images/magyarch-logo.png" | absURL }}">
+                    </div>
+					{{ end }}
                     <div class="post-title">
                         <h3 class="mt-0">
                             <a href="{{ .Permalink }}">{{ .Title }}</a>
