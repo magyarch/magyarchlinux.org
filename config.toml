@@ -67,6 +67,11 @@ pygmentsCodeFences = true
         url     = "/tags/konfiguráció"
         weight  = 1
     [[menu.nav]]
+        name    = "Virtualizáció"
+        parent  = "Cikkek"
+        url     = "/tags/virtualizáció"
+        weight  = 1
+    [[menu.nav]]
         name    = "Tamogatas"
         url     = "tamogatas"
         weight  = 3
