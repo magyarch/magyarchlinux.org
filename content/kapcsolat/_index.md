@@ -14,19 +14,10 @@ Kérdésed van, vagy csak beszélgetnél a fejlesztőkkel és más felhasználó
 ```
 ```
 #### Közreműködők
-- zver43
-- isti
-- taklert
-- winux
-```
-```
-```
-```
-```
-```
-```
-```
-```
-```
-```
-```
+- Darkstreet: [ZeroLogDNS](https://zerologdns.com/), [Docta](https://docta.dev/)
+- Dovahkiin: [Bitlords](https://bitlords.hu/), [ZeroLogDNS](https://zerologdns.com/)
+- Isti
+- Taklert
+- Winux: [winux.it](https://winux.it/)
+- WoLfY: [wolfy.me](https://wolfy.me/), [Bitlords](https://bitlords.hu/)
+- Zver43
