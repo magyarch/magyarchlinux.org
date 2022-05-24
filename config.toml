@@ -82,6 +82,11 @@ pygmentsCodeFences = true
         url     = "/tags/virtualizáció"
         weight  = 1
     [[menu.nav]]
+        name    = "Xmonad"
+        parent  = "Cikkek"
+        url     = "/tags/xmonad"
+        weight  = 1
+    [[menu.nav]]
         name    = "Tamogatas"
         url     = "tamogatas"
         weight  = 3
