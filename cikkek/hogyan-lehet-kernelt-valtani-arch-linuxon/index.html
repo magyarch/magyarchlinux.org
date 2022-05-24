@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html class="no-js" lang="hu-hu"><head>
+
+
+<!-- Plausible Analytics -->
+<script defer data-domain="" src=""></script>
+<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="Elsőként beszéljünk arról milyen kernel változatok léteznek, amelyek Arch felhasználóként elérhetők.
+Kernel Mainline kernel: Ez a legújabb legfrissebb stabil Linux kernel.Ezt használják legtöbben. Miért? - mert támogatja a legfrissebb hardvereket.
+Lts kernel: Ez a legújabb, hosszú távon támogatott Linux kernel. Nincs előre meghatározott életciklusa, de biztos lehet benne, hogy sokkal hosszabb ideig élvezheti ugyanazt a kernel verziót.
+Linux hardened: A legújabb stabil kernel edzett verziója, amit tudni kell nem biztos, hogy minden program megfelelően fog futni használatakor.">
+
+<meta name="generator" content="Hugo 0.99.1" />
+
+
+  <title>Hogyan lehet kernelt váltani Arch Linuxon</title>
+
+
+<!-- Mobile Specific Meta -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Favicon -->
+<link rel="shortcut icon" type="image/jpg" href="https://magyarchlinux.org/images/magyarch-logo.png" />
+
+<!-- Stylesheets -->
+<!-- Themefisher Icon font -->
+<link rel="stylesheet" href="https://magyarchlinux.org/plugins/themefisher-font/style.css">
+<!-- bootstrap.min css -->
+<link rel="stylesheet" href="https://magyarchlinux.org/plugins/bootstrap/dist/css/bootstrap.min.css">
+<!-- Lightbox.min css -->
+<link rel="stylesheet" href="https://magyarchlinux.org/plugins/lightbox2/dist/css/lightbox.min.css">
+<!-- Slick Carousel -->
+<link rel="stylesheet" href="https://magyarchlinux.org/plugins/slick-carousel/slick/slick.css">
+<link rel="stylesheet" href="https://magyarchlinux.org/plugins/slick-carousel/slick/slick-theme.css">
+<!-- Main Stylesheet -->
+
+
+<link rel="stylesheet" href="https://magyarchlinux.org/css/style.min.css" media="screen">
+
+</head>
+<body id="body"><!-- Fixed Navigation -->
+
+<section class="header navigation">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar navbar-expand-md">
+                    <a class="navbar-brand" href="https://magyarchlinux.org/">
+                        <img src="https://magyarchlinux.org/images/magyarch-logo.png" alt="MagyArch Linux">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+                        aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="tf-ion-android-menu"></span>
+                    </button>
+                    
+                    <div id="drapeaux">
+                        
+                        
+                    </div>
+                    <div class="collapse navbar-collapse" id="navigation">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                    href="https://magyarchlinux.org/">Kezdőlap</a>
+                            </li>
+                            
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://magyarchlinux.org/letoltes">Letöltés</a>
+                            </li>
+                            
+                            
+                            
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="https://magyarchlinux.org/cikkek">Cikkek</a>
+                                <div class="dropdown-menu">
+                                    
+                                    <a class="dropdown-item" href="https://magyarchlinux.org/tags/bspwm">BSPWM</a>
+                                    
+                                    <a class="dropdown-item" href="https://magyarchlinux.org/tags/dwm">DWM</a>
+                                    
+                                    <a class="dropdown-item" href="https://magyarchlinux.org/tags/eszk%C3%B6z%C3%B6k">Eszközök</a>
+                                    
+                                    <a class="dropdown-item" href="https://magyarchlinux.org/tags/kernel">Kernel</a>
+                                    
+                                    <a class="dropdown-item" href="https://magyarchlinux.org/tags/konfigur%C3%A1ci%C3%B3">Konfiguráció</a>
+                                    
+                                    <a class="dropdown-item" href="https://magyarchlinux.org/tags/virtualiz%C3%A1ci%C3%B3">Virtualizáció</a>
+                                    
+                                    <a class="dropdown-item" href="https://magyarchlinux.org/tags/xmonad">Xmonad</a>
+                                    
+                                </div>
+                            </li>
+                            
+                            
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://magyarchlinux.org/tamogatas">Támogatás</a>
+                            </li>
+                            
+                            
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://magyarchlinux.org/hirek">Hírek</a>
+                            </li>
+                            
+                            
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://magyarchlinux.org/kapcsolat">Kapcsolat</a>
+                            </li>
+                            
+                            
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section><div id="content">
+
+<section class="blog-single section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+				
+                <img src="https://magyarchlinux.org/images/arch.svg" class="w-100 mb-3">
+				
+                <h2>Hogyan lehet kernelt váltani Arch Linuxon</h2>
+                <div class="post-meta mb-5">
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <span>2021. március 11</span>
+                        </li>
+                    </ul>
+                </div>
+                <p>Elsőként beszéljünk arról milyen kernel változatok léteznek, amelyek Arch felhasználóként elérhetők.</p>
+<h2 id="kernel">Kernel</h2>
+<h3 id="mainline-kernel">Mainline kernel:</h3>
+<p>Ez a legújabb legfrissebb stabil Linux kernel.Ezt használják legtöbben. Miért? - mert támogatja a legfrissebb hardvereket.</p>
+<h3 id="lts-kernel">Lts kernel:</h3>
+<p>Ez a legújabb, hosszú távon támogatott Linux kernel. Nincs előre meghatározott életciklusa, de biztos lehet benne, hogy sokkal hosszabb ideig élvezheti ugyanazt a kernel verziót.</p>
+<h3 id="linux-hardened">Linux hardened:</h3>
+<p>A legújabb stabil kernel edzett verziója, amit tudni kell nem biztos, hogy minden program megfelelően fog futni használatakor.</p>
+<h3 id="zen-kernel">Zen kernel:</h3>
+<p>Ez a kernel ami a legtöbbet hozza ki rendszeréből, alapvetően a legújabb kernel optimalizált, tweakelt verziója.</p>
+<h2 id="folyamat">Folyamat:</h2>
+<ol>
+<li>Telepítse a választott Linux kernelt (a <code>pacman</code> paranccsal telepítheti)</li>
+<li>Grub konfigurációs fájl szerkesztése.</li>
+</ol>
+<p>Többféle Linux kernelt is telepíthet a rendszerbe, és a grub menüből kiválaszthatja, melyik kernelt használja.</p>
+<h2 id="példák">Példák:</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo pacman -S linux <span style="color:#75715e">#(mainline kernel)</span>
+</span></span><span style="display:flex;"><span>sudo pacman -S linux-lts <span style="color:#75715e">#(hosszú távon támogatott)</span>
+</span></span><span style="display:flex;"><span>sudo pacman -S linux-hardened <span style="color:#75715e">#(edzett kernel)</span>
+</span></span><span style="display:flex;"><span>sudo pacman -S linux-zen <span style="color:#75715e">#(zen kernel)</span>
+</span></span></code></pre></div><p>Az Arch Linux alapértelmezés szerint a legújabb kernelváltozatot használja. További verziók a speciális beállítások alatt érhetők el.</p>
+<h2 id="szerkesztés">Szerkesztés</h2>
+<ol>
+<li>
+<p>Tiltsa le a grub almenüt, hogy az összes elérhető kernelváltozat megjelenjen a főképernyőn (a speciális beállítások helyett).</p>
+</li>
+<li>
+<p>Konfigurálja a grub-ot, hogy visszahívja az utolsó kernelbejegyzést, és alapértelmezett bejegyzésként használja a következő alkalommal történő indításhoz.</p>
+</li>
+</ol>
+<p>Nyissa meg a terminált, és szerkessze a konfigurációs fájlt a kedvenc terminálalapú szövegszerkesztőben. Én a neovimet ajánlom.</p>
+<p><code>sudo nvim /etc/default/grub</code></p>
+<p><img src="/images/grub.png" alt="grub config"></p>
+<p>Meg változtattam két alap értéket és egy új sort adtam hozzá:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>GRUB_DISABLE_SUBMENU<span style="color:#f92672">=</span>y <span style="color:#75715e"># (almenü letiltása)</span>
+</span></span><span style="display:flex;"><span>GRUB_DEFAULT<span style="color:#f92672">=</span>saved     <span style="color:#75715e"># (utolsó kernelbejegyzés mentése)</span>
+</span></span><span style="display:flex;"><span>GRUB_SAVEDEFAULT<span style="color:#f92672">=</span>true  <span style="color:#75715e"># (mentett bejegyzés használata)</span>
+</span></span></code></pre></div><p>Mentse el a konfigurációs fájlt, és lépjen ki</p>
+<p><strong>FONTOS!! Útolsó lépésként generáljuk újra a grub konfigurációs fájlt!</strong></p>
+<p>Nyisson egy terminalt és írja be a következő parancsot:</p>
+<p><code>sudo grub-mkconfig -o /boot/grub/grub.cfg</code></p>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+        </div><!-- Footer Start -->
+<footer id="footer" class="bg-one">
+    <div class="footer-bottom">
+        <h5>2022 Minden jog fenntartva.</h5>
+        <h6>A weboldal kizárólag szabad szoftverek használatával készült.
+            <br>A forráskód magtalálható a
+            <a href="https://github.com/magyarch/magyarchlinux.org/" target="_blank">GitHub</a>-on.
+        </h6>
+    </div>
+</footer>
+<!-- end footer -->
+
+
+<!-- Essential Scripts -->
+
+<!-- jQuery -->
+<script src="https://magyarchlinux.org/plugins/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="https://magyarchlinux.org/plugins/bootstrap/dist/js/popper.min.js"></script>
+<script src="https://magyarchlinux.org/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- Parallax -->
+<script src="https://magyarchlinux.org/plugins/parallax/jquery.parallax-1.1.3.js"></script>
+<!-- lightbox -->
+<script src="https://magyarchlinux.org/plugins/lightbox2/dist/js/lightbox.min.js"></script>
+<!-- Slick Carousel -->
+<script src="https://magyarchlinux.org/plugins/slick-carousel/slick/slick.min.js"></script>
+<!-- Portfolio Filtering -->
+<script src="https://magyarchlinux.org/plugins/filterzr/jquery.filterizr.min.js"></script>
+<!-- Smooth Scroll js -->
+<script src="https://magyarchlinux.org/plugins/smooth-scroll/dist/js/smooth-scroll.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
+<!-- Main Script -->
+
+<script src="https://magyarchlinux.org/js/script.min.js"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html class="no-js" lang="hu-hu"><head>
+
+
+<!-- Plausible Analytics -->
+<script defer data-domain="" src=""></script>
+<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="A Polybar teljesen független, de kifejezetten az i3 és a BSPWM kompatibilitásra tervezték.Használhatja más ablakkezelőkel is.Csak további konfigurációt igényel a testreszabásuk.A bar ugalmas és egyszerű ,könnyen témázható nem igényel bonyolult parancsfájlokat, de ha úgy dönt, létrehozhat egyedi modulokat szkriptekkel.Célja hogy segítse a felhasználókat abban, hogy szép és jól testreszabható állapotsorokat építsenek az asztali környezetükhöz.
+Telepítés Arch felhasználok számára elérhető az AUR-on keresztül, ha nem különösebben kedveli vagy nem bízik ezekben a forrásokban, akkor maga is elkészítheti.">
+
+<meta name="generator" content="Hugo 0.99.1" />
+
+
+  <title>Polybar alapozó</title>
+
+
+<!-- Mobile Specific Meta -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Favicon -->
+<link rel="shortcut icon" type="image/jpg" href="https://magyarchlinux.org/images/magyarch-logo.png" />
+
+<!-- Stylesheets -->
+<!-- Themefisher Icon font -->
+<link rel="stylesheet" href="https://magyarchlinux.org/plugins/themefisher-font/style.css">
+<!-- bootstrap.min css -->
+<link rel="stylesheet" href="https://magyarchlinux.org/plugins/bootstrap/dist/css/bootstrap.min.css">
+<!-- Lightbox.min css -->
+<link rel="stylesheet" href="https://magyarchlinux.org/plugins/lightbox2/dist/css/lightbox.min.css">
+<!-- Slick Carousel -->
+<link rel="stylesheet" href="https://magyarchlinux.org/plugins/slick-carousel/slick/slick.css">
+<link rel="stylesheet" href="https://magyarchlinux.org/plugins/slick-carousel/slick/slick-theme.css">
+<!-- Main Stylesheet -->
+
+
+<link rel="stylesheet" href="https://magyarchlinux.org/css/style.min.css" media="screen">
+
+</head>
+<body id="body"><!-- Fixed Navigation -->
+
+<section class="header navigation">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar navbar-expand-md">
+                    <a class="navbar-brand" href="https://magyarchlinux.org/">
+                        <img src="https://magyarchlinux.org/images/magyarch-logo.png" alt="MagyArch Linux">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+                        aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="tf-ion-android-menu"></span>
+                    </button>
+                    
+                    <div id="drapeaux">
+                        
+                        
+                    </div>
+                    <div class="collapse navbar-collapse" id="navigation">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                    href="https://magyarchlinux.org/">Kezdőlap</a>
+                            </li>
+                            
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://magyarchlinux.org/letoltes">Letöltés</a>
+                            </li>
+                            
+                            
+                            
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="https://magyarchlinux.org/cikkek">Cikkek</a>
+                                <div class="dropdown-menu">
+                                    
+                                    <a class="dropdown-item" href="https://magyarchlinux.org/tags/bspwm">BSPWM</a>
+                                    
+                                    <a class="dropdown-item" href="https://magyarchlinux.org/tags/dwm">DWM</a>
+                                    
+                                    <a class="dropdown-item" href="https://magyarchlinux.org/tags/eszk%C3%B6z%C3%B6k">Eszközök</a>
+                                    
+                                    <a class="dropdown-item" href="https://magyarchlinux.org/tags/kernel">Kernel</a>
+                                    
+                                    <a class="dropdown-item" href="https://magyarchlinux.org/tags/konfigur%C3%A1ci%C3%B3">Konfiguráció</a>
+                                    
+                                    <a class="dropdown-item" href="https://magyarchlinux.org/tags/virtualiz%C3%A1ci%C3%B3">Virtualizáció</a>
+                                    
+                                    <a class="dropdown-item" href="https://magyarchlinux.org/tags/xmonad">Xmonad</a>
+                                    
+                                </div>
+                            </li>
+                            
+                            
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://magyarchlinux.org/tamogatas">Támogatás</a>
+                            </li>
+                            
+                            
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://magyarchlinux.org/hirek">Hírek</a>
+                            </li>
+                            
+                            
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://magyarchlinux.org/kapcsolat">Kapcsolat</a>
+                            </li>
+                            
+                            
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section><div id="content">
+
+<section class="blog-single section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+				
+                <img src="https://magyarchlinux.org/images/polybar.svg" class="w-100 mb-3">
+				
+                <h2>Polybar alapozó</h2>
+                <div class="post-meta mb-5">
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <span>2021. február 10</span>
+                        </li>
+                    </ul>
+                </div>
+                <p>A Polybar teljesen független, de kifejezetten az i3 és a BSPWM kompatibilitásra tervezték.Használhatja más ablakkezelőkel is.Csak további konfigurációt igényel a testreszabásuk.A bar ugalmas és egyszerű ,könnyen témázható nem igényel bonyolult parancsfájlokat, de ha úgy dönt, létrehozhat egyedi modulokat szkriptekkel.Célja hogy segítse a felhasználókat abban, hogy szép és jól testreszabható állapotsorokat építsenek az asztali környezetükhöz.</p>
+<h2 id="telepítés">Telepítés</h2>
+<p>Arch felhasználok számára elérhető az AUR-on keresztül, ha nem különösebben kedveli vagy nem bízik ezekben a forrásokban, akkor maga is elkészítheti. A polybar-t a projekt Github oldalán találja meg.</p>
+<h2 id="polybar-beállítása">Polybar beállítása</h2>
+<p>A Polybar-t telepítés után konfigurálnia kell. Az egyik nagy erőssége a rugalmasság, amelyet a konfiguráció viszonylag minimális erőfeszítéssel nyújt önnek. Az alapértelmezett konfigurációt letöltve másolhatja, és módosíthatja a konfigurációt, vagy a github-on található kész konfigurációt, és átmásolhatja annak darabjait egy új fájlba, amely az ön konfigurációjává válik. Bármelyik működik, úgyhogy válassza ki a stílusának megfelelőt. Nem számít, melyiket választja, először hozza létre a konfigurációs könyvtárat.</p>
+<p><code>mkdir ~/.config/polybar/</code></p>
+<p>Ezután csomagolja ki az alap konfigurációt ebbe a mappába.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd ~/.config/polybar
+</span></span><span style="display:flex;"><span>sudo cp -iv /usr/share/doc/polybar/config ~ /.config/polybar/config
+</span></span></code></pre></div><h2 id="indítás">Indítás</h2>
+<p>A Polybar indítása nagyon egyszerű. Szükségünk van egy indító szkriptre vagy egyszerűen hívatkozzunk a kivánt sáv: <code>polybar example</code> nevére, attól függ alap vagy már előre konfigolt fájlt használ. Választható (egyéni preferencia) hogy a <code>.xinitrc</code>-ből, <code>.xprofile</code>-ból vagy az ablakkezelő konfigurációs fájlból induljon a panel. Ha például szkriptel szeretné elíndítani a bar-t, keresse fel az <a href="https://wiki.archlinux.org/index.php/Polybar" target="_blank" rel="noreferrer noopener">Arch-wiki</a> oldalát.</p>
+<p>Hozzon létre egy futtatható fájlt például <code>$HOME/.config/polybar/launch.sh</code>, amely tartalmazza az indításhoz szűkséges szkriptet:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Terminate already running bar instances</span>
+</span></span><span style="display:flex;"><span>killall -q polybar
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Wait until the processes have been shut down</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> pgrep -u $UID -x polybar &gt;/dev/null; <span style="color:#66d9ef">do</span> sleep 1; <span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Launch Polybar, using default config location ~/.config/polybar/config</span>
+</span></span><span style="display:flex;"><span>polybar example &amp;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;Polybar launched...&#34;</span>
+</span></span></code></pre></div><p>Ez a szkript azt jelenti, hogy az ablakkezelő újraindítása a Polybar-t is újraindítja.</p>
+<p>Bspwm használata esetén adja hozzá a következőt a bspwmrc fájlhoz:</p>
+<p><code>$HOME/.config/polybar/launch.sh</code></p>
+<p>i3 használata esetén adja hozzá a következőket a konfigurációhoz:</p>
+<p><code>exec_always --no-startup-id $ HOME/.config/polybar/launch.sh</code></p>
+<h2 id="témázás">Témázás</h2>
+<p>A színek nyilvánvaló első dolgok, amelyeket módosítani akar.
+Sokféleképpen kezelhetjük a színeket. Vessen egy pillantást az alapértelmezett konfigurációra. A <code>[colors]</code> szakasznak az alábbi példának kell lennie.</p>
+<h3 id="színek">Színek</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>colors<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>;background <span style="color:#f92672">=</span> <span style="color:#e6db74">${</span>xrdb:color0:#222<span style="color:#e6db74">}</span> - <span style="color:#75715e">#.Xresources mód</span>
+</span></span><span style="display:flex;"><span>background <span style="color:#f92672">=</span> <span style="color:#75715e">#222</span>
+</span></span><span style="display:flex;"><span>background-alt <span style="color:#f92672">=</span> <span style="color:#75715e">#444 - normal mód (hexkód)</span>
+</span></span><span style="display:flex;"><span>;foreground <span style="color:#f92672">=</span> <span style="color:#e6db74">${</span>xrdb:color7:#222<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>foreground <span style="color:#f92672">=</span> <span style="color:#75715e">#dfdfdf</span>
+</span></span><span style="display:flex;"><span>foreground-alt <span style="color:#f92672">=</span> <span style="color:#75715e">#555</span>
+</span></span><span style="display:flex;"><span>primary <span style="color:#f92672">=</span> <span style="color:#75715e">#ffb52a</span>
+</span></span><span style="display:flex;"><span>secondary <span style="color:#f92672">=</span> <span style="color:#75715e">#e60053</span>
+</span></span><span style="display:flex;"><span>alert <span style="color:#f92672">=</span> <span style="color:#75715e">#bd2c40</span>
+</span></span></code></pre></div><p>Figyelje meg a színek beállításának két különböző módját. Az egyik csak sima hex kódokat használ, ellenben a másik színeket importál a <code>.Xresources</code>-ból. Valószínűleg ez a leghatékonyabb, és garantálja, hogy a Polybar mindig illeszkedik a rendszer színvilágához.</p>
+<p><strong>Fontos megjegyezni azt is, hogy ezeket az értékeket a változókhoz rendelik. Ezeket a változókat a konfiguráció során újra felhasználhatja, hogy megkönnyítse az életét, és a színsémáját egységesen tartsa. Elméletileg ezt beállíthatja úgy, hogy egyszer megváltoztathatja a színét <code>.Xresources</code>-ben, és az összes X alkalmazásán, és ez a Polybar konfigurációjának minden modulján keresztül érvényesül.</strong></p>
+<h3 id="bar">Bar</h3>
+<p>Több sávot definiálhat ugyanabban a konfigurációs fájlban. Ezek definiálásához hozzon létre egy blokkot, hasonlót mint a <code>[colors]</code>. Az alapértelmezett sáv a konfigurációban <code>[bar/example]</code>. Vessen egy pillantást rá.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># bar beállitás ( méretek elhelyezkedés stb..)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>bar/example<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>;monitor <span style="color:#f92672">=</span> <span style="color:#e6db74">${</span>env:MONITOR:HDMI-1<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>width <span style="color:#f92672">=</span> 100%
+</span></span><span style="display:flex;"><span>height <span style="color:#f92672">=</span> <span style="color:#ae81ff">27</span>
+</span></span><span style="display:flex;"><span>;offset-x <span style="color:#f92672">=</span> 1%
+</span></span><span style="display:flex;"><span>;offset-y <span style="color:#f92672">=</span> 1%
+</span></span><span style="display:flex;"><span>radius <span style="color:#f92672">=</span> 6.0
+</span></span><span style="display:flex;"><span>fixed-center <span style="color:#f92672">=</span> false
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># háttér és szöveg szín</span>
+</span></span><span style="display:flex;"><span>background <span style="color:#f92672">=</span> <span style="color:#e6db74">${</span>colors.background<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>foreground <span style="color:#f92672">=</span> <span style="color:#e6db74">${</span>colors.foreground<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># sor méret és szín</span>
+</span></span><span style="display:flex;"><span>line-size <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>line-color <span style="color:#f92672">=</span> <span style="color:#75715e">#f00</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># szegély/bar körüli keret</span>
+</span></span><span style="display:flex;"><span>border-size <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>border-color <span style="color:#f92672">=</span> <span style="color:#75715e">#00000000</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># távolság modulok szövegek-nél</span>
+</span></span><span style="display:flex;"><span>padding-left <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>padding-right <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># margók</span>
+</span></span><span style="display:flex;"><span>module-margin-left <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>module-margin-right <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># betűtípus(ok) meghatározása</span>
+</span></span><span style="display:flex;"><span>font-0 <span style="color:#f92672">=</span> fixed:pixelsize<span style="color:#f92672">=</span>10;<span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>font-1 <span style="color:#f92672">=</span> unifont:fontformat<span style="color:#f92672">=</span>truetype:size<span style="color:#f92672">=</span>8:antialias<span style="color:#f92672">=</span>false;<span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>font-2 <span style="color:#f92672">=</span> siji:pixelsize<span style="color:#f92672">=</span>10;<span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># modulok elhelyezkedése a bar-on (bal.közép,jobb)</span>
+</span></span><span style="display:flex;"><span>modules-left <span style="color:#f92672">=</span> bspwm i3
+</span></span><span style="display:flex;"><span>modules-center <span style="color:#f92672">=</span> xwindow
+</span></span><span style="display:flex;"><span>modules-right <span style="color:#f92672">=</span> filesystem xbacklight volume xkeyboard memory cpu wlan eth battery temperature date powermenu
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># a tálca meghatározása</span>
+</span></span><span style="display:flex;"><span>tray-position <span style="color:#f92672">=</span> right
+</span></span><span style="display:flex;"><span>tray-padding <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>;tray-transparent <span style="color:#f92672">=</span> true
+</span></span><span style="display:flex;"><span>;tray-background <span style="color:#f92672">=</span> <span style="color:#75715e">#0063ff</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># eredeti helyzetére áll vissza (nem takarja a bar-t)</span>
+</span></span><span style="display:flex;"><span>;wm-restack <span style="color:#f92672">=</span> bspwm               <span style="color:#75715e"># bspwm</span>
+</span></span><span style="display:flex;"><span>;wm-restack <span style="color:#f92672">=</span> i3                  <span style="color:#75715e"># i3 </span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># felülbírál</span>
+</span></span><span style="display:flex;"><span>;override-redirect <span style="color:#f92672">=</span> true
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># görgetés fel-le</span>
+</span></span><span style="display:flex;"><span>;scroll-up <span style="color:#f92672">=</span> bspwm-desknext       <span style="color:#75715e"># bspwm esetén</span>
+</span></span><span style="display:flex;"><span>;scroll-down <span style="color:#f92672">=</span> bspwm-deskprev
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#görgetés fel-le</span>
+</span></span><span style="display:flex;"><span>;scroll-up <span style="color:#f92672">=</span> i3wm-wsnext          <span style="color:#75715e"># i3 esetén</span>
+</span></span><span style="display:flex;"><span>;scroll-down <span style="color:#f92672">=</span> i3wm-wsprev
+</span></span></code></pre></div><h2 id="végszó">Végszó</h2>
+<p>Most már rendelkeznie kell egy alap ismerettel ahhoz, hogy elkészíthesse saját konfigurációját, és önállóan elmélyülhessen azokban a fantasztikus dolgokban, amelyeket a Polybar-ral tehet.</p>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+        </div><!-- Footer Start -->
+<footer id="footer" class="bg-one">
+    <div class="footer-bottom">
+        <h5>2022 Minden jog fenntartva.</h5>
+        <h6>A weboldal kizárólag szabad szoftverek használatával készült.
+            <br>A forráskód magtalálható a
+            <a href="https://github.com/magyarch/magyarchlinux.org/" target="_blank">GitHub</a>-on.
+        </h6>
+    </div>
+</footer>
+<!-- end footer -->
+
+
+<!-- Essential Scripts -->
+
+<!-- jQuery -->
+<script src="https://magyarchlinux.org/plugins/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="https://magyarchlinux.org/plugins/bootstrap/dist/js/popper.min.js"></script>
+<script src="https://magyarchlinux.org/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- Parallax -->
+<script src="https://magyarchlinux.org/plugins/parallax/jquery.parallax-1.1.3.js"></script>
+<!-- lightbox -->
+<script src="https://magyarchlinux.org/plugins/lightbox2/dist/js/lightbox.min.js"></script>
+<!-- Slick Carousel -->
+<script src="https://magyarchlinux.org/plugins/slick-carousel/slick/slick.min.js"></script>
+<!-- Portfolio Filtering -->
+<script src="https://magyarchlinux.org/plugins/filterzr/jquery.filterizr.min.js"></script>
+<!-- Smooth Scroll js -->
+<script src="https://magyarchlinux.org/plugins/smooth-scroll/dist/js/smooth-scroll.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
+<!-- Main Script -->
+
+<script src="https://magyarchlinux.org/js/script.min.js"></script>
+
+
+
+</body>
+</html>

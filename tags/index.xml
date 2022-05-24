@@ -16,5 +16,59 @@
       <description></description>
     </item>
     
+    <item>
+      <title>DWM</title>
+      <link>https://magyarchlinux.org/tags/dwm/</link>
+      <pubDate>Sat, 13 Mar 2021 01:42:17 +0200</pubDate>
+      
+      <guid>https://magyarchlinux.org/tags/dwm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kernel</title>
+      <link>https://magyarchlinux.org/tags/kernel/</link>
+      <pubDate>Thu, 11 Mar 2021 02:07:06 +0200</pubDate>
+      
+      <guid>https://magyarchlinux.org/tags/kernel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Virtualizáció</title>
+      <link>https://magyarchlinux.org/tags/virtualiz%C3%A1ci%C3%B3/</link>
+      <pubDate>Sun, 28 Feb 2021 03:03:22 +0200</pubDate>
+      
+      <guid>https://magyarchlinux.org/tags/virtualiz%C3%A1ci%C3%B3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>BSPWM</title>
+      <link>https://magyarchlinux.org/tags/bspwm/</link>
+      <pubDate>Tue, 09 Feb 2021 04:34:24 +0200</pubDate>
+      
+      <guid>https://magyarchlinux.org/tags/bspwm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Eszközök</title>
+      <link>https://magyarchlinux.org/tags/eszk%C3%B6z%C3%B6k/</link>
+      <pubDate>Tue, 09 Feb 2021 04:14:03 +0200</pubDate>
+      
+      <guid>https://magyarchlinux.org/tags/eszk%C3%B6z%C3%B6k/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Xmonad</title>
+      <link>https://magyarchlinux.org/tags/xmonad/</link>
+      <pubDate>Fri, 01 Jan 2021 20:46:37 +0200</pubDate>
+      
+      <guid>https://magyarchlinux.org/tags/xmonad/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

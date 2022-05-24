@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html class="no-js" lang="hu-hu"><head>
+
+
+<!-- Plausible Analytics -->
+<script defer data-domain="" src=""></script>
+<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="&ldquo;Magas&rdquo; elrendezés A Tall(Magas) elrendezésben bal oldalon van a fő ablaktábla, a Master ablak és a képernyő felét elfoglalja. Az összes többi ablak megosztja a képernyő jobb felét, és függőlegesen, felülről lefelé halmozódik.
+A Tall(Magas) ablakelrendezésnek három opcionális paramétere van. Az első meghatározza a kezdő ablakok számát a fő ablaktáblán (ami alapértelmezés szerint 1), ez használat közben a mod &#43; ,/.gombokkal módosítható. Mivel a Tall a beépített elrendezések egyike, az xmonad.">
+
+<meta name="generator" content="Hugo 0.99.1" />
+
+
+  <title>Xmonad ablakelrendezés alapozó</title>
+
+
+<!-- Mobile Specific Meta -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Favicon -->
+<link rel="shortcut icon" type="image/jpg" href="https://magyarchlinux.org/images/magyarch-logo.png" />
+
+<!-- Stylesheets -->
+<!-- Themefisher Icon font -->
+<link rel="stylesheet" href="https://magyarchlinux.org/plugins/themefisher-font/style.css">
+<!-- bootstrap.min css -->
+<link rel="stylesheet" href="https://magyarchlinux.org/plugins/bootstrap/dist/css/bootstrap.min.css">
+<!-- Lightbox.min css -->
+<link rel="stylesheet" href="https://magyarchlinux.org/plugins/lightbox2/dist/css/lightbox.min.css">
+<!-- Slick Carousel -->
+<link rel="stylesheet" href="https://magyarchlinux.org/plugins/slick-carousel/slick/slick.css">
+<link rel="stylesheet" href="https://magyarchlinux.org/plugins/slick-carousel/slick/slick-theme.css">
+<!-- Main Stylesheet -->
+
+
+<link rel="stylesheet" href="https://magyarchlinux.org/css/style.min.css" media="screen">
+
+</head>
+<body id="body"><!-- Fixed Navigation -->
+
+<section class="header navigation">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar navbar-expand-md">
+                    <a class="navbar-brand" href="https://magyarchlinux.org/">
+                        <img src="https://magyarchlinux.org/images/magyarch-logo.png" alt="MagyArch Linux">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+                        aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="tf-ion-android-menu"></span>
+                    </button>
+                    
+                    <div id="drapeaux">
+                        
+                        
+                    </div>
+                    <div class="collapse navbar-collapse" id="navigation">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                    href="https://magyarchlinux.org/">Kezdőlap</a>
+                            </li>
+                            
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://magyarchlinux.org/letoltes">Letöltés</a>
+                            </li>
+                            
+                            
+                            
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="https://magyarchlinux.org/cikkek">Cikkek</a>
+                                <div class="dropdown-menu">
+                                    
+                                    <a class="dropdown-item" href="https://magyarchlinux.org/tags/bspwm">BSPWM</a>
+                                    
+                                    <a class="dropdown-item" href="https://magyarchlinux.org/tags/dwm">DWM</a>
+                                    
+                                    <a class="dropdown-item" href="https://magyarchlinux.org/tags/eszk%C3%B6z%C3%B6k">Eszközök</a>
+                                    
+                                    <a class="dropdown-item" href="https://magyarchlinux.org/tags/kernel">Kernel</a>
+                                    
+                                    <a class="dropdown-item" href="https://magyarchlinux.org/tags/konfigur%C3%A1ci%C3%B3">Konfiguráció</a>
+                                    
+                                    <a class="dropdown-item" href="https://magyarchlinux.org/tags/virtualiz%C3%A1ci%C3%B3">Virtualizáció</a>
+                                    
+                                    <a class="dropdown-item" href="https://magyarchlinux.org/tags/xmonad">Xmonad</a>
+                                    
+                                </div>
+                            </li>
+                            
+                            
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://magyarchlinux.org/tamogatas">Támogatás</a>
+                            </li>
+                            
+                            
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://magyarchlinux.org/hirek">Hírek</a>
+                            </li>
+                            
+                            
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://magyarchlinux.org/kapcsolat">Kapcsolat</a>
+                            </li>
+                            
+                            
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section><div id="content">
+
+<section class="blog-single section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+				
+                <img src="https://magyarchlinux.org/images/xmonad.png" class="w-100 mb-3">
+				
+                <h2>Xmonad ablakelrendezés alapozó</h2>
+                <div class="post-meta mb-5">
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <span>2021. január 1</span>
+                        </li>
+                    </ul>
+                </div>
+                <h2 id="magas-elrendezés">&ldquo;Magas&rdquo; elrendezés</h2>
+<p>A Tall(Magas) elrendezésben bal oldalon van a fő ablaktábla, a Master ablak és a képernyő felét elfoglalja. Az összes többi ablak megosztja a képernyő jobb felét, és függőlegesen, felülről lefelé halmozódik.</p>
+<p>A Tall(Magas) ablakelrendezésnek három opcionális paramétere van. Az első meghatározza a kezdő ablakok számát a fő ablaktáblán (ami alapértelmezés szerint 1), ez használat közben a <code>mod + ,</code>/<code>.</code>gombokkal módosítható. Mivel a Tall a beépített elrendezések egyike, az <code>xmonad.hs</code> konfigurációs fájlban nem kell külön importálni.</p>
+<p><code>myLayout = Tall 1 (3/100) (1/2)</code></p>
+<p>Ez a go-to elrendezés, és ez az első, amelyet kap, amikor az xmonad-ot futtatja a dobozból. Gyakori, hogy egy ablak fókuszban van, miközben néhány másodlagos ablak látható, így a Tall elrendezés remekül működik. Nagyon hasznos sok helyzetben, de a jobb oldali ablakok kissé zsúfoltnak tűnnek öt ablakon túl.</p>
+<h2 id="spirál-elrendezés">&ldquo;Spirál&rdquo; elrendezés</h2>
+<p>A spirális elrendezés úgy kezdődik, hogy egy ablak veszi a bal oldali képernyő többségét, majd egy másik ablak foglalja el a fennmaradó rész tetejét, majd egy másik a maradék jobb oldalán, majd a maradék alján, majd a maradék bal oldalán , stb.</p>
+<p>Az ablak által elfoglalt hely nagyságának és a fennmaradó részének népszerű aránya az Aranymetszés (kb. 0,856), amely az ablakokat egy Fibonacci-spirál szimulálására késztetné. Ez azonban nem szükséges, és tetszőleges frakciót tehet.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> XMonad.Layout.Spiral
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">myLayout</span> <span style="color:#f92672">=</span> spiral (<span style="color:#ae81ff">6</span><span style="color:#f92672">/</span><span style="color:#ae81ff">7</span>)
+</span></span></code></pre></div><p>Őszintén szólva úgy gondolom, hogy ennek az elrendezésnek a felhasználása szűk. Előfordult már, hogy hasznos volt egy olyan elrendezés, amelyben az egyes ablakok egymás után kisebbek voltak, és spirálszerűen helyezkedtek el, de a leggyakoribb alkalmazás számomra az volt, hogy megmutassam a barátaimnak, hogy mire képes az xmonad.</p>
+<h2 id="három-oszlop-elrendezés">&ldquo;Három oszlop&rdquo; elrendezés</h2>
+<p>Ahogy a neve is sugallja, a <code>ThreeCol</code> elrendezés három oszlopra osztja a képernyőt: egy elsődleges és két másodlagos. Eredeti formában az elsődleges oszlop a bal oldalon található, és a képernyő felét lefedi. Ezután a következő két ablak vízszintesen osztja meg a képernyő másik felét. Ha van negyedik ablak, akkor a harmadik ablak középre tolódik, és a középső oszlop függőlegesen oszt meg két ablakot. Az ötödik ablak megosztja a jobb oldali oszlopot a negyedik ablakkal. Az összes következő ablak ugyanúgy kerül a két jobb oszlopba.</p>
+<p>A <code>ThreeCol</code> konfigurációja megegyezik a <code>Tall</code> konfigurációjával, az első paraméter az elsődleges ablaktáblában szereplő ablakok kezdő száma, a második paraméter az átméretezés mennyisége, a harmadik pedig a fő oszlop kezdeti aránya.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> XMonad.Layout.ThreeColumns
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">myLayout</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">ThreeCol</span> <span style="color:#ae81ff">1</span> (<span style="color:#ae81ff">3</span><span style="color:#f92672">/</span><span style="color:#ae81ff">100</span>) (<span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>)
+</span></span></code></pre></div><p>Ez az elrendezés különösen hasznos programozáskor, különösen, ha csak egy képernyője van. Az elsődleges ablaktábla tartalmazza a kódot. A másik kettő tartalmaz egy böngészőt dokumentációval (vagy a google kereséseket és a Stack Overflow!), Valamint egy ablakot fordítással és tesztkészlet kimenettel - mindkettő általában jobb, ha függőlegesen helyezzük el.</p>
+<p>Van még egy változat (sok elrendezésnél vannak olyan változatok, amelyek az eredetihez csavart kínálnak) a ThreeColMid nevű, amely ugyanúgy van konfigurálva, mint a ThreeCol, de az elsődleges ablaktáblát középre helyezi, a másik két oszlop mindkét oldalán. Ez különösen nagy a széles képernyőknél, mivel a fontos dolgokat közvetlenül a látókörébe helyezi, a másodlagosakat pedig a perifériára.</p>
+<h2 id="rács-elrendezés">&ldquo;Rács&rdquo; elrendezés</h2>
+<p>A Rács elrendezés az ablakokat vízszintesen és függőlegesen rendezi el, amennyire csak lehetséges. Ha négy ablak van, akkor azok derékszögű grafikonként vannak elrendezve. Ha kilenc ablak van, úgy vannak elrendezve, mint egy tic-tac-toe tábla.
+Ehhez az elrendezéshez nincsenek paraméterek, bár van olyan változata, amely lehetővé teszi az oszlopok és sorok arányának beállítását.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> XMonad.Layout.Grid
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">myLayout</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">Grid</span>
+</span></span></code></pre></div><p>Ez a legjobb elrendezés nagyszámú ablak egyidejű megjelenítéséhez, mivel mindegyik ablak nagyjából azonos méretű.</p>
+<h2 id="multi-cols-elrendezés">&ldquo;Multi-Cols&rdquo; elrendezés</h2>
+<p>A <code>MultiColumns</code> elrendezés egymás mellé rendezi az ablakokat, mindegyik kitölti a teljes függőleges teret és megosztja a vízszintes teret.
+A <code>mod + ,</code>/<code>.</code> billentyűk segítségével több ablak egyesíthető oszlopokká, megosztva a függőleges helyet. Az első és a második paraméter multiCol meghatározza az oszlopok megosztására képes ablakok maximális számát minden oszlopban. A másik két paraméter az egyes oszlopok relatív szélességét írja le, alapértelmezés szerint egyforma méretű oszlopok.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> XMonad.Layout.MultiColumns
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">myLayout</span> <span style="color:#f92672">=</span> multiCol [<span style="color:#ae81ff">1</span>] <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">0.01</span> (<span style="color:#f92672">-</span><span style="color:#ae81ff">0.5</span>)
+</span></span></code></pre></div><p>Ez az elrendezés optimális több terminál megjelenítésére streaming kimenettel. Ilyen módon nagyon geeknek és hűvösnek tűnik.</p>
+<h2 id="teljes-elrendezés">&ldquo;Teljes&rdquo; elrendezés</h2>
+<p>Ez az elrendezés a legegyszerűbb - kitölti a teljes képernyőt egy ablakkal. Az összes többi ablak elrejtőzik mögötte, és a szokásos módon ( <code>alt + tab</code>, vagy <code>mod + j/k</code>) használva kerékpározva elölre viszi őket .
+Ehhez az elrendezéshez nincsenek paraméterek.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#a6e22e">myLayout</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">Full</span>
+</span></span></code></pre></div><p>A teljes elrendezés ideális videók megtekintéséhez, vagy ha egyszerre csak egy dologra kíván koncentrálni. Akkor is jó, ha olyan alkalmazást vagy programot használ, amely már felosztja a képernyőt, és nem akarja elrontani annak belső elrendezését - például a VIM vagy a Tmux osztott képernyős munkamenetét.</p>
+<h1 id="módosítók">Módosítók</h1>
+<p>Az xmonad néhány módosítót is kínál, ezek olyan funkciók, amelyek elfogadják az elrendezést, és valamilyen módon módosítják azokat. A két modósítót így fogom említeni itt Mirror(tükör) és spacing(távolság).</p>
+<p>A Tükör módosító elrendezést készít és 90 fokkal elforgatja. A legjobb példa erre az útmutató, a Mirror Tall(Magas tükör) végleges elrendezése.</p>
+<h2 id="magas-tükör-elrendezés">&ldquo;Magas tükör&rdquo; elrendezés</h2>
+<p>A Mirror Tall elrendezés a Tall elrendezés, de az oldalán elforgatva. A mesterablak a tetején, amely a képernyő teljes felső felét elfoglalja. Az összes többi ablak osztja az alsó felét, balról jobbra.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#a6e22e">myLayout</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">Mirror</span> (<span style="color:#66d9ef">Tall</span> <span style="color:#ae81ff">1</span> (<span style="color:#ae81ff">3</span><span style="color:#f92672">/</span><span style="color:#ae81ff">100</span>) (<span style="color:#ae81ff">3</span><span style="color:#f92672">/</span><span style="color:#ae81ff">5</span>))
+</span></span></code></pre></div><h2 id="spacinggaps-magyarul-távolságrés">Spacing/Gaps magyarul távolság/rés:</h2>
+<p>A másik gyakran használt módosító a spacing. A megadott paramétertől függően ez egy bizonyos szélességű rést ad az egyes ablakok (és a képernyő széle) között, felfedve az ablakok hátterét. Ha a képernyőn lévő területnek van tartaléka, az vizuálisan teret enged az ablakainak a lélegzéshez,ez segíthet megkülönböztetni a hasonló kinézetű ablakokat. Emellett nagyon klassznak tűnik.</p>
+<p>Az xmonad különböző elrendezéseinek legegyszerűbb módja, ha kiválasztja a kedvenc elrendezését, és beírja az xmonad.hs konfigurációs fájlba. Ezután a használat közben nyomja meg a mod + space gombot az elrendezés végigpörgetéséhez (és a mod+ shift+ space-t pedig az első elrendezés visszaállításához).</p>
+<p>Az érthetőség kedvéért azt javaslom, hogy az összes elrendezést határozza meg egy változóban, amely a fő funkción kívül esik, majd utaljon rá a hívásában xmonad. Használja a, háromcsöves kezelőt, ||| a kívánt elrendezések felsorolásához. Használja a haskell függvényalkalmazás-operátorát, a dollárjelet $, hogy módosítót alkalmazzon az egész listára.</p>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+        </div><!-- Footer Start -->
+<footer id="footer" class="bg-one">
+    <div class="footer-bottom">
+        <h5>2022 Minden jog fenntartva.</h5>
+        <h6>A weboldal kizárólag szabad szoftverek használatával készült.
+            <br>A forráskód magtalálható a
+            <a href="https://github.com/magyarch/magyarchlinux.org/" target="_blank">GitHub</a>-on.
+        </h6>
+    </div>
+</footer>
+<!-- end footer -->
+
+
+<!-- Essential Scripts -->
+
+<!-- jQuery -->
+<script src="https://magyarchlinux.org/plugins/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="https://magyarchlinux.org/plugins/bootstrap/dist/js/popper.min.js"></script>
+<script src="https://magyarchlinux.org/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- Parallax -->
+<script src="https://magyarchlinux.org/plugins/parallax/jquery.parallax-1.1.3.js"></script>
+<!-- lightbox -->
+<script src="https://magyarchlinux.org/plugins/lightbox2/dist/js/lightbox.min.js"></script>
+<!-- Slick Carousel -->
+<script src="https://magyarchlinux.org/plugins/slick-carousel/slick/slick.min.js"></script>
+<!-- Portfolio Filtering -->
+<script src="https://magyarchlinux.org/plugins/filterzr/jquery.filterizr.min.js"></script>
+<!-- Smooth Scroll js -->
+<script src="https://magyarchlinux.org/plugins/smooth-scroll/dist/js/smooth-scroll.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
+<!-- Main Script -->
+
+<script src="https://magyarchlinux.org/js/script.min.js"></script>
+
+
+
+</body>
+</html>

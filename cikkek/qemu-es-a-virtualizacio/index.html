@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html class="no-js" lang="hu-hu"><head>
+
+
+<!-- Plausible Analytics -->
+<script defer data-domain="" src=""></script>
+<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="A Qemu egy virtualizációs technológiai emulátor, amely lehetővé teszi az operációs rendszerek és a Linux disztribúciók egyszerű futtatását a jelenlegi rendszeren anélkül, hogy telepítenie kellene őket, vagy ki kellene írni az ISO fájlokat. Olyan, mint a VMware vagy a VirtualBox. Bármikor használhatja bármelyik operációs rendszer futtatását sok eszközön és architektúrán.
+A QEMU ingyenes és nyílt forráskódú program, ami GPL 2. licenc alatt áll, és képes KVM, valamint XEN modelleken futni (ha először engedélyezte a virtualizációs technológiát a BIOS-ból), és rengeteg virtualizációs lehetőséget kínál.">
+
+<meta name="generator" content="Hugo 0.99.1" />
+
+
+  <title>QEMU és a virtualizáció</title>
+
+
+<!-- Mobile Specific Meta -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Favicon -->
+<link rel="shortcut icon" type="image/jpg" href="https://magyarchlinux.org/images/magyarch-logo.png" />
+
+<!-- Stylesheets -->
+<!-- Themefisher Icon font -->
+<link rel="stylesheet" href="https://magyarchlinux.org/plugins/themefisher-font/style.css">
+<!-- bootstrap.min css -->
+<link rel="stylesheet" href="https://magyarchlinux.org/plugins/bootstrap/dist/css/bootstrap.min.css">
+<!-- Lightbox.min css -->
+<link rel="stylesheet" href="https://magyarchlinux.org/plugins/lightbox2/dist/css/lightbox.min.css">
+<!-- Slick Carousel -->
+<link rel="stylesheet" href="https://magyarchlinux.org/plugins/slick-carousel/slick/slick.css">
+<link rel="stylesheet" href="https://magyarchlinux.org/plugins/slick-carousel/slick/slick-theme.css">
+<!-- Main Stylesheet -->
+
+
+<link rel="stylesheet" href="https://magyarchlinux.org/css/style.min.css" media="screen">
+
+</head>
+<body id="body"><!-- Fixed Navigation -->
+
+<section class="header navigation">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar navbar-expand-md">
+                    <a class="navbar-brand" href="https://magyarchlinux.org/">
+                        <img src="https://magyarchlinux.org/images/magyarch-logo.png" alt="MagyArch Linux">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+                        aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="tf-ion-android-menu"></span>
+                    </button>
+                    
+                    <div id="drapeaux">
+                        
+                        
+                    </div>
+                    <div class="collapse navbar-collapse" id="navigation">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                    href="https://magyarchlinux.org/">Kezdőlap</a>
+                            </li>
+                            
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://magyarchlinux.org/letoltes">Letöltés</a>
+                            </li>
+                            
+                            
+                            
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="https://magyarchlinux.org/cikkek">Cikkek</a>
+                                <div class="dropdown-menu">
+                                    
+                                    <a class="dropdown-item" href="https://magyarchlinux.org/tags/bspwm">BSPWM</a>
+                                    
+                                    <a class="dropdown-item" href="https://magyarchlinux.org/tags/dwm">DWM</a>
+                                    
+                                    <a class="dropdown-item" href="https://magyarchlinux.org/tags/eszk%C3%B6z%C3%B6k">Eszközök</a>
+                                    
+                                    <a class="dropdown-item" href="https://magyarchlinux.org/tags/kernel">Kernel</a>
+                                    
+                                    <a class="dropdown-item" href="https://magyarchlinux.org/tags/konfigur%C3%A1ci%C3%B3">Konfiguráció</a>
+                                    
+                                    <a class="dropdown-item" href="https://magyarchlinux.org/tags/virtualiz%C3%A1ci%C3%B3">Virtualizáció</a>
+                                    
+                                    <a class="dropdown-item" href="https://magyarchlinux.org/tags/xmonad">Xmonad</a>
+                                    
+                                </div>
+                            </li>
+                            
+                            
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://magyarchlinux.org/tamogatas">Támogatás</a>
+                            </li>
+                            
+                            
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://magyarchlinux.org/hirek">Hírek</a>
+                            </li>
+                            
+                            
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://magyarchlinux.org/kapcsolat">Kapcsolat</a>
+                            </li>
+                            
+                            
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section><div id="content">
+
+<section class="blog-single section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+				
+                <img src="https://magyarchlinux.org/images/qemu.jpg" class="w-100 mb-3">
+				
+                <h2>QEMU és a virtualizáció</h2>
+                <div class="post-meta mb-5">
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <span>2021. február 28</span>
+                        </li>
+                    </ul>
+                </div>
+                <p>A Qemu egy virtualizációs technológiai emulátor, amely lehetővé teszi az operációs rendszerek és a Linux disztribúciók egyszerű futtatását a jelenlegi rendszeren anélkül, hogy telepítenie kellene őket, vagy ki kellene írni az ISO fájlokat. Olyan, mint a VMware vagy a VirtualBox. Bármikor használhatja bármelyik operációs rendszer futtatását sok eszközön és architektúrán.</p>
+<p>A QEMU ingyenes és nyílt forráskódú program, ami GPL 2. licenc alatt áll, és képes KVM, valamint XEN modelleken futni (ha először engedélyezte a virtualizációs technológiát a BIOS-ból), és rengeteg virtualizációs lehetőséget kínál. Ebben a cikkben elmagyarázzuk a QEMU használatát és telepítését.</p>
+<p>Szerencsére a QEMU szinte az összes hivatalos Linux disztribúciós tárolóból elérhető. Ez jó dolog számunkra, mivel nem kell semmit letöltenünk vagy telepítenünk harmadik fél adattáraiból.</p>
+<h2 id="a-qemu-használata">A QEMU használata</h2>
+<p>Először létre kell hoznunk egy virtuális merevlemez-képet, ha valahova telepíteni akarjuk a virtuális operációs rendszerünket. Ez a képfájl a telepítés után az operációs rendszer összes adatait és fájljait tartalmazza. Ehhez használhatjuk a <code>qemu-img</code> eszközt.
+Egy 30 GB méretű, és qcow2 formátumú képfájl létrehozásához (ez az alapértelmezett formátum a QEMU képekhez) futtassa ezt a parancsot:</p>
+<p><code>qemu-img create -f qcow2 testing-image.img 30G</code></p>
+<p><strong>Fontos! Ne feledje, hogy a <code>home</code> mappában (vagy azon a helyen, ahol a terminált futtatja) most létrejön egy új fájl <code>testing-image.img</code> néven. Vegye figyelembe azt is, hogy ennek a fájlnak a mérete nem 30 gigabájt, csak kb. 450 KB; A QEMU csak akkor használ helyet, ha a virtuális operációs rendszernek szüksége van rá, de a kép maximálisan megengedett területét csak 30 gigabájtra állítja be.</strong></p>
+<p>Most, hogy létrehoztuk a képfájlunkat, ha van egy ISO fájlunk egy Linux disztribúcióhoz vagy bármely más operációs rendszerhez, és azt QEMU használatával szeretnénk tesztelni, és az általunk létrehozott új képfájlt merevlemezként használni, futtathatjuk a következő sort amit mi most (telepítési parancsnak nevezzünk el:</p>
+<p><code>qemu-system-x86_64 -m 2048 -boot d -enable-kvm -vga virtio -smp 4 -net nic -net user -hda testing-image.img -cdrom ~/Letöltések/MagyArchLinux-2021.02-x86_64.iso</code></p>
+<p><strong>Magyarázzuk el az előző parancsrészt:</strong></p>
+<p><code>-m 2048</code>: Itt választottuk ki azt a RAM mennyiséget,(tetszőlegesen változtatható) amelyet a QEMU számára biztosítanunk kell az ISO fájl futtatásakor.</p>
+<p><code>-boot -d</code>: A boot opció lehetővé teszi számunkra, hogy meghatározzuk a rendszerindítási sorrendet, melyik eszközt kell először elindítani. A <code>-d</code> azt jelenti, hogy a CD-ROM lesz az első, majd a QEMU rendszerint a merevlemez képére indul. A <code>-cdrom</code> opciót használtuk, amint az a parancs végén látható. Használhatja a <code>-c</code> parancsot, ha először a merevlemez-képet akarja betölteni.</p>
+<p><code>-enable-kvm</code>: Lehetővé teszi számunkra, hogy a KVM technológiát felhasználva a kívánt architektúrát utánozzuk. Enélkül a QEMU nagyon lassú szoftver-megjelenítést fog használni. Ezért kell használnunk ezt az opciót, csak győződjön meg arról, hogy a virtualizációs beállítások engedélyezve vannak a számítógép BIOS-ában.</p>
+<p><code>-vga virtio</code>: Azt jelenti: Szimulálni egy általános kényelmes virtuális gépet normál hardveres korlátozások nélkül.</p>
+<p><code>-smp 4</code>: Ha egynél több magot akarunk használni az emulált operációs rendszerhez. Úgy döntöttünk, hogy 4 magot használunk a virtuális kép futtatásához, ami gyorsabbá teszi. Célszerű megváltoztatni ezt a számot a számítógép CPU-jának megfelelően.</p>
+<p><code>-net nic -net &lt;felhasználó&gt;</code>: Ezeknek az opcióknak a használatával alapértelmezés szerint engedélyezzük, hogy egy Ethernet Internet kapcsolat elérhető legyen a futó virtuális gépben.</p>
+<p><code>-hda testing-image.img</code>: Itt adtuk meg a használt merevlemez elérési útját. Esetünkben a testing-image.img fájlt hoztuk létre korábban.</p>
+<p><code>-cdrom MagyArchLinux-2021.02-x86_64.iso</code>: Végül elmondtuk a QEMU-nak, hogy be akarjuk indítani az „MagyArchLinux-2021.02-x86_64” ISO fájlt.</p>
+<p><code>-show-cursor</code>: Egér emuláció(szükséges lehet ha nem jelenik meg)</p>
+<p><strong>Vegye figyelembe, hogy ebben az oktatóanyagban az <code>x86_64</code> architektúrát használtuk a QEMU futtatásához.</strong></p>
+<p>Az előző parancs futtatása után a QEMU önálló ablakként indul el:</p>
+<p>Ha a képfájlból szeretne ISO-fájl nélkül elindulni (például, ha befejezte a telepítést, és most mindig a telepített rendszert szeretné indítani), akkor egyszerűen eltávolíthatja a <code>-cdrom</code> opciót:</p>
+<p><code>qemu-system-x86_64 -m 2048 -boot d -enable-kvm -smp 4 -net nic -net user -show-cursor -hda testing-image.img</code></p>
+<p>A cikk végére is értünk,láthatják nem volt olyan bonyolult.A qemu egy nagyszerü program,tessék kipróbálni!</p>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+        </div><!-- Footer Start -->
+<footer id="footer" class="bg-one">
+    <div class="footer-bottom">
+        <h5>2022 Minden jog fenntartva.</h5>
+        <h6>A weboldal kizárólag szabad szoftverek használatával készült.
+            <br>A forráskód magtalálható a
+            <a href="https://github.com/magyarch/magyarchlinux.org/" target="_blank">GitHub</a>-on.
+        </h6>
+    </div>
+</footer>
+<!-- end footer -->
+
+
+<!-- Essential Scripts -->
+
+<!-- jQuery -->
+<script src="https://magyarchlinux.org/plugins/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="https://magyarchlinux.org/plugins/bootstrap/dist/js/popper.min.js"></script>
+<script src="https://magyarchlinux.org/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- Parallax -->
+<script src="https://magyarchlinux.org/plugins/parallax/jquery.parallax-1.1.3.js"></script>
+<!-- lightbox -->
+<script src="https://magyarchlinux.org/plugins/lightbox2/dist/js/lightbox.min.js"></script>
+<!-- Slick Carousel -->
+<script src="https://magyarchlinux.org/plugins/slick-carousel/slick/slick.min.js"></script>
+<!-- Portfolio Filtering -->
+<script src="https://magyarchlinux.org/plugins/filterzr/jquery.filterizr.min.js"></script>
+<!-- Smooth Scroll js -->
+<script src="https://magyarchlinux.org/plugins/smooth-scroll/dist/js/smooth-scroll.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
+<!-- Main Script -->
+
+<script src="https://magyarchlinux.org/js/script.min.js"></script>
+
+
+
+</body>
+</html>

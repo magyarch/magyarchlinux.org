@@ -17,6 +17,92 @@
     </item>
     
     <item>
+      <title>DWM - A Dinamikus Ablakezelő</title>
+      <link>https://magyarchlinux.org/cikkek/dwm---a-dinamikus-ablakezelo/</link>
+      <pubDate>Sat, 13 Mar 2021 01:42:17 +0200</pubDate>
+      
+      <guid>https://magyarchlinux.org/cikkek/dwm---a-dinamikus-ablakezelo/</guid>
+      <description>A Dwm a Dynamic Window Manager (Dinamikus Ablak kezelő) rövidítést jelenti.Amit tudnunk kell hogy C program nyelven íródott és ez egy minimalista csempéző ablak kezelő, amelyet kifejezetten az X11-hez terveztek. Úgy tervezték, hogy sokkal kisebb, gyorsabb és egyszerűbb legyen, mint az alternatívái. A Suckless közösség azt állítja, hogy a dwm kódjának soha nem szabad meghaladnia a 2000 SLOC-ot (forráskódsor-t),csakúgy, mint a többi Suckless eszköz, ez is az elitistának szól, és a suckless erről gondoskodik is.</description>
+    </item>
+    
+    <item>
+      <title>Hogyan lehet kernelt váltani Arch Linuxon</title>
+      <link>https://magyarchlinux.org/cikkek/hogyan-lehet-kernelt-valtani-arch-linuxon/</link>
+      <pubDate>Thu, 11 Mar 2021 02:07:06 +0200</pubDate>
+      
+      <guid>https://magyarchlinux.org/cikkek/hogyan-lehet-kernelt-valtani-arch-linuxon/</guid>
+      <description>Elsőként beszéljünk arról milyen kernel változatok léteznek, amelyek Arch felhasználóként elérhetők.
+Kernel Mainline kernel: Ez a legújabb legfrissebb stabil Linux kernel.Ezt használják legtöbben. Miért? - mert támogatja a legfrissebb hardvereket.
+Lts kernel: Ez a legújabb, hosszú távon támogatott Linux kernel. Nincs előre meghatározott életciklusa, de biztos lehet benne, hogy sokkal hosszabb ideig élvezheti ugyanazt a kernel verziót.
+Linux hardened: A legújabb stabil kernel edzett verziója, amit tudni kell nem biztos, hogy minden program megfelelően fog futni használatakor.</description>
+    </item>
+    
+    <item>
+      <title>QEMU és a virtualizáció</title>
+      <link>https://magyarchlinux.org/cikkek/qemu-es-a-virtualizacio/</link>
+      <pubDate>Sun, 28 Feb 2021 03:03:22 +0200</pubDate>
+      
+      <guid>https://magyarchlinux.org/cikkek/qemu-es-a-virtualizacio/</guid>
+      <description>A Qemu egy virtualizációs technológiai emulátor, amely lehetővé teszi az operációs rendszerek és a Linux disztribúciók egyszerű futtatását a jelenlegi rendszeren anélkül, hogy telepítenie kellene őket, vagy ki kellene írni az ISO fájlokat. Olyan, mint a VMware vagy a VirtualBox. Bármikor használhatja bármelyik operációs rendszer futtatását sok eszközön és architektúrán.
+A QEMU ingyenes és nyílt forráskódú program, ami GPL 2. licenc alatt áll, és képes KVM, valamint XEN modelleken futni (ha először engedélyezte a virtualizációs technológiát a BIOS-ból), és rengeteg virtualizációs lehetőséget kínál.</description>
+    </item>
+    
+    <item>
+      <title>Polybar alapozó</title>
+      <link>https://magyarchlinux.org/cikkek/polybar-alapozo/</link>
+      <pubDate>Wed, 10 Feb 2021 03:36:53 +0200</pubDate>
+      
+      <guid>https://magyarchlinux.org/cikkek/polybar-alapozo/</guid>
+      <description>A Polybar teljesen független, de kifejezetten az i3 és a BSPWM kompatibilitásra tervezték.Használhatja más ablakkezelőkel is.Csak további konfigurációt igényel a testreszabásuk.A bar ugalmas és egyszerű ,könnyen témázható nem igényel bonyolult parancsfájlokat, de ha úgy dönt, létrehozhat egyedi modulokat szkriptekkel.Célja hogy segítse a felhasználókat abban, hogy szép és jól testreszabható állapotsorokat építsenek az asztali környezetükhöz.
+Telepítés Arch felhasználok számára elérhető az AUR-on keresztül, ha nem különösebben kedveli vagy nem bízik ezekben a forrásokban, akkor maga is elkészítheti.</description>
+    </item>
+    
+    <item>
+      <title>BSPWM</title>
+      <link>https://magyarchlinux.org/cikkek/bspwm/</link>
+      <pubDate>Tue, 09 Feb 2021 04:34:24 +0200</pubDate>
+      
+      <guid>https://magyarchlinux.org/cikkek/bspwm/</guid>
+      <description>A Bspwm a Binary Space Partitioning Window Manager rövidítése.
+A Bspwm nem DE, de kezeli a rendszerablak(ok) kinézetét és viselkedését, amelyet mozaikablak-kezelőnek is neveznek.
+Az ablakkezelő kizárólag a hozzárendelt billentyűzet gombfunkciókon vagy billentyűkombinációkon működik.
+A billentyűkapcsolatokhoz szükségünk van egy másik programra, például az SXHKD-re, amely a Simple X Hot Key Daemon rövidítése. A bspwm és az sxhkd kombinációja kiválóan működik együtt, mindkét csomagot ugyanaz a Baskerville nevű alkotó írta.
+Ebben az oktatóanyagban a Bspwm és az sxhkd fájlokat állítom össze forrásból, de telepítheti az AUR-ból, ha úgy tetszik, mind a git, mind a legújabb stabil verzió elérhető.</description>
+    </item>
+    
+    <item>
+      <title>Vifm ismertető</title>
+      <link>https://magyarchlinux.org/cikkek/vifm-ismerteto/</link>
+      <pubDate>Tue, 09 Feb 2021 04:14:03 +0200</pubDate>
+      
+      <guid>https://magyarchlinux.org/cikkek/vifm-ismerteto/</guid>
+      <description>Jellemzők A vifm fájlkezelő segítségével mozgathatja a fájlrendszerhierarchiát: Pl: fájlok másolása, fájlok törlése, beillesztése, keresése &amp;hellip;. mindezt gyorsan és hatékonyan. Mi többre van szüksége egy fájlkezelőben?
+Telepítés Természetesen a parancssorból telepítjük. Ezt egy Arch alapú disztribúcióban (például MagyArch vagy Manjaro) a következő módon teheti meg:
+ Nyisson meg egy terminál ablakot. Adja ki a parancsot sudo pacman -S vifm. Írja be a sudo jelszavát, és nyomja meg az Enter billentyűt. Az y gomb lenyomásával fogadja el az esetleges függőségeket.</description>
+    </item>
+    
+    <item>
+      <title>Xmonad ablakelrendezés alapozó</title>
+      <link>https://magyarchlinux.org/cikkek/xmonad-ablakelrendezes-alapozo/</link>
+      <pubDate>Fri, 01 Jan 2021 20:46:37 +0200</pubDate>
+      
+      <guid>https://magyarchlinux.org/cikkek/xmonad-ablakelrendezes-alapozo/</guid>
+      <description>&amp;ldquo;Magas&amp;rdquo; elrendezés A Tall(Magas) elrendezésben bal oldalon van a fő ablaktábla, a Master ablak és a képernyő felét elfoglalja. Az összes többi ablak megosztja a képernyő jobb felét, és függőlegesen, felülről lefelé halmozódik.
+A Tall(Magas) ablakelrendezésnek három opcionális paramétere van. Az első meghatározza a kezdő ablakok számát a fő ablaktáblán (ami alapértelmezés szerint 1), ez használat közben a mod + ,/.gombokkal módosítható. Mivel a Tall a beépített elrendezések egyike, az xmonad.</description>
+    </item>
+    
+    <item>
+      <title>Bootolható pendrive készítés dd-vel</title>
+      <link>https://magyarchlinux.org/cikkek/bootolhato-pendrive-keszites-dd-vel/</link>
+      <pubDate>Mon, 07 Dec 2020 21:10:20 +0200</pubDate>
+      
+      <guid>https://magyarchlinux.org/cikkek/bootolhato-pendrive-keszites-dd-vel/</guid>
+      <description>Wiki-n és egyéb helyeken a pontos doksi és leírás megtalálható. Egyszerű, hatásos, és egyben veszélyes a dd, ha nem figyelsz oda.
+Rengeteg felhasználási formája lehet, most csak a telepítő ISO-k pendrájvra kiírását vázolom, ahogy én szoktam. Régóta és sokszor használtam, használom. Bajt még nem csináltam, mert be tartok egy-két ökölszabályt.
+ Minden ISO-mat külön könyvtárban tartok, mellette csak a checksum-ja van szöveges fájlban. Mindig abban a könyvtárban nyitok terminált, amelyik ISO-t ki akarom írni.</description>
+    </item>
+    
+    <item>
       <title>Dotfile kezelés stílusosan, avagy mire való a Git Bare Repository</title>
       <link>https://magyarchlinux.org/cikkek/dotfile-kezeles-stilusosan/</link>
       <pubDate>Sat, 26 Sep 2020 11:28:57 +0200</pubDate>

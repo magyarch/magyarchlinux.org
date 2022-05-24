@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Xmonad on MagyArch Linux</title>
+    <link>https://magyarchlinux.org/tags/xmonad/</link>
+    <description>Recent content in Xmonad on MagyArch Linux</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>hu-hu</language>
+    <lastBuildDate>Fri, 01 Jan 2021 20:46:37 +0200</lastBuildDate><atom:link href="https://magyarchlinux.org/tags/xmonad/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Xmonad ablakelrendezés alapozó</title>
+      <link>https://magyarchlinux.org/cikkek/xmonad-ablakelrendezes-alapozo/</link>
+      <pubDate>Fri, 01 Jan 2021 20:46:37 +0200</pubDate>
+      
+      <guid>https://magyarchlinux.org/cikkek/xmonad-ablakelrendezes-alapozo/</guid>
+      <description>&amp;ldquo;Magas&amp;rdquo; elrendezés A Tall(Magas) elrendezésben bal oldalon van a fő ablaktábla, a Master ablak és a képernyő felét elfoglalja. Az összes többi ablak megosztja a képernyő jobb felét, és függőlegesen, felülről lefelé halmozódik.
+A Tall(Magas) ablakelrendezésnek három opcionális paramétere van. Az első meghatározza a kezdő ablakok számát a fő ablaktáblán (ami alapértelmezés szerint 1), ez használat közben a mod + ,/.gombokkal módosítható. Mivel a Tall a beépített elrendezések egyike, az xmonad.</description>
+    </item>
+    
+  </channel>
+</rss>

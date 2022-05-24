@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Virtualizáció on MagyArch Linux</title>
+    <link>https://magyarchlinux.org/tags/virtualiz%C3%A1ci%C3%B3/</link>
+    <description>Recent content in Virtualizáció on MagyArch Linux</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>hu-hu</language>
+    <lastBuildDate>Sun, 28 Feb 2021 03:03:22 +0200</lastBuildDate><atom:link href="https://magyarchlinux.org/tags/virtualiz%C3%A1ci%C3%B3/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>QEMU és a virtualizáció</title>
+      <link>https://magyarchlinux.org/cikkek/qemu-es-a-virtualizacio/</link>
+      <pubDate>Sun, 28 Feb 2021 03:03:22 +0200</pubDate>
+      
+      <guid>https://magyarchlinux.org/cikkek/qemu-es-a-virtualizacio/</guid>
+      <description>A Qemu egy virtualizációs technológiai emulátor, amely lehetővé teszi az operációs rendszerek és a Linux disztribúciók egyszerű futtatását a jelenlegi rendszeren anélkül, hogy telepítenie kellene őket, vagy ki kellene írni az ISO fájlokat. Olyan, mint a VMware vagy a VirtualBox. Bármikor használhatja bármelyik operációs rendszer futtatását sok eszközön és architektúrán.
+A QEMU ingyenes és nyílt forráskódú program, ami GPL 2. licenc alatt áll, és képes KVM, valamint XEN modelleken futni (ha először engedélyezte a virtualizációs technológiát a BIOS-ból), és rengeteg virtualizációs lehetőséget kínál.</description>
+    </item>
+    
+  </channel>
+</rss>

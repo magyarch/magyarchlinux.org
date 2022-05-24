@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html class="no-js" lang="hu-hu"><head>
+
+
+<!-- Plausible Analytics -->
+<script defer data-domain="" src=""></script>
+<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="A Dwm a Dynamic Window Manager (Dinamikus Ablak kezelő) rövidítést jelenti.Amit tudnunk kell hogy C program nyelven íródott és ez egy minimalista csempéző ablak kezelő, amelyet kifejezetten az X11-hez terveztek. Úgy tervezték, hogy sokkal kisebb, gyorsabb és egyszerűbb legyen, mint az alternatívái. A Suckless közösség azt állítja, hogy a dwm kódjának soha nem szabad meghaladnia a 2000 SLOC-ot (forráskódsor-t),csakúgy, mint a többi Suckless eszköz, ez is az elitistának szól, és a suckless erről gondoskodik is.">
+
+<meta name="generator" content="Hugo 0.99.1" />
+
+
+  <title>DWM - A Dinamikus Ablakezelő</title>
+
+
+<!-- Mobile Specific Meta -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Favicon -->
+<link rel="shortcut icon" type="image/jpg" href="https://magyarchlinux.org/images/magyarch-logo.png" />
+
+<!-- Stylesheets -->
+<!-- Themefisher Icon font -->
+<link rel="stylesheet" href="https://magyarchlinux.org/plugins/themefisher-font/style.css">
+<!-- bootstrap.min css -->
+<link rel="stylesheet" href="https://magyarchlinux.org/plugins/bootstrap/dist/css/bootstrap.min.css">
+<!-- Lightbox.min css -->
+<link rel="stylesheet" href="https://magyarchlinux.org/plugins/lightbox2/dist/css/lightbox.min.css">
+<!-- Slick Carousel -->
+<link rel="stylesheet" href="https://magyarchlinux.org/plugins/slick-carousel/slick/slick.css">
+<link rel="stylesheet" href="https://magyarchlinux.org/plugins/slick-carousel/slick/slick-theme.css">
+<!-- Main Stylesheet -->
+
+
+<link rel="stylesheet" href="https://magyarchlinux.org/css/style.min.css" media="screen">
+
+</head>
+<body id="body"><!-- Fixed Navigation -->
+
+<section class="header navigation">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar navbar-expand-md">
+                    <a class="navbar-brand" href="https://magyarchlinux.org/">
+                        <img src="https://magyarchlinux.org/images/magyarch-logo.png" alt="MagyArch Linux">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+                        aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="tf-ion-android-menu"></span>
+                    </button>
+                    
+                    <div id="drapeaux">
+                        
+                        
+                    </div>
+                    <div class="collapse navbar-collapse" id="navigation">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                    href="https://magyarchlinux.org/">Kezdőlap</a>
+                            </li>
+                            
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://magyarchlinux.org/letoltes">Letöltés</a>
+                            </li>
+                            
+                            
+                            
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="https://magyarchlinux.org/cikkek">Cikkek</a>
+                                <div class="dropdown-menu">
+                                    
+                                    <a class="dropdown-item" href="https://magyarchlinux.org/tags/bspwm">BSPWM</a>
+                                    
+                                    <a class="dropdown-item" href="https://magyarchlinux.org/tags/dwm">DWM</a>
+                                    
+                                    <a class="dropdown-item" href="https://magyarchlinux.org/tags/eszk%C3%B6z%C3%B6k">Eszközök</a>
+                                    
+                                    <a class="dropdown-item" href="https://magyarchlinux.org/tags/kernel">Kernel</a>
+                                    
+                                    <a class="dropdown-item" href="https://magyarchlinux.org/tags/konfigur%C3%A1ci%C3%B3">Konfiguráció</a>
+                                    
+                                    <a class="dropdown-item" href="https://magyarchlinux.org/tags/virtualiz%C3%A1ci%C3%B3">Virtualizáció</a>
+                                    
+                                    <a class="dropdown-item" href="https://magyarchlinux.org/tags/xmonad">Xmonad</a>
+                                    
+                                </div>
+                            </li>
+                            
+                            
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://magyarchlinux.org/tamogatas">Támogatás</a>
+                            </li>
+                            
+                            
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://magyarchlinux.org/hirek">Hírek</a>
+                            </li>
+                            
+                            
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://magyarchlinux.org/kapcsolat">Kapcsolat</a>
+                            </li>
+                            
+                            
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section><div id="content">
+
+<section class="blog-single section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+				
+                <img src="https://magyarchlinux.org/images/dwm-1.png" class="w-100 mb-3">
+				
+                <h2>DWM - A Dinamikus Ablakezelő</h2>
+                <div class="post-meta mb-5">
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <span>2021. március 13</span>
+                        </li>
+                    </ul>
+                </div>
+                <p>A Dwm a Dynamic Window Manager (Dinamikus Ablak kezelő) rövidítést jelenti.Amit tudnunk kell hogy C program nyelven íródott és ez egy minimalista csempéző ablak kezelő, amelyet kifejezetten az X11-hez terveztek. Úgy tervezték, hogy sokkal kisebb, gyorsabb és egyszerűbb legyen, mint az alternatívái. A Suckless közösség azt állítja, hogy a dwm kódjának soha nem szabad meghaladnia a 2000 SLOC-ot (forráskódsor-t),csakúgy, mint a többi Suckless eszköz, ez is az elitistának szól, és a suckless erről gondoskodik is. A dwm-nek nincs bináris eloszlása. Ez csak egy forrásfájl, amelyet kézzel kell lefordítania a kezdéshez. A testreszabáshoz szükség van a forrás közvetlen szerkesztésére és a semmiből való felépítésre (ami egyszerűbb, mint amilyennek látszik).</p>
+<h2 id="jellemzők">Jellemzők</h2>
+<p>A Dwm csak egyetlen bináris fájl, és forráskódja soha nem haladja meg a 2000 SLOC értéket. A testreszabás a forráskód szerkesztésével történik, ami nagyon könnyen érthető. Csempézett elrendezésben az ablakok kezelése egy fő és egymásra rakható területen történik. A főterület tartalmazza azt az ablakot, amelyre jelenleg a legnagyobb figyelmet kell fordítani, míg a halmozási terület az összes többi ablakot tartalmazza. Monocle elrendezésben az összes ablak a képernyő méretére maximalizálódik. A lebegő (floating) elrendezésben az ablakok átméretezhetők és szabadon mozgathatók. A párbeszédablakokat mindig lebegve kezelik, függetlenül az alkalmazott elrendezéstől.További elrendezések és funkcionalitások adhatók hozzá patchelésel(foltozással) mint az összes Suckless feljesztésnél ez úgymond a filozófiajuk.</p>
+<h2 id="telepítés">Telepítés</h2>
+<p>Több lehetőség adott de én a suckless repót fogom használni a dwm telepítéséhez:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># klónozd a forrás dwm repót</span>
+</span></span><span style="display:flex;"><span>git clone git://git.suckless.org/dwm
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># lépj a leklónozott mappába</span>
+</span></span><span style="display:flex;"><span>cd dwm
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># futtasd a tiszta telepítést</span>
+</span></span><span style="display:flex;"><span>make clean install
+</span></span></code></pre></div><p>Most egyszerűen írja be a következő sort a <code>~/.xinitrc</code> fájlba:</p>
+<p><code>exec dwm</code></p>
+<p>Ha a fájl nem létezik hozza létre a touch <code>.xinitrc</code> parancsal.</p>
+<p><strong>További információért olvasd el a githubon található <a href="https://github.com/bazeeel/magyarch-dwm/blob/main/.local/share/Magyarch-dwm.pdf" target="_blank" rel="noreferrer noopener">pdf fájlunkat</a>.</strong></p>
+<p>Egyre több felhasználó inkább a grafikus bejelentkezést preferálja, mint például a LightDM.</p>
+<p>A LightDM egy asztali bejelentkezés kezelő.</p>
+<h2 id="főbb-jellemzői">Főbb jellemzői</h2>
+<ul>
+<li>Támogatja a különféle asztali felületeket.</li>
+<li>Támogatja a különböző megjelenítési technológiákat (X, Mir, Wayland &hellip;).</li>
+<li>Egyszerű, alacsony memóriafelhasználás és nagy teljesítmény.</li>
+<li>Támogatja a vendég bejelentkezéseket.</li>
+<li>Támogatja a távoli bejelentkezést (bejövő - XDMCP , VNC , kimenő - XDMCP).</li>
+<li>Átfogó tesztcsomag.</li>
+<li>Minimális kódösszetétel.</li>
+</ul>
+<h2 id="telepítés-és-szolgáltatás-indítása">Telepítés és szolgáltatás indítása</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter-settings lightdm-gtk-greeter
+</span></span></code></pre></div><p>Ezután elindítjuk a lightdm szolgáltatást:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl enable lightdm.service
+</span></span></code></pre></div><h2 id="bejelentkezés-grafikusan">Bejelentkezés grafikusan</h2>
+<p>Ahhoz hogy müködjön a bejelentkezés az ablak kezelő felületen el kell végeznünk néhány módosítást.</p>
+<p>Hozzunk létre egy dwm asztal bejegyzést így: <code>sudo nvim /usr/share/xsessions/dwm.desktop</code> az ablakkezelőnek, a következő adatokkal:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>Desktop Entry<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>Encoding<span style="color:#f92672">=</span>UTF-8
+</span></span><span style="display:flex;"><span>Name<span style="color:#f92672">=</span>DWM
+</span></span><span style="display:flex;"><span>Comment<span style="color:#f92672">=</span>DWM Session
+</span></span><span style="display:flex;"><span>Exec<span style="color:#f92672">=</span>/usr/local/bin/dwm
+</span></span><span style="display:flex;"><span>Type<span style="color:#f92672">=</span>Application
+</span></span><span style="display:flex;"><span>Keywords<span style="color:#f92672">=</span>wm;tiling
+</span></span></code></pre></div><p>Már kész is vagyunk. Jelenkezzen ki vagy indítsa újra számitógépét.</p>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+        </div><!-- Footer Start -->
+<footer id="footer" class="bg-one">
+    <div class="footer-bottom">
+        <h5>2022 Minden jog fenntartva.</h5>
+        <h6>A weboldal kizárólag szabad szoftverek használatával készült.
+            <br>A forráskód magtalálható a
+            <a href="https://github.com/magyarch/magyarchlinux.org/" target="_blank">GitHub</a>-on.
+        </h6>
+    </div>
+</footer>
+<!-- end footer -->
+
+
+<!-- Essential Scripts -->
+
+<!-- jQuery -->
+<script src="https://magyarchlinux.org/plugins/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="https://magyarchlinux.org/plugins/bootstrap/dist/js/popper.min.js"></script>
+<script src="https://magyarchlinux.org/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- Parallax -->
+<script src="https://magyarchlinux.org/plugins/parallax/jquery.parallax-1.1.3.js"></script>
+<!-- lightbox -->
+<script src="https://magyarchlinux.org/plugins/lightbox2/dist/js/lightbox.min.js"></script>
+<!-- Slick Carousel -->
+<script src="https://magyarchlinux.org/plugins/slick-carousel/slick/slick.min.js"></script>
+<!-- Portfolio Filtering -->
+<script src="https://magyarchlinux.org/plugins/filterzr/jquery.filterizr.min.js"></script>
+<!-- Smooth Scroll js -->
+<script src="https://magyarchlinux.org/plugins/smooth-scroll/dist/js/smooth-scroll.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
+<!-- Main Script -->
+
+<script src="https://magyarchlinux.org/js/script.min.js"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>BSPWM on MagyArch Linux</title>
+    <link>https://magyarchlinux.org/tags/bspwm/</link>
+    <description>Recent content in BSPWM on MagyArch Linux</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>hu-hu</language>
+    <lastBuildDate>Tue, 09 Feb 2021 04:34:24 +0200</lastBuildDate><atom:link href="https://magyarchlinux.org/tags/bspwm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>BSPWM</title>
+      <link>https://magyarchlinux.org/cikkek/bspwm/</link>
+      <pubDate>Tue, 09 Feb 2021 04:34:24 +0200</pubDate>
+      
+      <guid>https://magyarchlinux.org/cikkek/bspwm/</guid>
+      <description>A Bspwm a Binary Space Partitioning Window Manager rövidítése.
+A Bspwm nem DE, de kezeli a rendszerablak(ok) kinézetét és viselkedését, amelyet mozaikablak-kezelőnek is neveznek.
+Az ablakkezelő kizárólag a hozzárendelt billentyűzet gombfunkciókon vagy billentyűkombinációkon működik.
+A billentyűkapcsolatokhoz szükségünk van egy másik programra, például az SXHKD-re, amely a Simple X Hot Key Daemon rövidítése. A bspwm és az sxhkd kombinációja kiválóan működik együtt, mindkét csomagot ugyanaz a Baskerville nevű alkotó írta.
+Ebben az oktatóanyagban a Bspwm és az sxhkd fájlokat állítom össze forrásból, de telepítheti az AUR-ból, ha úgy tetszik, mind a git, mind a legújabb stabil verzió elérhető.</description>
+    </item>
+    
+  </channel>
+</rss>

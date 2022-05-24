@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html class="no-js" lang="hu-hu"><head>
+
+
+<!-- Plausible Analytics -->
+<script defer data-domain="" src=""></script>
+<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="A Bspwm a Binary Space Partitioning Window Manager rövidítése.
+A Bspwm nem DE, de kezeli a rendszerablak(ok) kinézetét és viselkedését, amelyet mozaikablak-kezelőnek is neveznek.
+Az ablakkezelő kizárólag a hozzárendelt billentyűzet gombfunkciókon vagy billentyűkombinációkon működik.
+A billentyűkapcsolatokhoz szükségünk van egy másik programra, például az SXHKD-re, amely a Simple X Hot Key Daemon rövidítése. A bspwm és az sxhkd kombinációja kiválóan működik együtt, mindkét csomagot ugyanaz a Baskerville nevű alkotó írta.
+Ebben az oktatóanyagban a Bspwm és az sxhkd fájlokat állítom össze forrásból, de telepítheti az AUR-ból, ha úgy tetszik, mind a git, mind a legújabb stabil verzió elérhető.">
+
+<meta name="generator" content="Hugo 0.99.1" />
+
+
+  <title>BSPWM</title>
+
+
+<!-- Mobile Specific Meta -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Favicon -->
+<link rel="shortcut icon" type="image/jpg" href="https://magyarchlinux.org/images/magyarch-logo.png" />
+
+<!-- Stylesheets -->
+<!-- Themefisher Icon font -->
+<link rel="stylesheet" href="https://magyarchlinux.org/plugins/themefisher-font/style.css">
+<!-- bootstrap.min css -->
+<link rel="stylesheet" href="https://magyarchlinux.org/plugins/bootstrap/dist/css/bootstrap.min.css">
+<!-- Lightbox.min css -->
+<link rel="stylesheet" href="https://magyarchlinux.org/plugins/lightbox2/dist/css/lightbox.min.css">
+<!-- Slick Carousel -->
+<link rel="stylesheet" href="https://magyarchlinux.org/plugins/slick-carousel/slick/slick.css">
+<link rel="stylesheet" href="https://magyarchlinux.org/plugins/slick-carousel/slick/slick-theme.css">
+<!-- Main Stylesheet -->
+
+
+<link rel="stylesheet" href="https://magyarchlinux.org/css/style.min.css" media="screen">
+
+</head>
+<body id="body"><!-- Fixed Navigation -->
+
+<section class="header navigation">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar navbar-expand-md">
+                    <a class="navbar-brand" href="https://magyarchlinux.org/">
+                        <img src="https://magyarchlinux.org/images/magyarch-logo.png" alt="MagyArch Linux">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+                        aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="tf-ion-android-menu"></span>
+                    </button>
+                    
+                    <div id="drapeaux">
+                        
+                        
+                    </div>
+                    <div class="collapse navbar-collapse" id="navigation">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                    href="https://magyarchlinux.org/">Kezdőlap</a>
+                            </li>
+                            
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://magyarchlinux.org/letoltes">Letöltés</a>
+                            </li>
+                            
+                            
+                            
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="https://magyarchlinux.org/cikkek">Cikkek</a>
+                                <div class="dropdown-menu">
+                                    
+                                    <a class="dropdown-item" href="https://magyarchlinux.org/tags/bspwm">BSPWM</a>
+                                    
+                                    <a class="dropdown-item" href="https://magyarchlinux.org/tags/dwm">DWM</a>
+                                    
+                                    <a class="dropdown-item" href="https://magyarchlinux.org/tags/eszk%C3%B6z%C3%B6k">Eszközök</a>
+                                    
+                                    <a class="dropdown-item" href="https://magyarchlinux.org/tags/kernel">Kernel</a>
+                                    
+                                    <a class="dropdown-item" href="https://magyarchlinux.org/tags/konfigur%C3%A1ci%C3%B3">Konfiguráció</a>
+                                    
+                                    <a class="dropdown-item" href="https://magyarchlinux.org/tags/virtualiz%C3%A1ci%C3%B3">Virtualizáció</a>
+                                    
+                                    <a class="dropdown-item" href="https://magyarchlinux.org/tags/xmonad">Xmonad</a>
+                                    
+                                </div>
+                            </li>
+                            
+                            
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://magyarchlinux.org/tamogatas">Támogatás</a>
+                            </li>
+                            
+                            
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://magyarchlinux.org/hirek">Hírek</a>
+                            </li>
+                            
+                            
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://magyarchlinux.org/kapcsolat">Kapcsolat</a>
+                            </li>
+                            
+                            
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section><div id="content">
+
+<section class="blog-single section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+				
+                <img src="https://magyarchlinux.org/images/bspwm.svg" class="w-100 mb-3">
+				
+                <h2>BSPWM</h2>
+                <div class="post-meta mb-5">
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <span>2021. február 9</span>
+                        </li>
+                    </ul>
+                </div>
+                <p>A Bspwm a <code>Binary Space Partitioning Window Manager</code> rövidítése.</p>
+<p>A Bspwm nem <code>DE</code>, de kezeli a rendszerablak(ok) kinézetét és viselkedését, amelyet mozaikablak-kezelőnek is neveznek.</p>
+<p>Az ablakkezelő kizárólag a hozzárendelt billentyűzet gombfunkciókon vagy billentyűkombinációkon működik.</p>
+<p>A billentyűkapcsolatokhoz szükségünk van egy másik programra, például az <code>SXHKD</code>-re, amely a <code>Simple X Hot Key Daemon</code> rövidítése.
+A bspwm és az <code>sxhkd</code> kombinációja kiválóan működik együtt, mindkét csomagot ugyanaz a <code>Baskerville</code> nevű alkotó írta.</p>
+<p>Ebben az oktatóanyagban a Bspwm és az sxhkd fájlokat állítom össze forrásból, de telepítheti az AUR-ból, ha úgy tetszik, mind a git, mind a legújabb stabil verzió elérhető.</p>
+<h2 id="útmutató">Útmutató</h2>
+<p>Ezt az útmutatót követve kb. 20 perc, hogy működőképes legyen a bspwm (ablakkezelő).</p>
+<p>Néhány függőségre van szükség, amit telepítenünk kell:</p>
+<p><code>sudo pacman -S libxcb xcb-util xcb-util-wm xcb-util-keysyms</code></p>
+<h2 id="kezdetek">Kezdetek</h2>
+<p>Először a bspwm és az sxhkd repók klónozásával kezdünk, ezt megteheti a következő sorok beírásával a terminálba:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/baskerville/bspwm.git
+</span></span><span style="display:flex;"><span>git clone https://github.com/baskerville/sxhkd.git
+</span></span></code></pre></div><p>Most a cd parancsal a klónozott bspwm mappába lépünk:</p>
+<p><code>cd bspwm</code></p>
+<p>majd futassuk le a következőket:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>make
+</span></span><span style="display:flex;"><span>sudo make install
+</span></span></code></pre></div><p>Most ugyanezt tesszük a klónozott sxhkd mappával is:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd sxhkd
+</span></span><span style="display:flex;"><span>make
+</span></span><span style="display:flex;"><span>sudo make install
+</span></span></code></pre></div><p>Most átmásoljuk a példa fájlokat, hogy legyen egy alap konfigurációnk. Először azonban létre kell hoznunk egy könyvtárat, ahová átmásoljuk őket:</p>
+<p><code>mkdir -p ~/.config/{bspwm,sxhkd}</code></p>
+<p>Másoljuk ide példa konfigurációs fájlokat:</p>
+<p><code>cp /usr/local/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm/bspwmrc</code></p>
+<p>és</p>
+<p><code>cp /usr/local/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd/sxhkdrc</code></p>
+<p>Ezután a Bspwm konfigurációs fájlt egy shell parancsal futtathatóvá kell tennünk:</p>
+<p><code>chmod u+x ~/.config/bspwm/bspwmrc</code></p>
+<p>Ha nem akarunk display manager-t de mégis szeretnénk elindítani Bspwm-t bejelentkezéskor. Létre kell hoznunk egy <code>~/.xinitrc</code> fájlt és abba gépeljük be hogy:</p>
+<p><code>exec bspwm</code></p>
+<p>Még nem vagyunk kész, de most már rendelkeznünk kell egy működő Bspwm beállítással.</p>
+<p>Mivel a példafájlok célzottan bizonyos programokat használnak, a használat megkönnyítése érdekében egy speciális terminált telepítünk, csak a kezdéshez:</p>
+<p><code>sudo pacman -S rxvt-unicode</code></p>
+<p>Indítsa újra a számítógépet, írja be felhasználónevét és jelszavát, majd <code>startx</code>.</p>
+<p>Most fekete képernyőt kell látnia.</p>
+<p>A <code>mod + return</code> billentyűkombinációra megnyílik egy terminál aminek a neve <code>urxvt</code>.</p>
+<p>Ez kitölti az egész képernyőt - most nyisson meg egy új terminált, és láthatja, hogyan működik az elosztás. Most 2 terminálja lesz a képernyőt ketté osztva. Nyisson további, terminal ablakot és nézze meg, hogy az automatikus séma hogyan helyezi el a terminálokat a képernyőn. Különböző sémákat lehet választani de én inkább a spirált szeretem, de többnyire az előválasztást használom.</p>
+<p>Ablak bezárása:</p>
+<p><code>mod + w</code> ezt célszerü azonnal megváltoztatni például:</p>
+<p><code>mod + q</code> a MagyArch Linux-on ez az alap billentyűkombináció.</p>
+<p>Az előválasztás használatával eldöntheti, hová akarja eljuttatni a következő terminált, ahelyett hogy a Bspwm döntene ön helyett.</p>
+<p><code>mod + ctrl + h, j, k, l (balra, lefelé, felfelé, jobbra)</code></p>
+<p>Most megfigyelhető egy előre kiválasztott terület, ahol megnyílik a következő ablak. Rajta próbáld ki.</p>
+<h2 id="hasznos-alapbeálliltások">Hasznos alapbeálliltások:</h2>
+<p>A szövegszerkesztő számomra az egyik legfontosabb csomag, ezért mindig először ezt telepítem, de kiválaszthatja, amit csak szeretne. Ezután a preferált szerkesztőnket használjuk a szerkesztéshez</p>
+<p><code>sudo nvim /.config/sxhkd/sxhkdrc</code></p>
+<p>Most keresse meg a sort a terminálemulátorral (az első sorok egyike), és szerkessze a telepítettre - esetemben az <code>urxvt</code> és hozzáadom. Könnyű, igaz?</p>
+<p>Javaslom, hogy nézze át az <code>sxhkdrc</code> fájlt, hogy megértse, mely billentyűkötéseket használják, és szerkessze az ön személyes preferenciái szerint.</p>
+<p>A terminálokon kívül a BSPWM kissé hervasztónak tűnhet - a fekete terminálban nincs semmi pompa. De ezt könnyű orvosolni - csak a bspc-t kell használnia a konfiguráláshoz.</p>
+<p>Például, ha fehér ablakszegélyeket szeretne, akkor:</p>
+<p><code>bspc config normal_border_color &quot;ffffff&quot;</code></p>
+<p>Ha azt szeretné, hogy a fókuszált ablak piros szegéllyel rendelkezzen</p>
+<p><code>bspc config focused_border_color #900900&quot;</code></p>
+<p>Ha a vastag keretet szereti:</p>
+<p><code>bspc config border_width 6</code></p>
+<p>A lehetőségek szinte végtelenek.</p>
+<p>Megváltoztathatjuk az automatikus osztási sémákat - osztási arányokat - hozzáadhatunk/eltávolíthatunk hiányosságokat stb</p>
+<p>Ha egeret használ, akkor ez a beállitás megfontolandó:</p>
+<p><code>bspc config focus_follows_pointer true</code></p>
+<p>Tehát bármelyik ablak felett a kurzor lebeg - fókuszban van</p>
+<p>Néhány személyes &ldquo;kötelező beállítás&rdquo;</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bspc config split_ratio          0.50
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>bspc config single_monocle       true
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>bspc config borderless_monocle   true
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>bspc config gapless_monocle      true
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>bspc config pointer_follows_focus true
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>bspc config center_pseudo_tiled true
+</span></span></code></pre></div><p>Ahhoz, hogy ezek a konfigurációk állandóak maradjanak, hozzá kell adnia a <code>bspwmrc</code> fájlhoz.</p>
+<p>Javaslom a <code>bash</code> vagy <code>zsh</code> automatikus kiegészítéssel történő használatát, ez egyszerű módja annak, hogy megtalálja a bspwm által kínált összes lehetőséget.</p>
+<p>Csak írja be a <code>bspc</code> parancsot, és nyomja meg a tab billentyűt. Ha konfigurációs opciókat keres, akkor beírhatja:</p>
+<p><code>bspc config</code></p>
+<p>Ezután nyomja meg a <code>TAB</code> billentyűt, és megmutatja az összes konfigurációs lehetőséget.</p>
+<p>A <code>man bspc</code> is egy jó módja annak, hogy többet tudjon meg.</p>
+<p>Mint említettük, a <code>bspwmrc</code> egy shell szkript, így saját külső szabályokat írhat a bspwm viselkedésének hozzáadásához/megváltoztatásához. Ha nem tudja, hogyan kell szkripteket írni, a GitHubon sok konfiguráció található, ahová átmásolhatja/beillesztheti a megvalósítani kívánt dolgokat.</p>
+<h2 id="végszó">Végszó</h2>
+<p>Oké, szóval most van egy működő bspwm alapbeállításod, de jó lenne, ha rendelkeznél egy divatos sávval és egy programindítóval, esetleg valamiféle értesítésel?</p>
+<p>A <a href="http://magyarchlinux.org/cikkek/polybar-alapozo/" target="_blank" rel="noreferrer noopener">polybar</a>-t, a <code>rofi</code>-t, és a <code>Dunst</code>-ot ajánlom.</p>
+<p>Mindegyik alap konfigurációja elegendő és egyszerűen konfigurálhatóak a szkriptek ismerete nélkül.</p>
+<p>Csak nézze meg az adott program konfigurációs fájljait, és meglátja, mit kell szerkeszteni és/vagy megjegyzéseket fűzni. Ezek mind nagyon könnyű programok.</p>
+<p>Vannak más lehetőségek is, többek között, de egy kezdő számára szerintem a polybar, rofi, és a Dunst a legjobb kiindulópont, mert a konfigurációs fájlok ember által olvashatók.</p>
+<p>Most kezdje el elkészíteni saját csodálatos Bspwm-jét, és ne féljen elrontani a konfigurációs fájlokat. Ne feledje, hogy van bspc fájlunk, így változtathat a dolgokon, mielőtt valóban módosítaná a konfigurációt.</p>
+<p>Próbálja ki, mielőtt eldönti, hogy valóban szeretné-e szerkeszteni a fájlban. Elrontani igazán nem lehet ha mégis, ne feledje hogy mindig újrakezdheti a példafájlok másolásával, ahogy az elején tette.</p>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+        </div><!-- Footer Start -->
+<footer id="footer" class="bg-one">
+    <div class="footer-bottom">
+        <h5>2022 Minden jog fenntartva.</h5>
+        <h6>A weboldal kizárólag szabad szoftverek használatával készült.
+            <br>A forráskód magtalálható a
+            <a href="https://github.com/magyarch/magyarchlinux.org/" target="_blank">GitHub</a>-on.
+        </h6>
+    </div>
+</footer>
+<!-- end footer -->
+
+
+<!-- Essential Scripts -->
+
+<!-- jQuery -->
+<script src="https://magyarchlinux.org/plugins/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="https://magyarchlinux.org/plugins/bootstrap/dist/js/popper.min.js"></script>
+<script src="https://magyarchlinux.org/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- Parallax -->
+<script src="https://magyarchlinux.org/plugins/parallax/jquery.parallax-1.1.3.js"></script>
+<!-- lightbox -->
+<script src="https://magyarchlinux.org/plugins/lightbox2/dist/js/lightbox.min.js"></script>
+<!-- Slick Carousel -->
+<script src="https://magyarchlinux.org/plugins/slick-carousel/slick/slick.min.js"></script>
+<!-- Portfolio Filtering -->
+<script src="https://magyarchlinux.org/plugins/filterzr/jquery.filterizr.min.js"></script>
+<!-- Smooth Scroll js -->
+<script src="https://magyarchlinux.org/plugins/smooth-scroll/dist/js/smooth-scroll.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
+<!-- Main Script -->
+
+<script src="https://magyarchlinux.org/js/script.min.js"></script>
+
+
+
+</body>
+</html>

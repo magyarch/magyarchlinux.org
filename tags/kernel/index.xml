@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kernel on MagyArch Linux</title>
+    <link>https://magyarchlinux.org/tags/kernel/</link>
+    <description>Recent content in Kernel on MagyArch Linux</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>hu-hu</language>
+    <lastBuildDate>Thu, 11 Mar 2021 02:07:06 +0200</lastBuildDate><atom:link href="https://magyarchlinux.org/tags/kernel/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hogyan lehet kernelt váltani Arch Linuxon</title>
+      <link>https://magyarchlinux.org/cikkek/hogyan-lehet-kernelt-valtani-arch-linuxon/</link>
+      <pubDate>Thu, 11 Mar 2021 02:07:06 +0200</pubDate>
+      
+      <guid>https://magyarchlinux.org/cikkek/hogyan-lehet-kernelt-valtani-arch-linuxon/</guid>
+      <description>Elsőként beszéljünk arról milyen kernel változatok léteznek, amelyek Arch felhasználóként elérhetők.
+Kernel Mainline kernel: Ez a legújabb legfrissebb stabil Linux kernel.Ezt használják legtöbben. Miért? - mert támogatja a legfrissebb hardvereket.
+Lts kernel: Ez a legújabb, hosszú távon támogatott Linux kernel. Nincs előre meghatározott életciklusa, de biztos lehet benne, hogy sokkal hosszabb ideig élvezheti ugyanazt a kernel verziót.
+Linux hardened: A legújabb stabil kernel edzett verziója, amit tudni kell nem biztos, hogy minden program megfelelően fog futni használatakor.</description>
+    </item>
+    
+  </channel>
+</rss>
