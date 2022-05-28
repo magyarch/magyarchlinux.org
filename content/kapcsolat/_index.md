@@ -10,7 +10,8 @@ Kérdésed van, vagy csak beszélgetnél a fejlesztőkkel és más felhasználó
 
 ### Csapatunk
 #### Fejlesztők
-- xeoncpu: xeon@magyarch.docta.one
+- xeoncpu: xeon@magyarchlinux.org
+- Winux: winux@magyarchlinux.org, [winux.it](https://winux.it/)
 ```
 ```
 #### Közreműködők
@@ -18,6 +19,5 @@ Kérdésed van, vagy csak beszélgetnél a fejlesztőkkel és más felhasználó
 - Dovahkiin: [Bitlords](https://bitlords.hu/), [ZeroLogDNS](https://zerologdns.com/)
 - Isti
 - Taklert
-- Winux: [winux.it](https://winux.it/)
 - WoLfY: [wolfy.me](https://wolfy.me/), [Bitlords](https://bitlords.hu/)
 - Zver43
