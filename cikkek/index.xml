@@ -78,7 +78,7 @@ Ebben az oktatóanyagban a Bspwm és az sxhkd fájlokat állítom össze forrás
       <guid>https://magyarchlinux.org/cikkek/vifm-ismerteto/</guid>
       <description>Jellemzők A vifm fájlkezelő segítségével mozgathatja a fájlrendszerhierarchiát: Pl: fájlok másolása, fájlok törlése, beillesztése, keresése &amp;hellip;. mindezt gyorsan és hatékonyan. Mi többre van szüksége egy fájlkezelőben?
 Telepítés Természetesen a parancssorból telepítjük. Ezt egy Arch alapú disztribúcióban (például MagyArch vagy Manjaro) a következő módon teheti meg:
- Nyisson meg egy terminál ablakot. Adja ki a parancsot sudo pacman -S vifm. Írja be a sudo jelszavát, és nyomja meg az Enter billentyűt. Az y gomb lenyomásával fogadja el az esetleges függőségeket.</description>
+Nyisson meg egy terminál ablakot. Adja ki a parancsot sudo pacman -S vifm. Írja be a sudo jelszavát, és nyomja meg az Enter billentyűt. Az y gomb lenyomásával fogadja el az esetleges függőségeket.</description>
     </item>
     
     <item>
@@ -99,7 +99,7 @@ A Tall(Magas) ablakelrendezésnek három opcionális paramétere van. Az első m
       <guid>https://magyarchlinux.org/cikkek/bootolhato-pendrive-keszites-dd-vel/</guid>
       <description>Wiki-n és egyéb helyeken a pontos doksi és leírás megtalálható. Egyszerű, hatásos, és egyben veszélyes a dd, ha nem figyelsz oda.
 Rengeteg felhasználási formája lehet, most csak a telepítő ISO-k pendrájvra kiírását vázolom, ahogy én szoktam. Régóta és sokszor használtam, használom. Bajt még nem csináltam, mert be tartok egy-két ökölszabályt.
- Minden ISO-mat külön könyvtárban tartok, mellette csak a checksum-ja van szöveges fájlban. Mindig abban a könyvtárban nyitok terminált, amelyik ISO-t ki akarom írni.</description>
+Minden ISO-mat külön könyvtárban tartok, mellette csak a checksum-ja van szöveges fájlban. Mindig abban a könyvtárban nyitok terminált, amelyik ISO-t ki akarom írni.</description>
     </item>
     
     <item>
