@@ -6,6 +6,24 @@ layout: default
 ---
 Ezen az oldalon nyomon tudod követni a Magyarch Linux fejlődését, és mérföldköveit.
 
+**2022. június havi változások:**
+
+- ablak kezelőkre összpontositunk i3,bspwm,ratpoison
+- az alkalmazás választó menu eltávolitva a telepitöből
+- az összes DE eltávolitva kivéve XFCE (kérésre marad)
+- megújult a weboldal
+- új ablakkezelő: ratpoison
+- saját picom eltávolitva
+- centered suckless dmenu
+- új zsh konfig (dovahkin jóvoltából)
+- i3: autotiling
+- i3: i3blocks a sima i3 helyett
+- a magyarch szkriptek frissültek
+- kisebb változások a polybarban és az .xprofileban
+```
+```
+```
+```
 **2021. október havi változások:**
 
 - iso: alkalmazás-választó menü eltávolítva
