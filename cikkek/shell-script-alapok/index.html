@@ -140,11 +140,11 @@
 <h2 id="felépítése">Felépítése</h2>
 <p>Minden shell script kódra jellemző, hogy ugyan úgy kezdődnek. Az első sor mindig az kódot futtató program megadása, így a rendszer tudni fogja, hogy melyik programmal kell futtatnia. Ez a következő módon néz ki:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
-</span></span></span></code></pre></div><p>Ez után kezdődik maga a kód megírása. Itt a megszokott programozási nyelvektől eltérően soha nem történik modul importálása (lásd, python: <code>import time</code>), mivel itt modulok helyett Unix alapú rendszerek által futtatható programokat használ a kód. A shell scritpt kódok <code>.sh</code> végződésűek. Fontos viszont, hogy a kód futtatása előtt jogot kell neki adni erre:</p>
+</span></span></span></code></pre></div><p>Ez után kezdődik maga a kód megírása. Itt a megszokott programozási nyelvektől eltérően soha nem történik modul importálása (lásd, python: <code>import time</code>), mivel itt modulok helyett Unix alapú rendszerek által futtatható programokat használ a kód. A shell script kódok <code>.sh</code> végződésűek. Fontos viszont, hogy a kód futtatása előtt jogot kell neki adni erre:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>chmod +x elso_program.sh
 </span></span></code></pre></div><h2 id="változók-deklarálása">Változók deklarálása</h2>
 <p>Itt a változók deklarálása egyszerűen történik. Először a már említett módon az első sorba a program megadása kerül, amivel futtatni fogja a rendszer.</p>
-<p>Egy hello world programban először deklarálni kell a változót: <code>VALTOZO_NEVE=valtozo_erteke</code>, fontos, hogy a változó neve ne használjon ékezetes karaktereket illetve helykihagyást. Következő a változó kiíratása. Ezt <code>echo</code> parancsal történik: <code>echo $változó neve</code>. Az echo az utána következő argumentumok kiírásáért felel. Ha a változónak nem értéket adunk, hanem az értékét kérjük le, akkor mindig rakunk egy <code>$</code>-et a változó neve elé ügyelve arra, hogy ne legyen közte szóköz.</p>
+<p>Egy hello world programban először deklarálni kell a változót: <code>VALTOZO_NEVE=valtozo_erteke</code>, fontos, hogy a változó neve ne használjon ékezetes karaktereket illetve helykihagyást. Következő a változó kiíratása. Ezt <code>echo</code> paranccsal történik: <code>echo $változó neve</code>. Az echo az utána következő argumentumok kiírásáért felel. Ha a változónak nem értéket adunk, hanem az értékét kérjük le, akkor mindig rakunk egy <code>$</code>-et a változó neve elé ügyelve arra, hogy ne legyen közte szóköz.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>VAR<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Hello World&#34;</span>
 </span></span><span style="display:flex;"><span>echo $VAR
@@ -161,8 +161,8 @@
 </span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;Helló </span>$nev<span style="color:#e6db74">&#34;</span>
 </span></span></code></pre></div><p>Itt a program kiírja, hogy <code>Mi a neved?</code>, majd beolvassa a <code>nev</code> változó értékét, ez után az <code>echo</code> parancs segítségével pedig kiírja.</p>
 <h2 id="argumentumok">Argumentumok</h2>
-<p>Argumentumokkal már találkozhattunk. Ezek a parancs után találhatóak általában egy kötőjellel kezdődnek(pl: <em>irssi -n <username></em>). Viszont a shell scriptingben nem kell kötőjellel megadni, hogy az argumentum miért felel.</p>
-<p>Az argumentumok számozva vannak és a számozás 0-tól indul. A 0. argumnetum mindig a fájlnév és utánna következnek a váltzók.</p>
+<p>Argumentumokkal már találkozhattunk. Ezek a parancs után találhatóak általában egy kötőjellel kezdődnek(például: <em>irssi -n <username></em>). Viszont a shell scriptingben nem kell kötőjellel megadni, hogy az argumentum miért felel.</p>
+<p>Az argumentumok számozva vannak és a számozás 0-tól indul. A 0. argumentum mindig a fájlnév és utána következnek a változók.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>script.sh arg1 arg2 arg3
 </span></span></code></pre></div><p>Ezekre az argumentumokra $-el lehet hivatkozni. $, majd pedig az argumentum száma.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
@@ -172,31 +172,13 @@
 </span></span></code></pre></div><p>Ezt a programot miután elmentjük a következő képpen kell használni:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./args.sh elso masodik
 </span></span></code></pre></div><p>Ez vissza fogja adni nekünk az fájlnév után következő első illetve második argumentumot.</p>
-<h2 id="array-vagyis-tömb-használata">Array vagyis tömb használata</h2>
-<p>Egy változó egyszerre egy értéket tárolhat. Ezzel szemben egy array többet is tud, ez azt jelenti, hogy egy új változó létrehozása helyett a már meglévő tömbhöz kell hozzáadnunk még egy elemet. Az elemekre index számmal tudunk hivatkozni, a legelső index szám a 0. Az array használatára jó példa egy névsor létrehozása.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>NAME01<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Attila&#34;</span>
-</span></span><span style="display:flex;"><span>NAME02<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Béla&#34;</span>
-</span></span><span style="display:flex;"><span>NAME03<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Károly&#34;</span>
-</span></span></code></pre></div><p>A változók egyenkénti dekralásáa helyett ezeket egy tömbbe rendeljük. Így elég a tömbelem index számát tudnunk és nem kell egy új változóra hivatkoznunk.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>NAME<span style="color:#f92672">[</span>0<span style="color:#f92672">]=</span><span style="color:#e6db74">&#34;Attila&#34;</span>
-</span></span><span style="display:flex;"><span>NAME<span style="color:#f92672">[</span>1<span style="color:#f92672">]=</span><span style="color:#e6db74">&#34;Béla&#34;</span>
-</span></span><span style="display:flex;"><span>NAME<span style="color:#f92672">[</span>2<span style="color:#f92672">]=</span><span style="color:#e6db74">&#34;Károly&#34;</span>
-</span></span></code></pre></div><p>Így érjük el azt, hogy sok változó helyett egy tömbben gyűjtjük össze a neveket és ha komplexabb programot írunk, akkor sokkal egyszerűbb dolgunk lesz. Az arrayre való hivatkozásra egy egyszerű példa:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/sh
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>NAME<span style="color:#f92672">[</span>0<span style="color:#f92672">]=</span><span style="color:#e6db74">&#34;Attila&#34;</span>
-</span></span><span style="display:flex;"><span>NAME<span style="color:#f92672">[</span>1<span style="color:#f92672">]=</span><span style="color:#e6db74">&#34;Béla&#34;</span>
-</span></span><span style="display:flex;"><span>NAME<span style="color:#f92672">[</span>2<span style="color:#f92672">]=</span><span style="color:#e6db74">&#34;Károly&#34;</span>
-</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;Első Index: </span><span style="color:#e6db74">${</span>NAME[0]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
-</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;Második Index: </span><span style="color:#e6db74">${</span>NAME[1]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
-</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;harmadik Index: </span><span style="color:#e6db74">${</span>NAME[2]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
-</span></span></code></pre></div><p>Itt a <code>NAME</code> tömbnek megadjuk az első három értékét, majd kiíratjuk. A tömbre való hivatkozáskor <code>${ }</code> közé rakjuk az array nevét, majd <code>[]</code> közé az indexét az elemnek, amire hivatkozni akarunk.</p>
-<h2 id="if-használata">If használata</h2>
+<h1 id="if-használata">If használata</h1>
 <p>At if statement egy feltételből és egy állításból áll. Erre egy egyszerű példa:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#ae81ff">5</span> -gt <span style="color:#ae81ff">4</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">then</span>
 </span></span><span style="display:flex;"><span>    echo “5 nagyobb mint 4”
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
-</span></span></code></pre></div><p>Itt felmerülhet a kérdés, hogy mit jelent a <code>-gt</code>, ez a nagyobb mintnek felel meg, shell scriptben az operátorok mid hasonló képpen kell megadni. Ezek magyarázata:</p>
+</span></span></code></pre></div><p>Itt felmerülhet a kérdés, hogy mit jelent a <code>-gt</code>, ez a &ldquo;nagyobb mint&rdquo;-nek felel meg, shell scriptben az operátorok mid hasonló képpen kell megadni. Ezek magyarázata:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>-eq: equal to <span style="color:#f92672">=</span> egyenlő vele, <span style="color:#f92672">==</span>
 </span></span><span style="display:flex;"><span>-ne: not equal to <span style="color:#f92672">=</span> nem egyenlő vele, !<span style="color:#f92672">=</span>
 </span></span><span style="display:flex;"><span>-lt: less than <span style="color:#f92672">=</span> kisebb mint, &lt;
@@ -219,7 +201,7 @@
 </span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34; File not found &#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
 </span></span></code></pre></div><h2 id="while-loop">While loop</h2>
-<p>A while loop addig futtatja a tartalmát újra és újra, amég az állítása igaz. Ezt legtöbbször egy boolean változóval teszik, viszont egy változó értékének ellenörzését is szokták while loop állításba tenni, viszont erre legtöbb esetben a for loop sokkal előnyösebb. A while loopra egy példa:</p>
+<p>A while loop addig futtatja a tartalmát újra és újra, amíg az állítása igaz. Ezt legtöbbször egy boolean változóval teszik, viszont egy változó értékének ellenőrzését is szokták while loop állításba tenni, viszont erre legtöbb esetben a for loop sokkal előnyösebb. A while loopra egy példa:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>n<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> <span style="color:#f92672">[</span> $n -le <span style="color:#ae81ff">3</span> <span style="color:#f92672">]</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span>
@@ -233,18 +215,147 @@ A for loopra egy jó példa:</p>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span>
 </span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;</span>$num<span style="color:#e6db74">&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
-</span></span></code></pre></div><p>Ez a ciklus minden alkalommal lefut, amíg a num változó nem éri el a 10 értéket. A num változó alapértéke 1 és minden lefutás során az értéke növekszik 1-el. Ez megoldható, hogy ne 1-et lépjen ciklusonként, hanem példáúl 10-et.</p>
+</span></span></code></pre></div><p>Ez a ciklus minden alkalommal lefut, amíg a num változó nem éri el a 10 értéket. A num változó alapértéke 1 és minden lefutás során az értéke növekszik 1-el. Ez megoldható, hogy ne 1-et lépjen ciklusonként, hanem például 10-et.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> num in <span style="color:#f92672">{</span>0..100..10<span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span>
 </span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;</span>$num<span style="color:#e6db74">&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
-</span></span></code></pre></div><p>Ez hasonló képpen fog lefutni mint az előző példa, viszont ezesetben 1-től 100-ig 10-esével növeli a num változó értékét. A for loopot lehet többféle képpen is hasznánli, viszont van egy mód, amit más nyelvekben is előszeretettel használnak az átláthatósága miatt.</p>
+</span></span></code></pre></div><p>Ez hasonló képpen fog lefutni mint az előző példa, viszont ez esetben 1-től 100-ig 10-esével növeli a num változó értékét. A for loopot lehet többféle képpen is használni, viszont van egy mód, amit más nyelvekben is előszeretettel használnak az átláthatósága miatt.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> <span style="color:#f92672">((</span> i<span style="color:#f92672">=</span>1; i -et 10; i++<span style="color:#f92672">))</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span>
 </span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;</span>$i<span style="color:#e6db74">&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div><h2 id="tömbök-használata">Tömbök használata</h2>
+<p>Ez idáig véges számú változókat deklaráltunk az értékeink tárolására. Mi történik abban az esetben, ha nekünk ennél többre van szükségünk? Tételezzük fel, hogy a felhasználótól 20 értéket kérünk be. Ehhez 20 változót kellene deklarálnunk? Korántsem. A tömbök használatával dinamikusan tárolhatjuk értékeinket anélkül, hogy minden egyes értékhez egy új változót hoznánk létre. Első lépésben hozzunk létre egy új tömböt.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>declare -a SZAM;
+</span></span><span style="display:flex;"><span>declare -A NAME;
+</span></span></code></pre></div><p>A <code>declare</code> kulcsszó létrehozza a tömböt, melyet az <code>-a</code> és <code>-A</code> kapcsolókkal láthatunk el. Az <code>-a</code> kapcsoló egy index-alapú tömböt hoz létre. A tömb első elemének indexe minden esetben <code>0</code> és elemenként 1-el növekszik. A tömb <code>-1</code> indexe mindig az utolsó elemet adja vissza.</p>
+<p>Ezzel ellentétben az <code>-A</code> kapcsoló egy asszociatív tömböt hoz létre, ahol a tömbelemek kulcsszavak alapján kerülnek indexelésre:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>declare -a SZAM;
+</span></span><span style="display:flex;"><span>SZAM<span style="color:#f92672">=(</span><span style="color:#ae81ff">1</span> <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">4</span> <span style="color:#ae81ff">5</span> 6<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#általános alak: TÖMB[index]=érték</span>
+</span></span><span style="display:flex;"><span>SZAM<span style="color:#f92672">[</span>0<span style="color:#f92672">]=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>SZAM<span style="color:#f92672">[</span>1<span style="color:#f92672">]=</span><span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>SZAM<span style="color:#f92672">[</span>2<span style="color:#f92672">]=</span><span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>SZAM<span style="color:#f92672">[</span>3<span style="color:#f92672">]=</span><span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>SZAM<span style="color:#f92672">[</span>4<span style="color:#f92672">]=</span><span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>SZAM<span style="color:#f92672">[</span>5<span style="color:#f92672">]=</span><span style="color:#ae81ff">6</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>declare -A NAME;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#általános alak: TÖMB[kulcs]=érték</span>
+</span></span><span style="display:flex;"><span>NAME<span style="color:#f92672">[</span>manager<span style="color:#f92672">]=</span>Attila
+</span></span><span style="display:flex;"><span>NAME<span style="color:#f92672">[</span>dev<span style="color:#f92672">]=</span>Béla
+</span></span><span style="display:flex;"><span>NAME<span style="color:#f92672">[</span>devOps<span style="color:#f92672">]=</span>Károly
+</span></span><span style="display:flex;"><span>NAME<span style="color:#f92672">[</span>finOps<span style="color:#f92672">]=</span><span style="color:#e6db74">&#34;Gipsz Jakab&#34;</span>
+</span></span></code></pre></div><p>Az előbb említett asszociatív tömböt alternatív módon is létrehozhatjuk, egy sorban:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#általános alak: TÖMB=([kulcs1]=érték1 [kulcs2]=érték2...)</span>
+</span></span><span style="display:flex;"><span>declare -A NAME
+</span></span><span style="display:flex;"><span>NAME<span style="color:#f92672">=([</span>manager<span style="color:#f92672">]=</span>Attila <span style="color:#f92672">[</span>dev<span style="color:#f92672">]=</span>Béla <span style="color:#f92672">[</span>devOps<span style="color:#f92672">]=</span>Károly <span style="color:#f92672">[</span>finOps<span style="color:#f92672">]=</span><span style="color:#e6db74">&#34;Gipsz Jakab&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#vagy</span>
+</span></span><span style="display:flex;"><span>NAME<span style="color:#f92672">=(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">[</span>manager<span style="color:#f92672">]=</span>Attila 
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">[</span>dev<span style="color:#f92672">]=</span>Béla 
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">[</span>devOps<span style="color:#f92672">]=</span>Károly 
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">[</span>finOps<span style="color:#f92672">]=</span><span style="color:#e6db74">&#34;Gipsz Jakab&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">)</span>
+</span></span></code></pre></div><p>Fontos észrevennünk, hogy ha a tömbelemeket egy kifejezésként szeretnénk definiálni (egysoros definíció), akkor szóközökkel kell elválasztanunk őket egymástól. Ha tömbben olyan elemünk van, amely szóközöket tartalmaz, akkor idézőjelek használatával tehetjük egyértelművé, hogy az érték egy elemet alkot.</p>
+<h3 id="hozzáférés-a-tömbelemekhez">Hozzáférés a tömbelemekhez</h3>
+<p>Amennyiben a tömböt szimplán megpróbáljuk kiíratni, akkor mindig az első tömbelemet kapjuk:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>SZAM<span style="color:#f92672">=(</span><span style="color:#ae81ff">1</span> <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">4</span> <span style="color:#ae81ff">5</span> 6<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>echo $SZAM
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><p>A tömbelemeket a &ldquo;bash expansion&rdquo; szintaktikával érhetjük el explicit módon:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>SZAM<span style="color:#f92672">=(</span><span style="color:#ae81ff">1</span> <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">4</span> <span style="color:#ae81ff">5</span> 6<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">${</span>SZAM[0]<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">${</span>SZAM[2]<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">${</span>SZAM[-1]<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">6</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">${</span>SZAM[1+1]<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span>
+</span></span></code></pre></div><p>Mint láthatjuk, a tömbelem hivatkozás lehet akár egy kifejezés is, a szabály mindösszesen annyi a szabály, hogy kifejezésnek számra kell kiértékelődnie.</p>
+<p>Az összes tömbelemet az alábbi módokon tudjuk kiíratni:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>SZAM<span style="color:#f92672">=(</span><span style="color:#ae81ff">1</span> <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">4</span> <span style="color:#ae81ff">5</span> 6<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">${</span>SZAM[*]<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span> <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">4</span> <span style="color:#ae81ff">5</span> <span style="color:#ae81ff">6</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">${</span>SZAM[@]<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span> <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">4</span> <span style="color:#ae81ff">5</span> <span style="color:#ae81ff">6</span>
+</span></span></code></pre></div><p>Látszólag a két parancs egyenértékű, de a kettő között különbség van. Az <code>*</code> operátor a tömbelemet egy argumentumként írja ki, a <code>@</code> viszont külön argumentumonként írja ki az elemeket. A tömböt egy <code>for</code> looppal történő bejárás után a különbség nyilvánvalóvá válik:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i in <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>SZAM[*]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>;<span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;</span>$i<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span> <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">4</span> <span style="color:#ae81ff">5</span> <span style="color:#ae81ff">6</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i in <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>SZAM[@]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>;<span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;</span>$i<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">6</span>
+</span></span></code></pre></div><p>A tömbelemek számát az alábbi módon írhatjuk ki:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">${#</span>SZAM[@]<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">6</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#vagy</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">${#</span>SZAM[*]<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">6</span>
+</span></span></code></pre></div><p>Asszociatív tömb kulcsainak a listázása:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">${</span>!NAME[@]<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#vagy</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">${</span>!NAME[*]<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>finOps dev manager devOps
+</span></span></code></pre></div><h3 id="tömbelemek-hozzáadása-és-törlése">Tömbelemek hozzáadása és törlése</h3>
+<p>Indexelt tömbökben a törlés index alapján történik. Asszociatív tömbelemeket kulcs alapját törölhetünk:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>declare -A NAME
+</span></span><span style="display:flex;"><span>NAME<span style="color:#f92672">=([</span>manager<span style="color:#f92672">]=</span>Attila <span style="color:#f92672">[</span>dev<span style="color:#f92672">]=</span>Béla <span style="color:#f92672">[</span>devOps<span style="color:#f92672">]=</span>Károly <span style="color:#f92672">[</span>finOps<span style="color:#f92672">]=</span><span style="color:#e6db74">&#34;Gipsz Jakab&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>unset NAME<span style="color:#f92672">[</span>manager<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">${</span>NAME[@]<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>Gipsz Jakab Béla Károly
+</span></span></code></pre></div><p>Új asszociatív tömbelem hozzáadása:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>NAME<span style="color:#f92672">=([</span>manager<span style="color:#f92672">]=</span>Attila <span style="color:#f92672">[</span>dev<span style="color:#f92672">]=</span>Béla <span style="color:#f92672">[</span>devOps<span style="color:#f92672">]=</span>Károly <span style="color:#f92672">[</span>finOps<span style="color:#f92672">]=</span><span style="color:#e6db74">&#34;Gipsz Jakab&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>NAME<span style="color:#f92672">[</span>cleaner<span style="color:#f92672">]=</span>Mária
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>NAME<span style="color:#f92672">+=([</span>scrumMaster<span style="color:#f92672">]=</span>Ivó<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">${</span>NAME[@]<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>Gipsz Jakab Béla Attila Ivó Károly Mária
+</span></span></code></pre></div><p>Mivel az értékeket kulcs határozza meg, ezért az asszociatív tömb nem rendezett. Az új érték bárhová kerülhet. Ha fontos számunkra a rendezett sorozat (és amennyiben a feladat megengedi), használjunk indexelt tömböt.</p>
+<p>Új tömbelem beszúrása indexelt tömbökbe:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>declare -a SZAM;
+</span></span><span style="display:flex;"><span>SZAM<span style="color:#f92672">=(</span><span style="color:#ae81ff">1</span> <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">4</span> <span style="color:#ae81ff">5</span> 6<span style="color:#f92672">)</span>
+</span></span></code></pre></div><p>Ha már egy létező index helyére hivatkozunk, akkor az elem felülíródik:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>SZAM<span style="color:#f92672">[</span>3<span style="color:#f92672">]=</span>NaN
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">${</span>SZAM[@]<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span> <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">3</span> NaN <span style="color:#ae81ff">5</span> <span style="color:#ae81ff">6</span>
+</span></span></code></pre></div><p>A tömb végére pedig az alábbiképpen szórhatunk be egy új elemet:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>SZAM<span style="color:#f92672">+=</span>Undefined
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">${</span>SZAM[@]<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span> <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">3</span> NaN <span style="color:#ae81ff">5</span> <span style="color:#ae81ff">6</span> Undefined
+</span></span></code></pre></div><p>Kiírathatjuk a lista részét is, melynek általános alakja <code>${TOMB[@]:kezdo:elem}</code>. A visszatérési érték a tömbelem <code>kezdo</code> indexétől számított <code>elem</code> indexen át tartó altömb lesz.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">${</span>SZAM[@]:3:1<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>NaN
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">${</span>SZAM[@]:3:3<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>NaN <span style="color:#ae81ff">5</span> <span style="color:#ae81ff">6</span> 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">${</span>SZAM[@]:1:5<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span> <span style="color:#ae81ff">3</span> NaN <span style="color:#ae81ff">5</span> <span style="color:#ae81ff">6</span> 
 </span></span></code></pre></div><h2 id="összefoglaló">Összefoglaló</h2>
-<p>A shell script nagyon hasznos tud lenni, ha unix alapú rendszereken akarunk műveleteket végezni, nem szeretnénk törődni modulok importálásával, valamint összetett szintaktikák alkalmázásával. Bármely linux felhasználónak jó szolgálatot tesz egy minimális shell script tudás, mivel ezzel folgyorsíthatjuk, kényelmesebbé tehetjük a munkánkat, hosszú távon nagyon kifizetődő. A terjedelmes, gyakran használt parancsokat automatizálhatjuk, ehhez nem kell mást tennünk, mint parancsainkat egy úgynevezett shell script fájlba írni és ezt a fájlt futtathatóvá tenni.</p>
+<p>A shell script nagyon hasznos tud lenni, ha unix alapú rendszereken akarunk műveleteket végezni, nem szeretnénk törődni modulok importálásával, valamint összetett szintaktikák alkalmazásával. Bármely Linux felhasználónak jó szolgálatot tesz egy minimális shell script tudás, mivel ezzel felgyorsíthatjuk, kényelmesebbé tehetjük a munkánkat, hosszú távon nagyon kifizetődő. A terjedelmes, gyakran használt parancsokat automatizálhatjuk, ehhez nem kell mást tennünk, mint parancsainkat egy úgynevezett shell script fájlba írni és ezt a fájlt futtathatóvá tenni.</p>
             </div>
         </div>
     </div>
