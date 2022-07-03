@@ -2,7 +2,7 @@
 title: "Shell Script alapok"
 date: 2022-04-17T11:46:59+02:00
 draft: false
-tags: [ "Konfiguráció", "shell", "bash" ]
+tags: [ "Konfiguráció" ]
 image: images/bash-logo.jpg
 ---
 A Shell script egy olyan programozási nyelv, ami arra lett tervezve, hogy Unix alapú rendszerek futtassák. A használata egyszerű és gyorsan megírható. Emellett ez egy scripting language, ez azt takarja, hogy nincs szükségünk külön fordítóra. A megalkotásánál az volt a cél, hogy más, Unix programokkal kompatibilis legyen. Ez később szemléltetve is lesz.
