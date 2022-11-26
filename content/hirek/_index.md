@@ -6,6 +6,15 @@ layout: default
 ---
 Ezen az oldalon nyomon tudod követni a Magyarch Linux fejlődését, és mérföldköveit.
 
+**2022. december havi változások:**
+
+- újra elérhető néhány asztali felület: gnome, plasma, mate, xfce
+- megújult ablakkezelők: bspwm (MagyArch), ratpoison (MagyArch), i3 (MagyArch), xmonad (MagyArch)
+- átállás éves kiadási modellre
+```
+```
+```
+```
 **2022. június havi változások:**
 
 - ablak kezelőkre összpontositunk i3,bspwm,ratpoison
