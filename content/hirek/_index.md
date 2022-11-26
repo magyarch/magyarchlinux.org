@@ -10,6 +10,7 @@ Ezen az oldalon nyomon tudod követni a Magyarch Linux fejlődését, és mérf�
 
 - újra elérhető néhány asztali felület: gnome, plasma, mate, xfce
 - megújult ablakkezelők: bspwm (MagyArch), ratpoison (MagyArch), i3 (MagyArch), xmonad (MagyArch)
+- a dracula  és a candy icon téma elérhető az ablakkezelőkben
 - átállás éves kiadási modellre
 ```
 ```
