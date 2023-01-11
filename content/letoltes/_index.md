@@ -6,7 +6,7 @@ layout: default
 ---
 A legfrissebb, **2022.12** verziójú MagyArch Linux ISO-t innen töltheted le.
 
-<a href="https://drive.google.com/file/d/14FLnaVvqvfGixOu089LaWglfLekZbb92/view" class="btn btn-main mt-20">Letöltés</a>
+<a href="https://drive.google.com/file/d/153MWFbMKf0_mI3r9LWXqa4U3qWT8R4za/view" class="btn btn-main mt-20">Letöltés</a>
 
 Az egyes verziók újdonságai a [Hírek](/hirek) menüpontban érhetőek el.
 
