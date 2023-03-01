@@ -13,11 +13,11 @@ Az egyes verziók újdonságai a [Hírek](/hirek) menüpontban érhetőek el.
 ### Ellenőrzés
 Az ISO fájl ellenőrző összegei:
 
-MD5: `3cdd747c64e817d5836098cc9b4880ac`
+MD5: `7e4476d90f1c4868f45436738b02cc2a`
 
-SHA1: `f462fed0133885eb2590808916d6c2128af28ef4`
+SHA1: `02873419c518b50d26f783c8a3169d3fdd0b90a1`
 
-SHA256: `63474afdcd74ef46172d4503b5afde452d90fe8e3abec18dd42b4583e1a7ea31`
+SHA256: `f25de9d5228b6280f0c498b30c8665db62309f20542723bf071da439dae6a696`
 
 A letöltött ISO fájl ellenőrizhető a Linux/Mac terminálban. Először belépünk a mappába ahova letöltöttük a fájlt. Például így:
 ```bash
@@ -25,10 +25,10 @@ cd ~/Letöltések
 ```
 Ezután elindítjuk a következő parancsok egyikét attól függően melyik ellenőrző összeget szeretnénk ellenőrizni. Javasoljuk legalább 2 ellenőrzését.
 ```bash
-echo "3cdd747c64e817d5836098cc9b4880ac MagyArchLinux-2022.12-x86_64.iso" | md5sum -c
+echo "7e4476d90f1c4868f45436738b02cc2a MagyArchLinux-2022.12-x86_64.iso" | md5sum -c
 
-echo "f462fed0133885eb2590808916d6c2128af28ef4 MagyArchLinux-2022.12-x86_64.iso" | sha1sum -c
+echo "02873419c518b50d26f783c8a3169d3fdd0b90a1 MagyArchLinux-2022.12-x86_64.iso" | sha1sum -c
 
-echo "63474afdcd74ef46172d4503b5afde452d90fe8e3abec18dd42b4583e1a7ea31 MagyArchLinux-2022.12-x86_64.iso" | sha256sum -c
+echo "f25de9d5228b6280f0c498b30c8665db62309f20542723bf071da439dae6a696 MagyArchLinux-2022.12-x86_64.iso" | sha256sum -c
 ```
 Kellemes használatot kíván a MagyArchLinux csapata! Ha bármilyen kérdésed van, nyugodtan [lépj velünk kapcsolatba](/kapcsolat).
