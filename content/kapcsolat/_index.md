@@ -1,6 +1,6 @@
 ---
 title: "Kapcsolat"
-date: 2022-03-14T16:15:49+01:00
+date: 2023-06-05T18:19:49+01:00
 draft: false
 layout: default
 ---
@@ -15,9 +15,9 @@ Kérdésed van, vagy csak beszélgetnél a fejlesztőkkel és más felhasználó
 ```
 ```
 #### Közreműködők
-- Darkstreet: [Docta](https://docta.dev/), [ZeroLogDNS](https://zerologdns.com/)
-- Dovahkiin: [Bitlords](https://bitlords.hu/), [ZeroLogDNS](https://zerologdns.com/)
+- Darkstreet: [Docta](https://docta.dev/), [Bitlords](https://bitlords.net/)
+- Dovahkiin: [Bitlords](https://bitlords.net/)
 - Isti
 - Taklert
-- WoLfY: [Bitlords](https://bitlords.hu/), [wolfy.me](https://wolfy.me/)
+- WoLfY: [wolfy.me](https://wolfy.me/)
 - Zver43
