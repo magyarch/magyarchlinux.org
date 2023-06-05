@@ -15,9 +15,9 @@ Kérdésed van, vagy csak beszélgetnél a fejlesztőkkel és más felhasználó
 ```
 ```
 #### Közreműködők
-- Darkstreet: [Docta](https://docta.dev/), [ZeroLogDNS](https://zerologdns.com/)
-- Dovahkiin: [Bitlords](https://bitlords.hu/), [ZeroLogDNS](https://zerologdns.com/)
+- Darkstreet: [Docta](https://docta.dev/), [Bitlords](https://bitlords.net/)
+- Dovahkiin: [Bitlords](https://bitlords.net/)
 - Isti
 - Taklert
-- WoLfY: [Bitlords](https://bitlords.hu/), [wolfy.me](https://wolfy.me/)
+- WoLfY: [wolfy.me](https://wolfy.me/)
 - Zver43
